@@ -23,5 +23,6 @@
   "menu.farmersdelight.hold_serving": "Hold {amount} serving{s} of:",
   "menu.farmersdelight.empty": "Empty",
   "menu.farmersdelight.heated": "Heated",
-  "menu.farmersdelight.need_heat": "Need heat from below"
+  "menu.farmersdelight.need_heat": "Need heat from below",
+  "menu.farmersdelight.recipe.xp": "XP: "
 }

@@ -1,5 +1,6 @@
 package fr.ateastudio.farmersdelight
 
+import fr.ateastudio.farmersdelight.block.CookingPotListener
 import fr.ateastudio.farmersdelight.block.MuddyFarmlandListener
 import xyz.xenondevs.nova.addon.Addon
 import xyz.xenondevs.nova.util.registerEvents
@@ -8,6 +9,7 @@ object NovaFarmersDelight : Addon() {
     
     override fun init() {
         MuddyFarmlandListener.registerEvents()
+        CookingPotListener.registerEvents()
     }
     
     override fun onEnable() {

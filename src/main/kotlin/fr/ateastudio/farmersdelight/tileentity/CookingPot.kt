@@ -10,13 +10,19 @@ import fr.ateastudio.farmersdelight.registry.Sounds
 import fr.ateastudio.farmersdelight.util.getCraftingRemainingItem
 import fr.ateastudio.farmersdelight.util.hasCraftingRemainingItem
 import fr.ateastudio.farmersdelight.util.replacePlaceholders
+import fr.ateastudio.farmersdelight.util.safeGive
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.TextDecoration
 import net.minecraft.core.component.DataComponents
 import net.minecraft.resources.ResourceLocation
+import net.minecraft.util.Mth
+import org.bukkit.Location
 import org.bukkit.Material
+import org.bukkit.Particle
+import org.bukkit.Sound
 import org.bukkit.SoundCategory
+import org.bukkit.entity.ExperienceOrb
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
 import org.bukkit.event.inventory.InventoryClickEvent
@@ -27,13 +33,20 @@ import xyz.xenondevs.commons.provider.mutable.mapNonNull
 import xyz.xenondevs.invui.gui.Gui
 import xyz.xenondevs.invui.inventory.event.ItemPostUpdateEvent
 import xyz.xenondevs.invui.inventory.event.ItemPreUpdateEvent
+import xyz.xenondevs.invui.inventory.event.PlayerUpdateReason
 import xyz.xenondevs.invui.inventory.get
 import xyz.xenondevs.invui.item.ItemProvider
 import xyz.xenondevs.invui.item.builder.ItemBuilder
 import xyz.xenondevs.invui.item.builder.setDisplayName
 import xyz.xenondevs.invui.item.impl.AbstractItem
+import xyz.xenondevs.nova.context.Context
+import xyz.xenondevs.nova.context.intention.DefaultContextIntentions
+import xyz.xenondevs.nova.context.intention.DefaultContextIntentions.BlockInteract
+import xyz.xenondevs.nova.context.param.DefaultContextParamTypes
+import xyz.xenondevs.nova.util.center
 import xyz.xenondevs.nova.util.item.novaItem
 import xyz.xenondevs.nova.util.item.toItemStack
+import xyz.xenondevs.nova.util.runTask
 import xyz.xenondevs.nova.util.unwrap
 import xyz.xenondevs.nova.world.BlockPos
 import xyz.xenondevs.nova.world.block.state.NovaBlockState
@@ -44,18 +57,19 @@ import xyz.xenondevs.nova.world.item.recipe.RecipeManager
 import kotlin.math.min
 import kotlin.random.Random
 
+
 class CookingPot(
     pos: BlockPos,
     state: NovaBlockState,
     data: Compound
 ) : TileEntity(pos, state, data) {
     private val validContainer = listOf(Material.BOWL, Material.BUCKET, Material.GLASS_BOTTLE)
-    
     private val ingredientsInventory = storedInventory("ingredients_inventory", 6, postUpdateHandler = ::validateRecipe)
     private val mealStorageInventory = storedInventory("meal_display_slot", 1, true, IntArray(1) {99}, preUpdateHandler =  ::preventSteal)
     private val containerInventory = storedInventory("container_slot", 1, ::validateContainer, ::useContainer)
-    private val outputInventory = storedInventory("output_slot", 1, ::preventOutputInput)
+    private val outputInventory = storedInventory("output_slot", 1, ::preventOutputInput, ::takeOutput)
     
+    private var storedXp: Float by storedValue<Float>("storedXp", true) {0.0f}
     private var currentRecipe: CookingPotRecipe? by storedValue<ResourceLocation>("currentRecipe", true).mapNonNull(
         { RecipeManager.getRecipe(RecipeTypes.COOKING_POT, it) },
         NovaRecipe::id
@@ -71,6 +85,34 @@ class CookingPot(
         get() {
             return currentRecipe?.container ?: mealStorageInventory[0]?.getCraftingRemainingItem() ?: ItemStack.empty()
         }
+    
+    override fun handleBreak(ctx: Context<DefaultContextIntentions.BlockBreak>) {
+        val pos = ctx[DefaultContextParamTypes.BLOCK_POS]
+        if (pos != null) {
+            rewardRecipeExperience(pos.block.center)
+        }
+        super.handleBreak(ctx)
+    }
+    
+    override fun handleRightClick(ctx: Context<BlockInteract>): Boolean {
+        val player = ctx[DefaultContextParamTypes.SOURCE_PLAYER]
+        val clickItem = ctx[DefaultContextParamTypes.INTERACTION_ITEM_STACK]
+        val container = currentRecipe?.container
+        if (player != null) {
+            if (!player.isSneaking &&
+                container != null &&
+                clickItem != null &&
+                container.isSimilar(clickItem) &&
+                !mealStorageInventory.isEmpty) {
+                mealStorageInventory.addItemAmount(SELF_UPDATE_REASON, 0, -1)
+                clickItem.subtract()
+                player.safeGive(currentRecipe!!.result)
+                pos.world.playSound(pos.location, Sound.ITEM_ARMOR_EQUIP_GENERIC, 1.0f, 1.0f)
+                return true
+            }
+        }
+        return super.handleRightClick(ctx)
+    }
     
     override fun getDrops(includeSelf: Boolean): List<ItemStack> {
         val drop = super.getDrops(includeSelf)
@@ -130,6 +172,13 @@ class CookingPot(
     
     private fun preventOutputInput(event: ItemPreUpdateEvent) {
         event.isCancelled = !event.isRemove && event.updateReason != SELF_UPDATE_REASON
+    }
+    
+    private fun takeOutput(event: ItemPostUpdateEvent) {
+        if (event.isRemove && event.updateReason is PlayerUpdateReason) {
+            val reason = event.updateReason as PlayerUpdateReason
+            awardUsedRecipes(reason.player)
+        }
     }
     
     private fun updateResult(result: ItemStack?): ItemStack {
@@ -254,6 +303,7 @@ class CookingPot(
             storedMealStack.amount++
             mealStorageInventory.setItem(SELF_UPDATE_REASON, 0, updateResult(storedMealStack))
         }
+        setRecipeUsed(recipe)
         
         for (i in 0..<ingredientsInventory.size) {
             val slotStack = ingredientsInventory[i] ?: ItemStack.empty()
@@ -263,6 +313,26 @@ class CookingPot(
             if (!slotStack.isEmpty) ingredientsInventory.addItemAmount(SELF_UPDATE_REASON, i, -1)
         }
         return true
+    }
+    
+    private fun setRecipeUsed(recipe: CookingPotRecipe?) {
+        if (recipe != null) {
+            storedXp += recipe.experience
+        }
+    }
+    
+    private fun awardUsedRecipes(player: Player) {
+        rewardRecipeExperience(player.location)
+    }
+    
+    private fun rewardRecipeExperience(location: Location) {
+        var expTotal = Mth.floor(storedXp)
+        val expFraction = Mth.frac(storedXp)
+        if (expFraction != 0.0f && Math.random() < expFraction.toDouble()) {
+            ++expTotal
+        }
+        val experienceOrb = location.world.spawn(location, ExperienceOrb::class.java)
+        experienceOrb.experience = expTotal
     }
     
     private fun getMatchingRecipe(inputs: List<ItemStack?>): CookingPotRecipe? {
@@ -275,7 +345,7 @@ class CookingPot(
     
     override fun handleTick() {
         cookingTick()
-        animateTick()
+        runTask { animateTick() }
     }
     
     private fun cookingTick() {
@@ -308,10 +378,24 @@ class CookingPot(
     
     private fun animateTick() {
         if (isHeated()) {
+            if (Random.nextFloat() < 0.2f) {
+                val x: Double = pos.x.toDouble() + 0.5 + (Random.nextDouble() * 0.6 - 0.3)
+                val y = pos.y.toDouble() + 0.7
+                val z: Double = pos.z.toDouble() + 0.5 + (Random.nextDouble() * 0.6 - 0.3)
+                pos.world.spawnParticle(Particle.BUBBLE_POP, x , y, z, 1, 0.0, 0.0, 0.0, 0.1)
+            }
+            if (Random.nextFloat() < 0.05f) {
+                val x: Double = pos.x.toDouble() + 0.5 + (Random.nextDouble() * 0.4 - 0.2)
+                val y = pos.y.toDouble() + 0.5
+                val z = pos.z.toDouble() + 0.5 + (Random.nextDouble() * 0.4 - 0.2)
+                val motionY = if (Random.nextBoolean()) 0.015 else 0.005
+                pos.world.spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, x , y, z, 1, 0.0, motionY, 0.0, 0.1)
+            }
+            
             val soundEffect = if (!getMeal().isEmpty) Sounds.BLOCK_COOKING_POT_BOIL_SOUP else Sounds.BLOCK_COOKING_POT_BOIL
             val location = pos.location.add(0.5, 0.0, 0.5)
             if (Random.nextInt(5) == 0) {
-                location.world.playSound(location, soundEffect, SoundCategory.BLOCKS, 1f,1f)
+                location.world.playSound(location, soundEffect, SoundCategory.BLOCKS, 0.5f,Random.nextFloat() * 0.2F + 0.9F)
             }
         }
     }

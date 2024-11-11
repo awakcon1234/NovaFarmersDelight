@@ -4,5 +4,6 @@
   ],
   "result": "farmersdelight:cooked_rice",
   "container": "minecraft:bowl",
-  "time": 30
+  "experience": 0.35,
+  "time": 100
 }

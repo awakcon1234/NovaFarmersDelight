@@ -70,7 +70,7 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
             BlockSounds(SoundGroup.LANTERN),
             CookingPotBehavior
         )
-        tickrate(1)
+        tickrate(20)
         stateProperties(FACING_HORIZONTAL, ScopedBlockStateProperties.SUPPORT, ScopedBlockStateProperties.HEATED)
         models {
             selectModel {

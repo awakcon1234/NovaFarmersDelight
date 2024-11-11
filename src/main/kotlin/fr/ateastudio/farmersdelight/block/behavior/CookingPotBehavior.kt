@@ -16,9 +16,9 @@ import xyz.xenondevs.nova.world.block.behavior.BlockBehavior
 import xyz.xenondevs.nova.world.block.state.NovaBlockState
 
 object CookingPotBehavior : BlockBehavior {
+    
     override fun handlePlace(pos: BlockPos, state: NovaBlockState, ctx: Context<BlockPlace>) {
         val blockFace = ctx[DefaultContextParamTypes.CLICKED_BLOCK_FACE]
-        //TODO place above if trail mode
         updateBlockState(pos, state.with(BlockStateProperties.SUPPORT, updateSupport(pos, blockFace))
             .with(BlockStateProperties.HEATED,updateHeated(pos)))
         

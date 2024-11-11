@@ -1,6 +1,7 @@
 package fr.ateastudio.farmersdelight.recipe.group
 
 import fr.ateastudio.farmersdelight.recipe.CookingPotRecipe
+import fr.ateastudio.farmersdelight.registry.Blocks
 import fr.ateastudio.farmersdelight.registry.GuiItems
 import fr.ateastudio.farmersdelight.registry.GuiTextures
 import fr.ateastudio.farmersdelight.registry.Items
@@ -32,8 +33,8 @@ object CookingPotRecipeGroup : RecipeGroup<CookingPotRecipe>() {
     override fun createGui(recipe: CookingPotRecipe): Gui {
         return Gui.normal()
             .setStructure(
-                ". i j k . t . p .",
-                ". l m n . . . . .",
+                ". i j k . . . p .",
+                ". l m n . t . . .",
                 ". . f . . b . p ."
             )
             .addIngredient('i', getSafeRecipeChoice(recipe.inputs,0))
@@ -44,7 +45,7 @@ object CookingPotRecipeGroup : RecipeGroup<CookingPotRecipe>() {
             .addIngredient('n', getSafeRecipeChoice(recipe.inputs,5))
             .addIngredient('t', DefaultGuiItems.TP_STOPWATCH.model
                 .createClientsideItemBuilder()
-                .setDisplayName(Component.translatable("menu.nova.recipe.time", Component.text(recipe.time / 20.0)))
+                .setDisplayName(Component.translatable("menu.nova.recipe.time", Component.text(recipe.time / Blocks.COOKING_POT.tickrate)))
             )
             .addIngredient('p', recipe.result)
             .addIngredient('f', GuiItems.COOKING_POT_HEATED.createItemStack())
