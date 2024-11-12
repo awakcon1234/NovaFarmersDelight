@@ -40,27 +40,6 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     private val CRATE = Breakable(2.0, VanillaToolCategories.AXE, VanillaToolTiers.WOOD, false, Material.OAK_PLANKS)
     private val LIGHT_METAL = Breakable(0.5, VanillaToolCategories.PICKAXE, VanillaToolTiers.WOOD, false, Material.IRON_BLOCK)
     
-    val BEETROOT_CRATE = nonInteractiveBlock("beetroot_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
-    val CARROT_CRATE = nonInteractiveBlock("carrot_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
-    val POTATO_CRATE = nonInteractiveBlock("potato_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
-    val ONION_CRATE = nonInteractiveBlock("onion_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
-    val TOMATO_CRATE = nonInteractiveBlock("tomato_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
-    val RICE_BAG = nonInteractiveBlock("rice_bag") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
-    val RICE_BALE = nonInteractiveBlock("rice_bale") { behaviors(BALE, BlockDrops, BlockSounds(SoundGroup.GRASS)) }
-    val CABBAGE_CRATE = nonInteractiveBlock("cabbage_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
-    
-    val TOMATOES_CROP = cropBlock("tomatoes", TomatoCrop, 7,3)
-    val RICE_CROP = cropBlock("rice", RiceCrop, 7,3)
-    val CABBAGES_CROP = cropBlock("cabbages", CabbageCrop, 7)
-    val ONION_CROP = cropBlock("onions", OnionCrop, 3)
-    
-    val MUDDY_FARMLAND = block("muddy_farmland") {
-        behaviors(MUD, BlockSounds(SoundGroup.MUD), MuddyFarmland)
-        models {
-            stateBacked(BackingStateCategory.LEAVES, BackingStateCategory.NOTE_BLOCK)
-        }
-    }
-    
     val COOKING_POT = tileEntity("cooking_pot", ::CookingPot) {
         behaviors(
             TileEntityLimited,
@@ -84,6 +63,40 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
         }
     }
     
+    val CARROT_CRATE = nonInteractiveBlock("carrot_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val POTATO_CRATE = nonInteractiveBlock("potato_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val BEETROOT_CRATE = nonInteractiveBlock("beetroot_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val CABBAGE_CRATE = nonInteractiveBlock("cabbage_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val TOMATO_CRATE = nonInteractiveBlock("tomato_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val ONION_CRATE = nonInteractiveBlock("onion_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val RICE_BALE = nonInteractiveBlock("rice_bale") { behaviors(BALE, BlockDrops, BlockSounds(SoundGroup.GRASS)) }
+    val RICE_BAG = nonInteractiveBlock("rice_bag") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
+    
+    val MUDDY_FARMLAND = block("muddy_farmland") {
+        behaviors(MUD, BlockSounds(SoundGroup.MUD), MuddyFarmland)
+        models {
+            stateBacked(BackingStateCategory.LEAVES, BackingStateCategory.NOTE_BLOCK)
+        }
+    }
+    
+    val SANDY_SHRUB = plantBlock("sandy_shrub") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_CABBAGES = plantBlock("wild_cabbages") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_ONIONS = plantBlock("wild_onions") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_TOMATOES = plantBlock("wild_tomatoes") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_CARROTS = plantBlock("wild_carrots") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_POTATOES = plantBlock("wild_potatoes") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_BEETROOTS = plantBlock("wild_beetroots") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_RICE = plantBlock("wild_rice") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
+    
+    val BROWN_MUSHROOM_COLONY = cropBlock("brown_mushroom_colony", TomatoCrop, 3)
+    val RED_MUSHROOM_COLONY = cropBlock("red_mushroom_colony", TomatoCrop, 3)
+    val CABBAGES_CROP = cropBlock("cabbages", CabbageCrop, 7)
+    val TOMATOES_CROP = cropBlock("tomatoes", TomatoCrop, 7,3)
+    val ONION_CROP = cropBlock("onions", OnionCrop, 3)
+    val RICE_CROP = cropBlock("rice", RiceCrop, 7,3)
+    
+    
+    
     private fun nonInteractiveBlock(
         name: String,
         block: NovaBlockBuilder.() -> Unit
@@ -91,6 +104,17 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
         block()
         models {
             stateBacked(BackingStateCategory.NOTE_BLOCK, BackingStateCategory.MUSHROOM_BLOCK)
+        }
+    }
+    
+    private fun plantBlock(
+        name: String,
+        block: NovaBlockBuilder.() -> Unit ={}
+    ): NovaBlock = block(name) {
+        block()
+        stateProperties(ScopedBlockStateProperties.AGE, ScopedBlockStateProperties.BUDDING_AGE, ScopedBlockStateProperties.MAX_AGE)
+        models {
+            stateBacked(BackingStateCategory.TRIPWIRE_UNATTACHED, BackingStateCategory.TRIPWIRE_ATTACHED)
         }
     }
     
