@@ -1,7 +1,6 @@
 package fr.ateastudio.farmersdelight.recipe
 
 import com.google.gson.JsonObject
-import fr.ateastudio.farmersdelight.util.LogDebug
 import org.bukkit.Material
 import xyz.xenondevs.commons.gson.getFloatOrNull
 import xyz.xenondevs.commons.gson.getIntOrNull
@@ -24,7 +23,6 @@ object CookingPotRecipeDeserializer : RecipeDeserializer<CookingPotRecipe> {
         
         val time = json.getIntOrNull("time") ?: json.getIntOrNull("cookingtime")!! // legacy support
         val experience = json.getFloatOrNull("experience") ?: json.getFloatOrNull("xp")!! // legacy support
-        LogDebug(experience.toString())
         return CookingPotRecipe(getRecipeId(file), inputChoice, result, container, time, experience)
     }
     

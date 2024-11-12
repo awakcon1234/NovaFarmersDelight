@@ -65,7 +65,7 @@ class CookingPot(
 ) : TileEntity(pos, state, data) {
     private val validContainer = listOf(Material.BOWL, Material.BUCKET, Material.GLASS_BOTTLE)
     private val ingredientsInventory = storedInventory("ingredients_inventory", 6, postUpdateHandler = ::validateRecipe)
-    private val mealStorageInventory = storedInventory("meal_display_slot", 1, true, IntArray(1) {99}, preUpdateHandler =  ::preventSteal)
+    private val mealStorageInventory = storedInventory("meal_display_slot", 1, true, IntArray(1) {99}, preUpdateHandler =  ::preventSteal, ::handleNewStoredItem)
     private val containerInventory = storedInventory("container_slot", 1, ::validateContainer, ::useContainer)
     private val outputInventory = storedInventory("output_slot", 1, ::preventOutputInput, ::takeOutput)
     
@@ -86,14 +86,6 @@ class CookingPot(
             return currentRecipe?.container ?: mealStorageInventory[0]?.getCraftingRemainingItem() ?: ItemStack.empty()
         }
     
-    override fun handleBreak(ctx: Context<DefaultContextIntentions.BlockBreak>) {
-        val pos = ctx[DefaultContextParamTypes.BLOCK_POS]
-        if (pos != null) {
-            rewardRecipeExperience(pos.block.center)
-        }
-        super.handleBreak(ctx)
-    }
-    
     override fun handleRightClick(ctx: Context<BlockInteract>): Boolean {
         val player = ctx[DefaultContextParamTypes.SOURCE_PLAYER]
         val clickItem = ctx[DefaultContextParamTypes.INTERACTION_ITEM_STACK]
@@ -112,6 +104,14 @@ class CookingPot(
             }
         }
         return super.handleRightClick(ctx)
+    }
+    
+    override fun handleBreak(ctx: Context<DefaultContextIntentions.BlockBreak>) {
+        val pos = ctx[DefaultContextParamTypes.BLOCK_POS]
+        if (pos != null) {
+            rewardRecipeExperience(pos.block.center)
+        }
+        super.handleBreak(ctx)
     }
     
     override fun getDrops(includeSelf: Boolean): List<ItemStack> {
@@ -147,6 +147,53 @@ class CookingPot(
         return drop
     }
     
+    override fun handleTick() {
+        cookingTick()
+        runTask { animateTick() }
+    }
+    
+    private fun cookingTick() {
+        val isHeated = isHeated()
+        val recipe = currentRecipe
+        if (isHeated && hasInput() && recipe != null && checkRecipeIngredients()) {
+            if (canCook(recipe)) {
+                processCooking(recipe)
+            }
+            else {
+                --cookTime
+            }
+        }
+        else if (cookTime > 0) {
+            cookTime = Math.clamp(cookTime - 2L, 0, cookTimeTotal)
+        }
+        
+        menuContainer.forEachMenu(CookingPotMenu::updateProgress)
+    }
+    
+    private fun animateTick() {
+        if (isHeated()) {
+            if (Random.nextFloat() < 0.2f) {
+                val x: Double = pos.x.toDouble() + 0.5 + (Random.nextDouble() * 0.6 - 0.3)
+                val y = pos.y.toDouble() + 0.7
+                val z: Double = pos.z.toDouble() + 0.5 + (Random.nextDouble() * 0.6 - 0.3)
+                pos.world.spawnParticle(Particle.BUBBLE_POP, x , y, z, 1, 0.0, 0.0, 0.0, 0.1)
+            }
+            if (Random.nextFloat() < 0.05f) {
+                val x: Double = pos.x.toDouble() + 0.5 + (Random.nextDouble() * 0.4 - 0.2)
+                val y = pos.y.toDouble() + 0.5
+                val z = pos.z.toDouble() + 0.5 + (Random.nextDouble() * 0.4 - 0.2)
+                val motionY = if (Random.nextBoolean()) 0.20 else 0.10
+                pos.world.spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, x , y, z, 1, 0.0, motionY, 0.0, 0.1)
+            }
+            
+            val soundEffect = if (!getMeal().isEmpty) Sounds.BLOCK_COOKING_POT_BOIL_SOUP else Sounds.BLOCK_COOKING_POT_BOIL
+            val location = pos.location.add(0.5, 0.0, 0.5)
+            if (Random.nextInt(5) == 0) {
+                location.world.playSound(location, soundEffect, SoundCategory.BLOCKS, 0.5f,Random.nextFloat() * 0.2F + 0.9F)
+            }
+        }
+    }
+    
     private fun validateRecipe(event: ItemPostUpdateEvent) {
         val recipe = getMatchingRecipe(ingredientsInventory.items.toList())
         if (recipe != null && recipe != currentRecipe && canCook(recipe)) {
@@ -160,6 +207,19 @@ class CookingPot(
         event.isCancelled = event.updateReason != SELF_UPDATE_REASON
     }
     
+    private fun handleNewStoredItem(event: ItemPostUpdateEvent) {
+        val mealStack = getMeal()
+        if (event.isRemove || event.updateReason != SELF_UPDATE_REASON) return
+        if (!mealStack.isEmpty) {
+            if (!doesMealHaveContainer(mealStack)) {
+                moveMealToOutput()
+            }
+            else if (!containerInventory.isEmpty) {
+                useStoredContainersOnMeal()
+            }
+        }
+    }
+    
     private fun validateContainer(event: ItemPreUpdateEvent) {
         if (event.updateReason != SELF_UPDATE_REASON && event.newItem != null && !validContainer.contains(event.newItem!!.type)) {
             event.isCancelled = true
@@ -167,7 +227,9 @@ class CookingPot(
     }
     
     private fun useContainer(event: ItemPostUpdateEvent) {
-        useStoredContainersOnMeal()
+        if (event.updateReason != SELF_UPDATE_REASON) {
+            useStoredContainersOnMeal()
+        }
     }
     
     private fun preventOutputInput(event: ItemPreUpdateEvent) {
@@ -178,6 +240,15 @@ class CookingPot(
         if (event.isRemove && event.updateReason is PlayerUpdateReason) {
             val reason = event.updateReason as PlayerUpdateReason
             awardUsedRecipes(reason.player)
+            val mealStack = getMeal()
+            if (!mealStack.isEmpty) {
+                if (!doesMealHaveContainer(mealStack)) {
+                    moveMealToOutput()
+                }
+                else if (!containerInventory.isEmpty) {
+                    useStoredContainersOnMeal()
+                }
+            }
         }
     }
     
@@ -326,6 +397,7 @@ class CookingPot(
     }
     
     private fun rewardRecipeExperience(location: Location) {
+        if (storedXp == 0.0f) return
         var expTotal = Mth.floor(storedXp)
         val expFraction = Mth.frac(storedXp)
         if (expFraction != 0.0f && Math.random() < expFraction.toDouble()) {
@@ -333,6 +405,12 @@ class CookingPot(
         }
         val experienceOrb = location.world.spawn(location, ExperienceOrb::class.java)
         experienceOrb.experience = expTotal
+        storedXp = 0.0f
+    }
+    
+    private fun checkRecipeIngredients(): Boolean {
+        val recipe = getMatchingRecipe(ingredientsInventory.items.toList())
+        return (recipe != null && recipe == currentRecipe && canCook(recipe))
     }
     
     private fun getMatchingRecipe(inputs: List<ItemStack?>): CookingPotRecipe? {
@@ -341,63 +419,6 @@ class CookingPot(
             ?.firstOrNull { recipe ->
                 recipe.matches(inputs.filterNotNull())
             }
-    }
-    
-    override fun handleTick() {
-        cookingTick()
-        runTask { animateTick() }
-    }
-    
-    private fun cookingTick() {
-        val isHeated = isHeated()
-        val recipe = currentRecipe
-        if (isHeated && hasInput() && recipe != null) {
-            if (canCook(recipe)) {
-                processCooking(recipe)
-            }
-            else {
-                --cookTime
-            }
-        }
-        else if (cookTime > 0) {
-            cookTime = Math.clamp(cookTime - 2L, 0, cookTimeTotal)
-        }
-        
-        val mealStack = getMeal()
-        if (!mealStack.isEmpty) {
-            if (!doesMealHaveContainer(mealStack)) {
-                moveMealToOutput()
-            }
-            else if (!containerInventory.isEmpty) {
-                useStoredContainersOnMeal()
-            }
-        }
-        
-        menuContainer.forEachMenu(CookingPotMenu::updateProgress)
-    }
-    
-    private fun animateTick() {
-        if (isHeated()) {
-            if (Random.nextFloat() < 0.2f) {
-                val x: Double = pos.x.toDouble() + 0.5 + (Random.nextDouble() * 0.6 - 0.3)
-                val y = pos.y.toDouble() + 0.7
-                val z: Double = pos.z.toDouble() + 0.5 + (Random.nextDouble() * 0.6 - 0.3)
-                pos.world.spawnParticle(Particle.BUBBLE_POP, x , y, z, 1, 0.0, 0.0, 0.0, 0.1)
-            }
-            if (Random.nextFloat() < 0.05f) {
-                val x: Double = pos.x.toDouble() + 0.5 + (Random.nextDouble() * 0.4 - 0.2)
-                val y = pos.y.toDouble() + 0.5
-                val z = pos.z.toDouble() + 0.5 + (Random.nextDouble() * 0.4 - 0.2)
-                val motionY = if (Random.nextBoolean()) 0.015 else 0.005
-                pos.world.spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, x , y, z, 1, 0.0, motionY, 0.0, 0.1)
-            }
-            
-            val soundEffect = if (!getMeal().isEmpty) Sounds.BLOCK_COOKING_POT_BOIL_SOUP else Sounds.BLOCK_COOKING_POT_BOIL
-            val location = pos.location.add(0.5, 0.0, 0.5)
-            if (Random.nextInt(5) == 0) {
-                location.world.playSound(location, soundEffect, SoundCategory.BLOCKS, 0.5f,Random.nextFloat() * 0.2F + 0.9F)
-            }
-        }
     }
     
     @TileEntityMenuClass
