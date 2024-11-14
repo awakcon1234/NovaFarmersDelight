@@ -18,7 +18,6 @@ import xyz.xenondevs.nova.world.block.behavior.BlockBehavior
 import xyz.xenondevs.nova.world.block.state.NovaBlockState
 import xyz.xenondevs.nova.world.block.state.property.DefaultBlockStateProperties
 import xyz.xenondevs.nova.world.item.tool.ToolCategory
-import java.util.function.Consumer
 
 
 object CuttingBoard : BlockBehavior {
