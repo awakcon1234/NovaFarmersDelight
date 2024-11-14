@@ -15,6 +15,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         name(Component.translatable("item.farmersdelight.cooking_pot"))
         maxStackSize(1)
     }
+    val CUTTING_BOARD = registerItem(Blocks.CUTTING_BOARD)
     
     val CARROT_CRATE = registerItem(Blocks.CARROT_CRATE)
     val POTATO_CRATE = registerItem(Blocks.POTATO_CRATE)

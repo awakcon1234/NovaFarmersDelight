@@ -7,6 +7,7 @@ import fr.ateastudio.farmersdelight.block.ScopedBlockStateProperties
 import fr.ateastudio.farmersdelight.block.behavior.Ageable
 import fr.ateastudio.farmersdelight.block.behavior.CabbageCrop
 import fr.ateastudio.farmersdelight.block.behavior.CookingPotBehavior
+import fr.ateastudio.farmersdelight.block.behavior.CuttingBoard
 import fr.ateastudio.farmersdelight.block.behavior.MuddyFarmland
 import fr.ateastudio.farmersdelight.block.behavior.OnionCrop
 import fr.ateastudio.farmersdelight.block.behavior.RiceCrop
@@ -38,7 +39,8 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     private val BAG = Breakable(0.8, VanillaToolCategories.SHEARS, VanillaToolTiers.WOOD, false, Material.WHITE_WOOL)
     private val BALE = Breakable(0.8, VanillaToolCategories.HOE, VanillaToolTiers.WOOD, false, Material.HAY_BLOCK)
     private val CRATE = Breakable(2.0, VanillaToolCategories.AXE, VanillaToolTiers.WOOD, false, Material.OAK_PLANKS)
-    private val LIGHT_METAL = Breakable(0.5, VanillaToolCategories.PICKAXE, VanillaToolTiers.WOOD, false, Material.IRON_BLOCK)
+    private val LIGHT_METAL = Breakable(0.5, VanillaToolCategories.PICKAXE, VanillaToolTiers.WOOD, false, Material.CAULDRON)
+    private val SPRUCE_PLANK = Breakable(0.5, VanillaToolCategories.AXE, VanillaToolTiers.WOOD, false, Material.SPRUCE_PLANKS)
     
     val COOKING_POT = tileEntity("cooking_pot", ::CookingPot) {
         behaviors(
@@ -60,6 +62,18 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
                     else -> getModel("block/cooking_pot").rotated()
                 }
             }
+        }
+    }
+    val CUTTING_BOARD = block("cutting_board") {
+        behaviors(
+            SPRUCE_PLANK,
+            BlockSounds(SoundGroup.WOOD),
+            CuttingBoard
+        )
+        stateProperties(FACING_HORIZONTAL)
+        models {
+            stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED)
+            selectModel { defaultModel.rotated() }
         }
     }
     
