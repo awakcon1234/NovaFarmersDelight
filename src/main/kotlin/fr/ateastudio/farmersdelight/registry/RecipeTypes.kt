@@ -1,12 +1,12 @@
 package fr.ateastudio.farmersdelight.registry
 
 import fr.ateastudio.farmersdelight.NovaFarmersDelight
-import fr.ateastudio.farmersdelight.recipe.CookingPotRecipe
-import fr.ateastudio.farmersdelight.recipe.CookingPotRecipeDeserializer
-import fr.ateastudio.farmersdelight.recipe.CuttingBoardRecipe
-import fr.ateastudio.farmersdelight.recipe.CuttingBoardRecipeDeserializer
-import fr.ateastudio.farmersdelight.recipe.group.CookingPotRecipeGroup
-import fr.ateastudio.farmersdelight.recipe.group.CuttingBoardRecipeGroup
+import fr.ateastudio.farmersdelight.recipe.cookingpot.CookingPotRecipe
+import fr.ateastudio.farmersdelight.recipe.cookingpot.CookingPotRecipeDeserializer
+import fr.ateastudio.farmersdelight.recipe.cuttingboard.CuttingBoardRecipe
+import fr.ateastudio.farmersdelight.recipe.cuttingboard.CuttingBoardRecipeDeserializer
+import fr.ateastudio.farmersdelight.recipe.cookingpot.CookingPotRecipeGroup
+import fr.ateastudio.farmersdelight.recipe.cuttingboard.CuttingBoardRecipeGroup
 import xyz.xenondevs.nova.addon.registry.RecipeTypeRegistry
 import xyz.xenondevs.nova.initialize.Init
 import xyz.xenondevs.nova.initialize.InitStage

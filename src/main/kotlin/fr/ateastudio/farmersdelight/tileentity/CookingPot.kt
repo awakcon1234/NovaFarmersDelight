@@ -2,7 +2,7 @@ package fr.ateastudio.farmersdelight.tileentity
 
 import fr.ateastudio.farmersdelight.block.BlockStateProperties
 import fr.ateastudio.farmersdelight.gui.ProgressArrowItem
-import fr.ateastudio.farmersdelight.recipe.CookingPotRecipe
+import fr.ateastudio.farmersdelight.recipe.cookingpot.CookingPotRecipe
 import fr.ateastudio.farmersdelight.registry.GuiItems
 import fr.ateastudio.farmersdelight.registry.GuiTextures
 import fr.ateastudio.farmersdelight.registry.RecipeTypes

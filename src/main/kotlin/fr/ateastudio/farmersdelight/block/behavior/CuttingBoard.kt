@@ -1,8 +1,16 @@
 package fr.ateastudio.farmersdelight.block.behavior
 
+import fr.ateastudio.farmersdelight.recipe.cuttingboard.CuttingBoardRecipe
+import fr.ateastudio.farmersdelight.registry.RecipeTypes
+import fr.ateastudio.farmersdelight.registry.Sounds
+import fr.ateastudio.farmersdelight.util.random
 import fr.ateastudio.farmersdelight.util.safeGive
+import net.kyori.adventure.text.Component
+import org.bukkit.Location
 import org.bukkit.Sound
+import org.bukkit.SoundCategory
 import org.bukkit.block.BlockFace
+import org.bukkit.enchantments.Enchantment
 import org.bukkit.entity.ItemDisplay
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
@@ -12,43 +20,40 @@ import xyz.xenondevs.nova.context.intention.DefaultContextIntentions.BlockBreak
 import xyz.xenondevs.nova.context.intention.DefaultContextIntentions.BlockInteract
 import xyz.xenondevs.nova.context.param.DefaultContextParamTypes
 import xyz.xenondevs.nova.util.center
-import xyz.xenondevs.nova.util.item.novaItem
+import xyz.xenondevs.nova.util.playSoundNearby
 import xyz.xenondevs.nova.world.BlockPos
 import xyz.xenondevs.nova.world.block.behavior.BlockBehavior
 import xyz.xenondevs.nova.world.block.state.NovaBlockState
 import xyz.xenondevs.nova.world.block.state.property.DefaultBlockStateProperties
+import xyz.xenondevs.nova.world.item.recipe.RecipeManager
 import xyz.xenondevs.nova.world.item.tool.ToolCategory
+import xyz.xenondevs.nova.world.item.tool.VanillaToolCategories
 
 
 object CuttingBoard : BlockBehavior {
     
     override fun handleInteract(pos: BlockPos, state: NovaBlockState, ctx: Context<BlockInteract>): Boolean {
         val player = ctx[DefaultContextParamTypes.SOURCE_PLAYER]
+        val tool = ctx[DefaultContextParamTypes.INTERACTION_ITEM_STACK] ?: ItemStack.empty()
         val facing = state[DefaultBlockStateProperties.FACING]
         
-        val displayPos = pos.location.center().add(0.0,0.05,0.0)
-        val world = pos.world
-        val itemInHand = ctx[DefaultContextParamTypes.INTERACTION_ITEM_STACK] ?: ItemStack.empty()
-        
-        val existingDisplay = world.getNearbyEntities(displayPos, 0.5, 0.5, 0.5)
-            .filterIsInstance<ItemDisplay>()
-            .firstOrNull()
+        val existingDisplay = findItemDisplay(pos)
         
         // If an ItemDisplay already exists, return without spawning a new one
         if (existingDisplay != null) {
-            if (itemInHand.isEmpty) {
+            if (tool.isEmpty) {
                 retrieveItem(pos, player)
                 return true
             }
-            else if (itemInHand.novaItem != null && ToolCategory.ofItem(itemInHand).any {it.id.path.contains("knife")}) {
-                // TODO Recipe logic
+            else if (player != null) {
+                doRecipe(pos, player, tool)
             }
             return false
         }
         else {
-            if (!itemInHand.isEmpty) {
-                placeItem(itemInHand.asOne(), pos, facing)
-                itemInHand.subtract()
+            if (!tool.isEmpty) {
+                placeItem(tool.asOne(), pos, facing)
+                tool.subtract()
                 return true
             }
             return false
@@ -60,8 +65,67 @@ object CuttingBoard : BlockBehavior {
         retrieveItem(pos)
     }
     
+    private fun doRecipe(pos: BlockPos, player: Player, tool: ItemStack) {
+        // Check for an ItemDisplay above the CuttingBoard and remove it
+        val itemDisplay = findItemDisplay(pos)
+        if (itemDisplay != null) {
+            val input = itemDisplay.itemStack
+            val fortuneLevel = tool.getEnchantmentLevel(Enchantment.FORTUNE)
+            val recipes = getMatchingRecipes(input)
+            if (recipes.isEmpty()) return
+            val matchingRecipe = recipes.firstOrNull { it.tool.test(tool)}
+            if (matchingRecipe == null) {
+                player.sendMessage(Component.translatable("block.cutting_board.invalid_tool"))
+                return
+            }
+            
+            val results = matchingRecipe.rollResults(pos.world.random(),fortuneLevel)
+            for (resultStack in results) {
+                pos.world.dropItemNaturally(getDisplayLocation(pos), resultStack)
+            }
+            tool.damage(1, player)
+            val sound = matchingRecipe.soundEvent.ifEmpty { null }
+            playProcessingSound(pos, sound, tool)
+            itemDisplay.remove() // Remove the item display entity
+        }
+    }
+    
+    private fun playProcessingSound(pos: BlockPos, sound: String?, tool: ItemStack) {
+        if (sound != null) {
+            pos.playSound(sound, SoundCategory.BLOCKS, 1f, 1f)
+        }
+        else if (ToolCategory.ofItem(tool).contains(VanillaToolCategories.SHEARS)) {
+            pos.location.playSoundNearby(Sound.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1f, 1f)
+        }
+        else if (ToolCategory.ofItem(tool).contains(VanillaToolCategories.SWORD) || ToolCategory.ofItem(tool).any { it.id.path == "knives" || it.id.path == "knife" }) {
+            pos.playSound(Sounds.BLOCK_CUTTING_BOARD_KNIFE, SoundCategory.BLOCKS, 0.8f, 1f)
+        }
+        else if (ToolCategory.ofItem(tool).contains(VanillaToolCategories.AXE)) {
+            pos.location.playSoundNearby(Sound.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1f, 0.8f)
+        }
+        else if (ToolCategory.ofItem(tool).contains(VanillaToolCategories.PICKAXE)) {
+            pos.location.playSoundNearby(Sound.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 1f, 0.8f)
+        }
+        else if (ToolCategory.ofItem(tool).contains(VanillaToolCategories.HOE)) {
+            pos.location.playSoundNearby(Sound.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1f, 0.8f)
+        }
+        else if (ToolCategory.ofItem(tool).contains(VanillaToolCategories.SHOVEL)) {
+            pos.location.playSoundNearby(Sound.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1f, 0.8f)
+        }
+        else {
+            pos.location.playSoundNearby(Sound.BLOCK_WOOD_BREAK, SoundCategory.BLOCKS, 1f, 0.8f)
+        }
+    }
+    
+    private fun getMatchingRecipes(input: ItemStack): List<CuttingBoardRecipe> {
+        return RecipeManager.novaRecipes[RecipeTypes.CUTTING_BOARD]?.values?.asSequence()
+            ?.map { it as CuttingBoardRecipe }
+            ?.filter { it.input.test(input)
+            }?.toList() ?: listOf()
+    }
+    
     private fun placeItem(item: ItemStack, pos: BlockPos, facing: BlockFace?) {
-        val displayPos = pos.location.center().add(0.0,0.05,0.0)
+        val displayPos = getDisplayLocation(pos)
         val world = pos.world
         val transformation = Matrix4f(0.6f,0f,0f,0.5f,0f,-0f,-0.6f,0.8f,0f,0.6f,-0f,0.5f,0f,0f,0f,1f)
         
@@ -78,6 +142,7 @@ object CuttingBoard : BlockBehavior {
         // Spawn a new ItemDisplay entity
         world.spawn(displayPos, ItemDisplay::class.java) { entity: ItemDisplay ->
             // customize the entity!
+            entity.addScoreboardTag("farmingsdelight:cuttingboard")
             entity.isPersistent = true
             entity.setItemStack(item)
             entity.itemDisplayTransform = ItemDisplay.ItemDisplayTransform.FIXED
@@ -87,12 +152,7 @@ object CuttingBoard : BlockBehavior {
     }
     
     private fun retrieveItem(pos: BlockPos, player: Player? = null) {
-        val world = pos.world
-        val displayPos = pos.location.center().add(0.0,0.05,0.0)
-        // Check for an ItemDisplay above the CuttingBoard and remove it
-        val itemDisplay = world.getNearbyEntities(displayPos, 0.5, 0.5, 0.5)
-            .filterIsInstance<ItemDisplay>()
-            .firstOrNull()
+        val itemDisplay = findItemDisplay(pos)
         if (itemDisplay != null) {
             val itemStack = itemDisplay.itemStack
             itemDisplay.remove() // Remove the item display entity
@@ -101,8 +161,21 @@ object CuttingBoard : BlockBehavior {
                 pos.playSound(Sound.BLOCK_WOOD_BREAK, 0.8f, 1f)
             }
             else {
-                world.dropItem(displayPos, itemStack) // Drop the item at the block's position
+                pos.world.dropItem(getDisplayLocation(pos), itemStack) // Drop the item at the block's position
             }
         }
+    }
+    
+    private fun findItemDisplay(pos: BlockPos) : ItemDisplay? {
+        val world = pos.world
+        val displayPos = getDisplayLocation(pos)
+        return world.getNearbyEntities(displayPos, 0.5, 0.5, 0.5).filter { it.scoreboardTags.contains("farmingsdelight:cuttingboard") }
+            .filterIsInstance<ItemDisplay>()
+            .firstOrNull()
+    }
+    
+    private fun getDisplayLocation(pos: BlockPos) : Location {
+        return pos.location.center().add(0.0,0.05,0.0)
+        
     }
 }

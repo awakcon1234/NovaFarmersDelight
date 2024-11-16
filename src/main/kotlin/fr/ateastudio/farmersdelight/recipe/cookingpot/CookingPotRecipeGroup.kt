@@ -1,6 +1,5 @@
-package fr.ateastudio.farmersdelight.recipe.group
+package fr.ateastudio.farmersdelight.recipe.cookingpot
 
-import fr.ateastudio.farmersdelight.recipe.CookingPotRecipe
 import fr.ateastudio.farmersdelight.registry.Blocks
 import fr.ateastudio.farmersdelight.registry.GuiItems
 import fr.ateastudio.farmersdelight.registry.GuiTextures

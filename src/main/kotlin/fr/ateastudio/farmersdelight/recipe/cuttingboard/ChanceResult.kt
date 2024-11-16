@@ -1,11 +1,11 @@
-package fr.ateastudio.farmersdelight.recipe
+package fr.ateastudio.farmersdelight.recipe.cuttingboard
 
 import com.google.gson.JsonElement
 import com.google.gson.JsonSyntaxException
 import net.minecraft.util.GsonHelper
-import net.minecraft.util.RandomSource
 import org.bukkit.inventory.ItemStack
 import xyz.xenondevs.nova.util.item.ItemUtils.getItemStack
+import kotlin.random.Random
 
 const val CUTTING_BOARD_FORTUNE_BONUS = 0.5
 
@@ -16,7 +16,7 @@ class ChanceResult
         return stack
     }
     
-    fun rollOutput(rand: RandomSource, fortuneLevel: Int): ItemStack {
+    fun rollOutput(rand: Random, fortuneLevel: Int): ItemStack {
         var outputAmount: Int = stack.amount
         val fortuneBonus: Double = CUTTING_BOARD_FORTUNE_BONUS * fortuneLevel
         for (roll in 0 until stack.amount) if (rand.nextFloat() > chance + fortuneBonus) outputAmount--
