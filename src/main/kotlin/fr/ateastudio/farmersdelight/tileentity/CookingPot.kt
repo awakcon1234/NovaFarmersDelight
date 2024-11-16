@@ -120,7 +120,7 @@ class CookingPot(
         
         val self = drop[0]
         if (mealStorageInventory.isEmpty) {
-            val lore = Component.translatable("menu.farmersdelight.empty")
+            val lore = Component.translatable("block.farmersdelight.cooking_pot.empty")
                 .color(NamedTextColor.GRAY)
                 .decoration(TextDecoration.ITALIC, false)
             self.lore(listOf(lore))
@@ -131,7 +131,7 @@ class CookingPot(
                 "amount" to "${storedStack.amount}",
                 "s" to if (storedStack.amount != 1) "s" else ""
             )
-            val holdComponent = Component.translatable("menu.farmersdelight.hold_serving")
+            val holdComponent = Component.translatable("block.farmersdelight.cooking_pot.hold_serving")
                 .replacePlaceholders(placeholders)
                 .color(NamedTextColor.GRAY)
                 .decoration(TextDecoration.ITALIC, false)
@@ -260,7 +260,7 @@ class CookingPot(
         newStack.setItemMeta(meta)
         val container = currentRecipe?.container ?: ItemStack.empty()
         if (!container.isEmpty) {
-            val servedOnComponent = Component.translatable("menu.farmersdelight.served_on")
+            val servedOnComponent = Component.translatable("block.farmersdelight.cooking_pot.served_on")
             val displayNameComponent = container.displayName()
                 .color(NamedTextColor.GRAY)
             val lore = servedOnComponent
@@ -439,7 +439,7 @@ class CookingPot(
             
             override fun getItemProvider(): ItemProvider {
                 val itemBuilder = ItemBuilder(if (heated) GuiItems.COOKING_POT_HEATED.createItemStack() else Material.AIR.toItemStack())
-                    .setDisplayName(Component.translatable(if (heated) "menu.farmersdelight.heated" else "menu.farmersdelight.need_heat"))
+                    .setDisplayName(Component.translatable(if (heated) "block.farmersdelight.cooking_pot.heated" else "menu.farmersdelight.need_heat"))
                     .clearModifiers()
                 return itemBuilder
             }

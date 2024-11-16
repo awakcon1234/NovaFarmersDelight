@@ -49,7 +49,7 @@ object CuttingBoardRecipeDeserializer : RecipeDeserializer<CuttingBoardRecipe> {
             results.forEach {
                 it as JsonObject
                 val item = getItemStack(it.getStringOrNull("item") ?: it.getStringOrNull("items") ?: "")
-                val amount = it.getIntOrNull("amount") ?: 1
+                val amount = it.getIntOrNull("count") ?: it.getIntOrNull("amount") ?: 1
                 val chance = it.getFloatOrNull("chance") ?: it.getFloatOrNull("chances") ?: 1f
                 resultsMap.add(ChanceResult(item.asQuantity(amount),chance))
             }

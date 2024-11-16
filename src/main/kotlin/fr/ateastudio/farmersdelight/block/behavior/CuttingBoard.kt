@@ -3,9 +3,11 @@ package fr.ateastudio.farmersdelight.block.behavior
 import fr.ateastudio.farmersdelight.recipe.cuttingboard.CuttingBoardRecipe
 import fr.ateastudio.farmersdelight.registry.RecipeTypes
 import fr.ateastudio.farmersdelight.registry.Sounds
+import fr.ateastudio.farmersdelight.util.LogDebug
 import fr.ateastudio.farmersdelight.util.random
 import fr.ateastudio.farmersdelight.util.safeGive
 import net.kyori.adventure.text.Component
+import org.bukkit.GameMode
 import org.bukkit.Location
 import org.bukkit.Sound
 import org.bukkit.SoundCategory
@@ -39,6 +41,8 @@ object CuttingBoard : BlockBehavior {
         
         val existingDisplay = findItemDisplay(pos)
         
+        LogDebug("Tool: $tool")
+        
         // If an ItemDisplay already exists, return without spawning a new one
         if (existingDisplay != null) {
             if (tool.isEmpty) {
@@ -47,17 +51,19 @@ object CuttingBoard : BlockBehavior {
             }
             else if (player != null) {
                 doRecipe(pos, player, tool)
+                return true
             }
-            return false
         }
         else {
             if (!tool.isEmpty) {
                 placeItem(tool.asOne(), pos, facing)
-                tool.subtract()
+                if (player != null && player.gameMode != GameMode.CREATIVE) {
+                    tool.subtract()
+                }
                 return true
             }
-            return false
         }
+        return false
         
     }
     
@@ -72,7 +78,10 @@ object CuttingBoard : BlockBehavior {
             val input = itemDisplay.itemStack
             val fortuneLevel = tool.getEnchantmentLevel(Enchantment.FORTUNE)
             val recipes = getMatchingRecipes(input)
-            if (recipes.isEmpty()) return
+            if (recipes.isEmpty()) {
+                player.sendMessage(Component.translatable("block.cutting_board.invalid_item"))
+                return
+            }
             val matchingRecipe = recipes.firstOrNull { it.tool.test(tool)}
             if (matchingRecipe == null) {
                 player.sendMessage(Component.translatable("block.cutting_board.invalid_tool"))
@@ -83,7 +92,9 @@ object CuttingBoard : BlockBehavior {
             for (resultStack in results) {
                 pos.world.dropItemNaturally(getDisplayLocation(pos), resultStack)
             }
-            tool.damage(1, player)
+            if (player.gameMode != GameMode.CREATIVE) {
+                tool.damage(1, player)
+            }
             val sound = matchingRecipe.soundEvent.ifEmpty { null }
             playProcessingSound(pos, sound, tool)
             itemDisplay.remove() // Remove the item display entity

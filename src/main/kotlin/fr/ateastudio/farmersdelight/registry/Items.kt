@@ -28,6 +28,10 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
     
     val MUDDY_FARMLAND = registerItem(Blocks.MUDDY_FARMLAND)
     
+    val STRAW = registerItem("straw")
+    val CANVAS = registerItem("canvas")
+    val TREE_BARK = registerItem("tree_bark")
+    
     val SANDY_SHRUB = item(Blocks.SANDY_SHRUB) {
         models {
             selectModel {
@@ -128,15 +132,19 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
     // TODO Add drinks effects
     val MILK_BOTTLE = item("milk_bottle") {
         behaviors(Consumable)
+        maxStackSize(16)
     }
     val HOT_COCOA = item("hot_cocoa") {
         behaviors(Consumable)
+        maxStackSize(16)
     }
     val APPLE_CIDER = item("apple_cider") {
         behaviors(Consumable)
+        maxStackSize(16)
     }
     val MELON_JUICE = item("melon_juice") {
         behaviors(Consumable)
+        maxStackSize(16)
     }
     val TOMATO_SAUCE = item("tomato_sauce") {
         behaviors(Consumable)
@@ -218,8 +226,58 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
     }
     val GLOW_BERRY_CUSTARD = item("glow_berry_custard") {
         behaviors(Consumable)
+        maxStackSize(16)
     }
     val FRUIT_SALAD = item("fruit_salad") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    
+    val MIXED_SALAD = item("mixed_salad") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val NETHER_SALAD = item("nether_salad") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val BARBECUE_STICK = item("barbecue_stick") {
+        behaviors(Consumable)
+    }
+    val EGG_SANDWICH = item("egg_sandwich") {
+        behaviors(Consumable)
+    }
+    val CHICKEN_SANDWICH = item("chicken_sandwich") {
+        behaviors(Consumable)
+    }
+    val HAMBURGER = item("hamburger") {
+        behaviors(Consumable)
+    }
+    val BACON_SANDWICH = item("bacon_sandwich") {
+        behaviors(Consumable)
+    }
+    val MUTTON_WRAP = item("mutton_wrap") {
+        behaviors(Consumable)
+    }
+    val DUMPLINGS = item("dumplings") {
+        behaviors(Consumable)
+    }
+    val STUFFED_POTATO = item("stuffed_potato") {
+        behaviors(Consumable)
+    }
+    val CABBAGE_ROLLS = item("cabbage_rolls") {
+        behaviors(Consumable)
+    }
+    val SALMON_ROLL = item("salmon_roll") {
+        behaviors(Consumable)
+    }
+    val COD_ROLL = item("cod_roll") {
+        behaviors(Consumable)
+    }
+    val KELP_ROLL = item("kelp_roll") {
+        behaviors(Consumable)
+    }
+    val KELP_ROLL_SLICE = item("kelp_roll_slice") {
         behaviors(Consumable)
     }
     

@@ -14,7 +14,7 @@ import xyz.xenondevs.nova.util.item.toItemStack
 object CuttingBoardRecipeGroup : RecipeGroup<CuttingBoardRecipe>() {
     override val priority = 4
     override val icon = Items.CUTTING_BOARD.model.clientsideProvider
-    override val texture = GuiTextures.COOKING_POT_RECIPE
+    override val texture = GuiTextures.CUTTING_BOARD_RECIPE
     
     override fun createGui(recipe: CuttingBoardRecipe): Gui {
         val resultStacks = recipe.chanceResults.mapToArray { it.getStack() }

@@ -21,4 +21,10 @@ object GuiTextures : GuiTextureRegistry by NovaFarmersDelight.registry {
             path("gui/recipe/cooking_pot")
         }
     }
+    val CUTTING_BOARD_RECIPE = guiTexture("cutting_board_recipe") {
+        texture {
+            alignment(alignment = GuiTextureAlignment.ChestDefault)
+            path("gui/recipe/cutting_board")
+        }
+    }
 }

@@ -19,10 +19,11 @@
   "block.farmersdelight.rice_bag": "Bag of Rice",
   "block.farmersdelight.rice_bale": "Rice Bale",
   "block.farmersdelight.muddy_farmland": "Muddy Farmland",
-  "menu.farmersdelight.served_on": "Served on:",
-  "menu.farmersdelight.hold_serving": "Hold {amount} serving{s} of:",
-  "menu.farmersdelight.empty": "Empty",
-  "menu.farmersdelight.heated": "Heated",
-  "menu.farmersdelight.need_heat": "Need heat from below",
-  "menu.farmersdelight.recipe.xp": "XP: "
+  "block.farmersdelight.cutting_board.invalid_item": "This doesn't seem cuttable...",
+  "block.farmersdelight.cutting_board.invalid_tool": "Maybe with a different tool...",
+  "block.farmersdelight.cooking_pot.served_on": "Served on:",
+  "block.farmersdelight.cooking_pot.hold_serving": "Hold {amount} serving{s} of:",
+  "block.farmersdelight.cooking_pot.empty": "Empty",
+  "block.farmersdelight.cooking_pot.heated": "Heated",
+  "block.farmersdelight.cooking_pot.need_heat": "Need heat from below"
 }
