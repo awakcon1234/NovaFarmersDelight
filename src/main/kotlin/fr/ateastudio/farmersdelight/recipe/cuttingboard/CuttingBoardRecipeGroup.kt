@@ -38,8 +38,8 @@ object CuttingBoardRecipeGroup : RecipeGroup<CuttingBoardRecipe>() {
         return Gui.normal()
             .setStructure(
                 ". . . . . . . . .",
-                ". i . t . j k l m",
-                ". . . . . . . . ."
+                ". i . t . j k . .",
+                ". . . . . l m . ."
             )
             .addIngredient('i', createRecipeChoiceItem(recipe.input))
             .addIngredient('t', toolItem())
