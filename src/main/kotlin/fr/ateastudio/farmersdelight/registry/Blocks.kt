@@ -68,6 +68,7 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
         behaviors(
             SPRUCE_PLANK,
             BlockSounds(SoundGroup.WOOD),
+            BlockDrops,
             CuttingBoard
         )
         stateProperties(FACING_HORIZONTAL)
