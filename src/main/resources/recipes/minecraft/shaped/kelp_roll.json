@@ -1,0 +1,14 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:kelp_roll",
+  "amount": 1,
+  "shape": [
+    "RXR",
+    "###"
+  ],
+  "ingredients": {
+    "#": "minecraft:dried_kelp",
+    "R": "farmersdelight:cooked_rice",
+    "X": "minecraft:carrot"
+  }
+}

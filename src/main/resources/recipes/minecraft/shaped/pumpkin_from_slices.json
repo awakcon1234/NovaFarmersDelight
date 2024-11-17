@@ -1,0 +1,12 @@
+{
+  "category": "building",
+  "result": "minecraft:pumpkin",
+  "amount": 1,
+  "shape": [
+    "##",
+    "##"
+  ],
+  "ingredients": {
+    "#": "farmersdelight:pumpkin_slice"
+  }
+}

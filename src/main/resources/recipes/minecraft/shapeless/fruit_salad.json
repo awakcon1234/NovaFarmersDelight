@@ -1,0 +1,41 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:fruit_salad",
+  "amount": 1,
+  "ingredients": [
+    {
+      "item": "minecraft:apple",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:melon_slice",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:melon_slice",
+      "amount": 1
+    },
+    {
+      "item": [
+		"minecraft:sweet_berries",
+		"minecraft:glow_berries"
+	  ],
+      "amount": 1
+    },
+    {
+      "item": [
+		"minecraft:sweet_berries",
+		"minecraft:glow_berries"
+	  ],
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:pumpkin_slice",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:bowl",
+      "amount": 1
+    }
+  ]
+}

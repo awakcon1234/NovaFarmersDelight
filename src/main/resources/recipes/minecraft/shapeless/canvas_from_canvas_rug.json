@@ -1,0 +1,15 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:canvas",
+  "amount": 1,
+  "ingredients": [
+    {
+      "item": "farmersdelight:canvas_rug",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:canvas_rug",
+      "amount": 1
+    }
+  ]
+}

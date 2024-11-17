@@ -2,7 +2,10 @@
   "category": "misc",
   "result": "minecraft:beetroot",
   "amount": 9,
-  "ingredients": {
-    "farmersdelight:beetroot_crate": 1
-  }
+  "ingredients": [
+    {
+      "item": "farmersdelight:beetroot_crate",
+      "amount": 1
+    }
+  ]
 }

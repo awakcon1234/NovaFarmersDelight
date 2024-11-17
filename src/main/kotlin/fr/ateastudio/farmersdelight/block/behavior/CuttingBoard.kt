@@ -50,7 +50,7 @@ object CuttingBoard : BlockBehavior {
                 return true
             }
             else if (player != null) {
-                doRecipe(pos, player, tool)
+                doRecipe(pos, player, tool, facing)
                 return true
             }
         }
@@ -71,7 +71,7 @@ object CuttingBoard : BlockBehavior {
         retrieveItem(pos)
     }
     
-    private fun doRecipe(pos: BlockPos, player: Player, tool: ItemStack) {
+    private fun doRecipe(pos: BlockPos, player: Player, tool: ItemStack, blockFace: BlockFace?) {
         // Check for an ItemDisplay above the CuttingBoard and remove it
         val itemDisplay = findItemDisplay(pos)
         if (itemDisplay != null) {
@@ -79,18 +79,25 @@ object CuttingBoard : BlockBehavior {
             val fortuneLevel = tool.getEnchantmentLevel(Enchantment.FORTUNE)
             val recipes = getMatchingRecipes(input)
             if (recipes.isEmpty()) {
-                player.sendMessage(Component.translatable("block.cutting_board.invalid_item"))
+                player.sendMessage(Component.translatable("block.farmersdelight.cutting_board.invalid_item"))
                 return
             }
             val matchingRecipe = recipes.firstOrNull { it.tool.test(tool)}
             if (matchingRecipe == null) {
-                player.sendMessage(Component.translatable("block.cutting_board.invalid_tool"))
+                player.sendMessage(Component.translatable("block.farmersdelight.cutting_board.invalid_tool"))
                 return
             }
             
             val results = matchingRecipe.rollResults(pos.world.random(),fortuneLevel)
             for (resultStack in results) {
-                pos.world.dropItemNaturally(getDisplayLocation(pos), resultStack)
+                val loc = when (blockFace) {
+                    BlockFace.NORTH -> getDisplayLocation(pos).add(0.0,-0.3,-0.5)
+                    BlockFace.EAST -> getDisplayLocation(pos).add(0.5,-0.3,0.0)
+                    BlockFace.SOUTH -> getDisplayLocation(pos).add(0.0,-0.3,0.5)
+                    BlockFace.WEST -> getDisplayLocation(pos).add(-0.5,-0.3,0.0)
+                    else -> getDisplayLocation(pos)
+                }
+                pos.world.dropItem(loc, resultStack)
             }
             if (player.gameMode != GameMode.CREATIVE) {
                 tool.damage(1, player)

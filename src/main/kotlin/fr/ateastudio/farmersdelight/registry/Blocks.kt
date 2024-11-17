@@ -85,6 +85,9 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     val ONION_CRATE = nonInteractiveBlock("onion_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
     val RICE_BALE = nonInteractiveBlock("rice_bale") { behaviors(BALE, BlockDrops, BlockSounds(SoundGroup.GRASS)) }
     val RICE_BAG = nonInteractiveBlock("rice_bag") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
+    val STRAW_BALE = nonInteractiveBlock("straw_bale") { behaviors(BALE, BlockDrops, BlockSounds(SoundGroup.GRASS)) }
+    
+    val TATAMI = nonInteractiveBlock("tatami") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
     
     val MUDDY_FARMLAND = block("muddy_farmland") {
         behaviors(MUD, BlockSounds(SoundGroup.MUD), MuddyFarmland)

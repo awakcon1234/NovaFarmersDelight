@@ -1,0 +1,13 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:pie_crust",
+  "amount": 1,
+  "shape": [
+    "wMw",
+    " w "
+  ],
+  "ingredients": {
+    "M": null,
+    "w": "minecraft:wheat"
+  }
+}

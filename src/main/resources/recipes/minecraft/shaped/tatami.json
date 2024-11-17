@@ -1,0 +1,13 @@
+{
+  "category": "building",
+  "result": "farmersdelight:tatami",
+  "amount": 2,
+  "shape": [
+    "cs",
+    "sc"
+  ],
+  "ingredients": {
+    "c": "farmersdelight:canvas",
+    "s": "farmersdelight:straw"
+  }
+}

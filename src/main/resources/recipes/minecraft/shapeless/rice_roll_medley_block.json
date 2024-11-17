@@ -1,0 +1,43 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:rice_roll_medley_block",
+  "amount": 1,
+  "ingredients": [
+    {
+      "item": "farmersdelight:kelp_roll_slice",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:kelp_roll_slice",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:kelp_roll_slice",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:salmon_roll",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:salmon_roll",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:salmon_roll",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:cod_roll",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:bowl",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:cod_roll",
+      "amount": 1
+    }
+  ]
+}

@@ -3,11 +3,11 @@
   "result": "farmersdelight:onion_crate",
   "amount": 1,
   "shape": [
-    "rrr",
-    "rrr",
-    "rrr"
+    "###",
+    "###",
+    "###"
   ],
   "ingredients": {
-    "r": "farmersdelight:onions_crop"
+    "#": "farmersdelight:onion"
   }
 }

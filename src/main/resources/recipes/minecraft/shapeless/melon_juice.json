@@ -1,0 +1,31 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:melon_juice",
+  "amount": 1,
+  "ingredients": [
+    {
+      "item": "minecraft:melon_slice",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:melon_slice",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:sugar",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:melon_slice",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:melon_slice",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:glass_bottle",
+      "amount": 1
+    }
+  ]
+}

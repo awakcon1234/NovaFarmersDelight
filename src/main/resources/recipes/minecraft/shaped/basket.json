@@ -1,0 +1,14 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:basket",
+  "amount": 1,
+  "shape": [
+    "b b",
+    "# #",
+    "b#b"
+  ],
+  "ingredients": {
+    "#": "farmersdelight:canvas",
+    "b": "minecraft:bamboo"
+  }
+}

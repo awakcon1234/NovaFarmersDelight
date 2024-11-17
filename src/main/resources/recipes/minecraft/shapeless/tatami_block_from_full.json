@@ -1,0 +1,15 @@
+{
+  "category": "building",
+  "result": "farmersdelight:tatami",
+  "amount": 1,
+  "ingredients": [
+    {
+      "item": "farmersdelight:full_tatami_mat",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:full_tatami_mat",
+      "amount": 1
+    }
+  ]
+}

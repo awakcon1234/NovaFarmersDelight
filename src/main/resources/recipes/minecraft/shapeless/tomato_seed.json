@@ -1,6 +1,7 @@
 {
   "category": "misc",
   "result": "farmersdelight:tomatoes_crop",
+  "amount": 1,
   "ingredients": [
     {
       "items": [

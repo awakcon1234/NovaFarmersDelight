@@ -1,0 +1,14 @@
+{
+  "category": "misc",
+  "result": "minecraft:scaffolding",
+  "amount": 6,
+  "shape": [
+    "b#b",
+    "b b",
+    "b b"
+  ],
+  "ingredients": {
+    "#": "farmersdelight:canvas",
+    "b": "minecraft:bamboo"
+  }
+}

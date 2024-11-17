@@ -1,0 +1,12 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:chocolate_pie",
+  "amount": 1,
+  "shape": [
+    "##",
+    "##"
+  ],
+  "ingredients": {
+    "#": "farmersdelight:chocolate_pie_slice"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "category": "equipment",
+  "result": "farmersdelight:iron_knife",
+  "amount": 1,
+  "shape": [
+    "m",
+    "s"
+  ],
+  "ingredients": {
+    "m": null,
+    "s": "minecraft:stick"
+  }
+}

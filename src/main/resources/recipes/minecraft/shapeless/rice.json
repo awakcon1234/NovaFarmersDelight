@@ -1,7 +1,11 @@
 {
   "category": "misc",
-  "result": "farmersdelight:rice_crop",
-  "ingredients": {
-    "farmersdelight:rice_panicle": 1
-  }
+  "result": "farmersdelight:rice",
+  "amount": 1,
+  "ingredients": [
+    {
+      "item": "farmersdelight:rice_panicle",
+      "amount": 1
+    }
+  ]
 }

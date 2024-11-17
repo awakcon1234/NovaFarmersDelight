@@ -1,0 +1,16 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:chocolate_pie",
+  "amount": 1,
+  "shape": [
+    "ccc",
+    "mmm",
+    "xOx"
+  ],
+  "ingredients": {
+    "O": "farmersdelight:pie_crust",
+    "c": "minecraft:cocoa_beans",
+    "m": null,
+    "x": "minecraft:sugar"
+  }
+}

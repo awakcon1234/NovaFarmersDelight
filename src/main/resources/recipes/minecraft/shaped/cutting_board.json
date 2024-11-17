@@ -1,0 +1,13 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:cutting_board",
+  "amount": 1,
+  "shape": [
+    "/##",
+    "/##"
+  ],
+  "ingredients": {
+    "#": null,
+    "/": "minecraft:stick"
+  }
+}

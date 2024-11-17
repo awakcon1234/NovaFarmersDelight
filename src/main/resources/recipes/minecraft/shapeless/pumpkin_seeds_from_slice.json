@@ -1,0 +1,11 @@
+{
+  "category": "misc",
+  "result": "minecraft:pumpkin_seeds",
+  "amount": 1,
+  "ingredients": [
+    {
+      "item": "farmersdelight:pumpkin_slice",
+      "amount": 1
+    }
+  ]
+}

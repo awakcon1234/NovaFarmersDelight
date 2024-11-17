@@ -1,0 +1,19 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:cod_roll",
+  "amount": 2,
+  "ingredients": [
+    {
+      "item": "farmersdelight:cod_slice",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:cod_slice",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:cooked_rice",
+      "amount": 1
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:rope",
+  "amount": 4,
+  "ingredients": [
+    {
+      "item": "farmersdelight:safety_net",
+      "amount": 1
+    }
+  ]
+}

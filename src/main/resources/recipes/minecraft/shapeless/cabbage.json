@@ -1,0 +1,11 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:cabbage",
+  "amount": 1,
+  "ingredients": [
+    {
+      "item": "farmersdelight:cabbage_crate",
+      "amount": 1
+    }
+  ]
+}

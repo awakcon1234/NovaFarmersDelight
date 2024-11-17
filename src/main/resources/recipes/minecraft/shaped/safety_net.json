@@ -1,0 +1,12 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:safety_net",
+  "amount": 1,
+  "shape": [
+    "rr",
+    "rr"
+  ],
+  "ingredients": {
+    "r": "farmersdelight:rope"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "category": "equipment",
+  "result": "farmersdelight:diamond_knife",
+  "amount": 1,
+  "shape": [
+    "m",
+    "s"
+  ],
+  "ingredients": {
+    "m": "minecraft:diamond",
+    "s": "minecraft:stick"
+  }
+}

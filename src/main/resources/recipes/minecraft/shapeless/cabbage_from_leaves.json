@@ -1,0 +1,15 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:cabbage",
+  "amount": 1,
+  "ingredients": [
+    {
+      "item": "farmersdelight:cabbage_leaf",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:cabbage_leaf",
+      "amount": 1
+    }
+  ]
+}

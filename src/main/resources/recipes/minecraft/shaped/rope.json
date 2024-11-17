@@ -1,0 +1,12 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:rope",
+  "amount": 4,
+  "shape": [
+    "s",
+    "s"
+  ],
+  "ingredients": {
+    "s": "farmersdelight:straw"
+  }
+}

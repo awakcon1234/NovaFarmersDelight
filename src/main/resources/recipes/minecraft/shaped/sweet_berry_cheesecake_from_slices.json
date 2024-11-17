@@ -1,0 +1,12 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:sweet_berry_cheesecake",
+  "amount": 1,
+  "shape": [
+    "##",
+    "##"
+  ],
+  "ingredients": {
+    "#": "farmersdelight:sweet_berry_cheesecake_slice"
+  }
+}

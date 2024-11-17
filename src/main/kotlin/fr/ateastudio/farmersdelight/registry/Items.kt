@@ -25,6 +25,9 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
     val ONION_CRATE = registerItem(Blocks.ONION_CRATE)
     val RICE_BALE = registerItem(Blocks.RICE_BALE)
     val RICE_BAG = registerItem(Blocks.RICE_BAG)
+    val STRAW_BALE = registerItem(Blocks.STRAW_BALE)
+    
+    val TATAMI = registerItem(Blocks.TATAMI)
     
     val MUDDY_FARMLAND = registerItem(Blocks.MUDDY_FARMLAND)
     
@@ -91,7 +94,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
     
     val CABBAGE = registerItem("cabbage", Consumable)
     val TOMATO = registerItem("tomato", Consumable)
-    val ONION = item(Blocks.ONION_CROP) {
+    val ONION = item(Blocks.ONION_CROP, "onion") {
         name(Component.translatable("item.farmersdelight.onion"))
         behaviors(Consumable)
         models {
@@ -101,7 +104,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         }
     }
     val RICE_PANICLE = registerItem("rice_panicle")
-    val RICE = item(Blocks.RICE_CROP) {
+    val RICE = item(Blocks.RICE_CROP, "rice") {
         name(Component.translatable("item.farmersdelight.rice"))
         models {
             selectModel {
@@ -109,7 +112,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
             }
         }
     }
-    val CABBAGE_SEEDS = item(Blocks.CABBAGES_CROP) {
+    val CABBAGE_SEEDS = item(Blocks.CABBAGES_CROP, "cabbage_seeds") {
         name(Component.translatable("item.farmersdelight.cabbage_seeds"))
         models {
             selectModel {
@@ -117,7 +120,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
             }
         }
     }
-    val TOMATO_SEEDS = item(Blocks.TOMATOES_CROP) {
+    val TOMATO_SEEDS = item(Blocks.TOMATOES_CROP, "tomato_seeds") {
         name(Component.translatable("item.farmersdelight.tomato_seeds"))
         models {
             selectModel {
@@ -282,6 +285,83 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
     }
     
     val COOKED_RICE = item("cooked_rice") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val BONE_BROTH = item("bone_broth") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val BEEF_STEW = item("beef_stew") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val CHICKEN_SOUP = item("chicken_soup") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val VEGETABLE_SOUP = item("vegetable_soup") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val FISH_STEW = item("fish_stew") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val FRIED_RICE = item("fried_rice") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val PUMPKIN_SOUP = item("pumpkin_soup") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val BAKED_COD_STEW = item("baked_cod_stew") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val NOODLE_SOUP = item("noodle_soup") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    
+    val BACON_AND_EGGS = item("bacon_and_eggs") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val PASTA_WITH_MEATBALLS = item("pasta_with_meatballs") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val PASTA_WITH_MUTTON_CHOP = item("pasta_with_mutton_chop") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val MUSHROOM_RICE = item("mushroom_rice") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val ROASTED_MUTTON_CHOPS = item("roasted_mutton_chops") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val VEGETABLE_NOODLES = item("vegetable_noodles") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val STEAK_AND_POTATOES = item("steak_and_potatoes") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val RATATOUILLE = item("ratatouille") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val SQUID_INK_PASTA = item("squid_ink_pasta") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val GRILLED_SALMON = item("grilled_salmon") {
         behaviors(Consumable)
         maxStackSize(16)
     }

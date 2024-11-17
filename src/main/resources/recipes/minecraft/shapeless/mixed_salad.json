@@ -1,0 +1,26 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:mixed_salad",
+  "amount": 1,
+  "ingredients": [
+    {
+      "item": [
+		"farmersdelight:cabbage",
+		"farmersdelight:cabbage_leaf"
+	  ],
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:tomato",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:beetroot",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:bowl",
+      "amount": 1
+    }
+  ]
+}

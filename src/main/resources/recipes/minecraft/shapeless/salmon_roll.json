@@ -1,0 +1,19 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:salmon_roll",
+  "amount": 2,
+  "ingredients": [
+    {
+      "item": "farmersdelight:salmon_slice",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:salmon_slice",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:cooked_rice",
+      "amount": 1
+    }
+  ]
+}

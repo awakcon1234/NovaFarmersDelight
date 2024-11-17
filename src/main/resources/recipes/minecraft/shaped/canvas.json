@@ -1,0 +1,12 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:canvas",
+  "amount": 1,
+  "shape": [
+    "##",
+    "##"
+  ],
+  "ingredients": {
+    "#": "farmersdelight:straw"
+  }
+}

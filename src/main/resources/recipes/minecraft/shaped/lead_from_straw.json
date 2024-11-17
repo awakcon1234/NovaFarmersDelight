@@ -1,0 +1,13 @@
+{
+  "category": "equipment",
+  "result": "minecraft:lead",
+  "amount": 1,
+  "shape": [
+    "ss ",
+    "ss ",
+    "  s"
+  ],
+  "ingredients": {
+    "s": "farmersdelight:straw"
+  }
+}

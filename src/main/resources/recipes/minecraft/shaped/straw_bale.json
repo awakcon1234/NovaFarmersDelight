@@ -1,0 +1,13 @@
+{
+  "category": "building",
+  "result": "farmersdelight:straw_bale",
+  "amount": 1,
+  "shape": [
+    "###",
+    "###",
+    "###"
+  ],
+  "ingredients": {
+    "#": "farmersdelight:straw"
+  }
+}

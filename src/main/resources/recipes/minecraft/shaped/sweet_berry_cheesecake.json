@@ -1,0 +1,15 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:sweet_berry_cheesecake",
+  "amount": 1,
+  "shape": [
+    "sss",
+    "sss",
+    "mOm"
+  ],
+  "ingredients": {
+    "O": "farmersdelight:pie_crust",
+    "m": null,
+    "s": "minecraft:sweet_berries"
+  }
+}

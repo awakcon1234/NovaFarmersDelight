@@ -1,0 +1,55 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:shepherds_pie_block",
+  "amount": 1,
+  "ingredients": [
+    {
+      "item": "minecraft:baked_potato",
+      "amount": 1
+    },
+    {
+      "item": [
+		"minecraft:milk_bucket",
+		"farmersdelight:milk_bottle"
+	  ],
+      "amount": 1
+    },
+    {
+      "item": "minecraft:baked_potato",
+      "amount": 1
+    },
+    {
+      "item": [
+		"minecraft:cooked_mutton",
+		"farmersdelight:cooked_mutton_chops"
+	  ],
+      "amount": 1
+    },
+    {
+      "item": [
+		"minecraft:cooked_mutton",
+		"farmersdelight:cooked_mutton_chops"
+	  ],
+      "amount": 1
+    },
+    {
+      "item": [
+		"minecraft:cooked_mutton",
+		"farmersdelight:cooked_mutton_chops"
+	  ],
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:onion",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:bowl",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:onion",
+      "amount": 1
+    }
+  ]
+}

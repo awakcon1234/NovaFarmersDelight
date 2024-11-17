@@ -1,0 +1,16 @@
+{
+  "category": "misc",
+  "result": "minecraft:cake",
+  "amount": 1,
+  "shape": [
+    "mmm",
+    "ses",
+    "www"
+  ],
+  "ingredients": {
+    "e": null,
+    "m": null,
+    "s": "minecraft:sugar",
+    "w": "minecraft:wheat"
+  }
+}

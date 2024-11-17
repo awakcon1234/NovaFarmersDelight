@@ -1,0 +1,19 @@
+{
+  "category": "building",
+  "result": "minecraft:packed_mud",
+  "amount": 2,
+  "ingredients": [
+    {
+      "item": "farmersdelight:straw",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:mud",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:mud",
+      "amount": 1
+    }
+  ]
+}

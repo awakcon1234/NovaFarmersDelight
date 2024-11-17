@@ -1,0 +1,14 @@
+{
+  "category": "misc",
+  "result": "minecraft:painting",
+  "amount": 1,
+  "shape": [
+    "sss",
+    "scs",
+    "sss"
+  ],
+  "ingredients": {
+    "c": "farmersdelight:canvas",
+    "s": "minecraft:stick"
+  }
+}

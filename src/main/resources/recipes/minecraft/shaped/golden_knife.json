@@ -1,0 +1,13 @@
+{
+  "category": "equipment",
+  "result": "farmersdelight:golden_knife",
+  "amount": 1,
+  "shape": [
+    "m",
+    "s"
+  ],
+  "ingredients": {
+    "m": "minecraft:gold_ingot",
+    "s": "minecraft:stick"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "category": "misc",
+  "result": "minecraft:paper",
+  "amount": 1,
+  "ingredients": [
+    {
+      "item": "farmersdelight:tree_bark",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:tree_bark",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:tree_bark",
+      "amount": 1
+    }
+  ]
+}

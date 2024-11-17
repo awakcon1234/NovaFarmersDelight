@@ -1,0 +1,19 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:nether_salad",
+  "amount": 1,
+  "ingredients": [
+    {
+      "item": "minecraft:crimson_fungus",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:warped_fungus",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:bowl",
+      "amount": 1
+    }
+  ]
+}

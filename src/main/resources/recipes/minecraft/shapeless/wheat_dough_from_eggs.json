@@ -1,0 +1,23 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:wheat_dough",
+  "amount": 3,
+  "ingredients": [
+    {
+      "item": "minecraft:egg",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:wheat",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:wheat",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:wheat",
+      "amount": 1
+    }
+  ]
+}

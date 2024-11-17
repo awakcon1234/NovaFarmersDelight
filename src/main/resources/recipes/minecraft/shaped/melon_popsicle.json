@@ -1,0 +1,15 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:melon_popsicle",
+  "amount": 1,
+  "shape": [
+    " mm",
+    "imm",
+    "-i "
+  ],
+  "ingredients": {
+    "-": "minecraft:stick",
+    "i": "minecraft:ice",
+    "m": "minecraft:melon_slice"
+  }
+}

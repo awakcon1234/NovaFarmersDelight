@@ -1,0 +1,23 @@
+{
+  "category": "misc",
+  "result": "minecraft:book",
+  "amount": 1,
+  "ingredients": [
+    {
+      "item": "minecraft:paper",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:paper",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:paper",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:canvas",
+      "amount": 1
+    }
+  ]
+}

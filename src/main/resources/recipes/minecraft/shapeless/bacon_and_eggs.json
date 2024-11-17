@@ -1,0 +1,27 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:bacon_and_eggs",
+  "amount": 1,
+  "ingredients": [
+    {
+      "item": "farmersdelight:cooked_bacon",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:cooked_bacon",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:bowl",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:fried_egg",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:fried_egg",
+      "amount": 1
+    }
+  ]
+}

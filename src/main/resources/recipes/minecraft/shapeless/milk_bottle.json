@@ -1,0 +1,27 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:milk_bottle",
+  "amount": 4,
+  "ingredients": [
+    {
+      "item": "minecraft:milk_bucket",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:glass_bottle",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:glass_bottle",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:glass_bottle",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:glass_bottle",
+      "amount": 1
+    }
+  ]
+}

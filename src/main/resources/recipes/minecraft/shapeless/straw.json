@@ -1,0 +1,11 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:straw",
+  "amount": 9,
+  "ingredients": [
+    {
+      "item": "farmersdelight:straw_bale",
+      "amount": 1
+    }
+  ]
+}

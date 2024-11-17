@@ -1,0 +1,16 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:apple_pie",
+  "amount": 1,
+  "shape": [
+    "###",
+    "aaa",
+    "xOx"
+  ],
+  "ingredients": {
+    "#": "minecraft:wheat",
+    "O": "farmersdelight:pie_crust",
+    "a": "minecraft:apple",
+    "x": "minecraft:sugar"
+  }
+}

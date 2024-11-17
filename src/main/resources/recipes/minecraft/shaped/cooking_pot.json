@@ -1,0 +1,16 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:cooking_pot",
+  "amount": 1,
+  "shape": [
+    "bSb",
+    "iWi",
+    "iii"
+  ],
+  "ingredients": {
+    "S": "minecraft:wooden_shovel",
+    "W": "minecraft:water_bucket",
+    "b": "minecraft:brick",
+    "i": null
+  }
+}

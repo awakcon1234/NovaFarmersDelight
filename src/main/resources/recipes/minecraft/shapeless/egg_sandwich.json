@@ -1,0 +1,19 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:egg_sandwich",
+  "amount": 1,
+  "ingredients": [
+    {
+      "item": "minecraft:bread",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:fried_egg",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:fried_egg",
+      "amount": 1
+    }
+  ]
+}

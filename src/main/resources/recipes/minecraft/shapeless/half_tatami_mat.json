@@ -1,0 +1,11 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:half_tatami_mat",
+  "amount": 2,
+  "ingredients": [
+    {
+      "item": "farmersdelight:full_tatami_mat",
+      "amount": 1
+    }
+  ]
+}

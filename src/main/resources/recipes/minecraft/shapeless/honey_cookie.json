@@ -1,0 +1,19 @@
+{
+  "category": "misc",
+  "result": "farmersdelight:honey_cookie",
+  "amount": 8,
+  "ingredients": [
+    {
+      "item": "minecraft:honey_bottle",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:wheat",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:wheat",
+      "amount": 1
+    }
+  ]
+}
