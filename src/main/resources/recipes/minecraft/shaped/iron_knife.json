@@ -7,7 +7,7 @@
     "s"
   ],
   "ingredients": {
-    "m": null,
+    "m": "minecraft:iron_ingot",
     "s": "minecraft:stick"
   }
 }

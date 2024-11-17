@@ -11,6 +11,6 @@
     "S": "minecraft:wooden_shovel",
     "W": "minecraft:water_bucket",
     "b": "minecraft:brick",
-    "i": null
+    "i": "minecraft:iron_ingot"
   }
 }

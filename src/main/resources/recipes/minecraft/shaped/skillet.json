@@ -8,7 +8,7 @@
     "/  "
   ],
   "ingredients": {
-    "#": null,
+    "#": "minecraft:iron_ingot",
     "/": "minecraft:brick"
   }
 }

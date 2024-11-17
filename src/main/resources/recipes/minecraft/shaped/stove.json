@@ -10,6 +10,6 @@
   "ingredients": {
     "B": "minecraft:bricks",
     "C": "minecraft:campfire",
-    "i": null
+    "i": "minecraft:iron_ingot"
   }
 }

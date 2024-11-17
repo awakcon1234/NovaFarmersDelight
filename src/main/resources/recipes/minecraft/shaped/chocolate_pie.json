@@ -10,7 +10,10 @@
   "ingredients": {
     "O": "farmersdelight:pie_crust",
     "c": "minecraft:cocoa_beans",
-    "m": null,
+    "m": [
+      "minecraft:milk_bucket",
+      "farmersdelight:milk_bottle"
+    ],
     "x": "minecraft:sugar"
   }
 }

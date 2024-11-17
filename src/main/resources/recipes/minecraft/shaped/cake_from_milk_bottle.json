@@ -8,8 +8,11 @@
     "www"
   ],
   "ingredients": {
-    "e": null,
-    "m": null,
+    "e":  "minecraft:egg",
+    "m": [
+      "minecraft:milk_bucket",
+      "farmersdelight:milk_bottle"
+    ],
     "s": "minecraft:sugar",
     "w": "minecraft:wheat"
   }

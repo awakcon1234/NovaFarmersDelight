@@ -7,7 +7,7 @@
     "/##"
   ],
   "ingredients": {
-    "#": null,
+    "#": "#minecraft:planks",
     "/": "minecraft:stick"
   }
 }
