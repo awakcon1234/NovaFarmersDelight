@@ -32,12 +32,9 @@ import xyz.xenondevs.nova.world.block.behavior.TileEntityInteractive
 import xyz.xenondevs.nova.world.block.behavior.TileEntityLimited
 import xyz.xenondevs.nova.world.block.sound.SoundGroup
 import xyz.xenondevs.nova.world.block.state.property.DefaultBlockStateProperties
-import xyz.xenondevs.nova.world.block.state.property.DefaultScopedBlockStateProperties
 import xyz.xenondevs.nova.world.block.state.property.DefaultScopedBlockStateProperties.AXIS
 import xyz.xenondevs.nova.world.block.state.property.DefaultScopedBlockStateProperties.FACING_CARTESIAN
 import xyz.xenondevs.nova.world.block.state.property.DefaultScopedBlockStateProperties.FACING_HORIZONTAL
-import xyz.xenondevs.nova.world.block.state.property.DefaultScopedBlockStateProperties.FACING_ROTATION
-import xyz.xenondevs.nova.world.block.state.property.DefaultScopedBlockStateProperties.FACING_VERTICAL
 import xyz.xenondevs.nova.world.item.tool.VanillaToolCategories
 import xyz.xenondevs.nova.world.item.tool.VanillaToolTiers
 
