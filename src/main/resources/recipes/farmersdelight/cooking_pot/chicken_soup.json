@@ -1,0 +1,35 @@
+{
+  "time": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": [
+		"minecraft:chicken",
+		"farmersdelight:chicken_cuts"
+	  ],
+      "amount": 1
+    },
+    {
+      "item": "minecraft:carrot",
+      "amount": 1
+    },
+    {
+      "item": [
+		"farmersdelight:cabbage",
+		"farmersdelight:cabbage_leaf"
+	  ],
+      "amount": 1
+    },
+    {
+      "item": [
+		"minecraft:beetroot",
+		"minecraft:carrot",
+		"farmersdelight:onion",
+		"minecraft:potato",
+		"farmersdelight:tomato"
+	  ],
+      "amount": 1
+    }
+  ],
+  "result": "farmersdelight:chicken_soup"
+}

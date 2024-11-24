@@ -148,7 +148,6 @@ object CuttingBoard : BlockBehavior {
         val transformation = Matrix4f(0.6f,0f,0f,0.5f,0f,-0f,-0.6f,0.8f,0f,0.6f,-0f,0.5f,0f,0f,0f,1f)
         
         // Additional rotation around Y-axis based on block face direction
-        // https://misode.github.io/transformation/
         val facingRotation = when (facing) {
             BlockFace.NORTH -> transformation.rotateLocalY(Math.toRadians(180.0).toFloat())
             BlockFace.SOUTH -> transformation

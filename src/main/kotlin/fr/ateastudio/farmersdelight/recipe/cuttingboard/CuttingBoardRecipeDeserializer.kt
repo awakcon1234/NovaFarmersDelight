@@ -31,7 +31,7 @@ object CuttingBoardRecipeDeserializer : RecipeDeserializer<CuttingBoardRecipe> {
                 
                 val items = it.get("item") ?: it.get("items")
                 val choice = parseRecipeChoice(items)
-                ingredientsMap[choice] = it.getIntOrNull("amount") ?: 0
+                ingredientsMap[choice] = it.getIntOrNull("amount") ?: 1
             }
         }
         val inputItemIn = ingredientsMap.firstNotNullOf { (material, _) -> material }
@@ -58,7 +58,6 @@ object CuttingBoardRecipeDeserializer : RecipeDeserializer<CuttingBoardRecipe> {
         val toolObject = json.getObject("tool")
         val toolIn = parseTool(toolObject)
         
-        //val results = readResults(json.get("result").asJsonArray)
         val soundId = json.getStringOrNull("sound") ?: ""
         return CuttingBoardRecipe(getRecipeId(file), inputItemIn, toolIn, resultsMap.toList(), soundId)
     }

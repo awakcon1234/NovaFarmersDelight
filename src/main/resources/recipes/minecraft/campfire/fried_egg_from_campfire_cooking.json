@@ -1,0 +1,9 @@
+{
+  "category": "food",
+  "result": "farmersdelight:fried_egg",
+  "experience": 0.35,
+  "time": 600,
+  "input": [
+    "minecraft:egg"
+  ]
+}

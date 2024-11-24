@@ -83,16 +83,16 @@ class CookingPot(
     
     private val mealContainerStack: ItemStack
         get() {
-            return currentRecipe?.container ?: mealStorageInventory[0]?.getCraftingRemainingItem() ?: ItemStack.empty()
+            return mealStorageInventory[0]?.getCraftingRemainingItem() ?: ItemStack.empty()
         }
     
     override fun handleRightClick(ctx: Context<BlockInteract>): Boolean {
         val player = ctx[DefaultContextParamTypes.SOURCE_PLAYER]
         val clickItem = ctx[DefaultContextParamTypes.INTERACTION_ITEM_STACK]
-        val container = currentRecipe?.container
+        val container = mealContainerStack
         if (player != null) {
             if (!player.isSneaking &&
-                container != null &&
+                !container.isEmpty &&
                 clickItem != null &&
                 container.isSimilar(clickItem) &&
                 !mealStorageInventory.isEmpty) {
@@ -258,7 +258,7 @@ class CookingPot(
         meta.setMaxStackSize(mealStorageInventory.getMaxSlotStackSize(0))
         val newStack = result.clone()
         newStack.setItemMeta(meta)
-        val container = currentRecipe?.container ?: ItemStack.empty()
+        val container = mealContainerStack
         if (!container.isEmpty) {
             val servedOnComponent = Component.translatable("block.farmersdelight.cooking_pot.served_on")
             val displayNameComponent = container.displayName()

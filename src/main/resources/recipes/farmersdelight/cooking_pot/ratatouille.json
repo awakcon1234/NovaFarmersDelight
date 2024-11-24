@@ -1,0 +1,29 @@
+{
+  "time": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "farmersdelight:tomato",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:onion",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:beetroot",
+      "amount": 1
+    },
+    {
+      "item": [
+		"minecraft:beetroot",
+		"minecraft:carrot",
+		"farmersdelight:onion",
+		"minecraft:potato",
+		"farmersdelight:tomato"
+	  ],
+      "amount": 1
+    }
+  ],
+  "result": "farmersdelight:ratatouille"
+}

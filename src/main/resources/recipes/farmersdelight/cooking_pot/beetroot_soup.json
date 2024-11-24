@@ -1,0 +1,19 @@
+{
+  "time": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:beetroot",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:beetroot",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:beetroot",
+      "amount": 1
+    }
+  ],
+  "result": "minecraft:beetroot_soup"
+}

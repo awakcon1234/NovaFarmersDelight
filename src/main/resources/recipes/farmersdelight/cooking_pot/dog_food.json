@@ -1,0 +1,29 @@
+{
+  "time": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:rotten_flesh",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:bone_meal",
+      "amount": 1
+    },
+    {
+      "item": [
+        "minecraft:chicken",
+        "farmersdelight:chicken_cuts",
+        "minecraft:mutton",
+        "farmersdelight:mutton_chops",
+        "minecraft:rabbit"
+      ],
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:rice",
+      "amount": 1
+    }
+  ],
+  "result": "farmersdelight:dog_food"
+}

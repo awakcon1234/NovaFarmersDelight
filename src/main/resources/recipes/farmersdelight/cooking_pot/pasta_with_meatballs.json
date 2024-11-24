@@ -1,0 +1,19 @@
+{
+  "time": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "farmersdelight:minced_beef",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:raw_pasta",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:tomato_sauce",
+      "amount": 1
+    }
+  ],
+  "result": "farmersdelight:pasta_with_meatballs"
+}

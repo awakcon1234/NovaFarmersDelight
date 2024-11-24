@@ -4,6 +4,7 @@ import fr.ateastudio.farmersdelight.registry.Blocks
 import fr.ateastudio.farmersdelight.registry.GuiItems
 import fr.ateastudio.farmersdelight.registry.GuiTextures
 import fr.ateastudio.farmersdelight.registry.Items
+import fr.ateastudio.farmersdelight.util.getCraftingRemainingItem
 import net.kyori.adventure.text.Component
 import org.bukkit.Material
 import org.bukkit.inventory.RecipeChoice
@@ -48,7 +49,7 @@ object CookingPotRecipeGroup : RecipeGroup<CookingPotRecipe>() {
             )
             .addIngredient('p', recipe.result)
             .addIngredient('f', GuiItems.COOKING_POT_HEATED.createItemStack())
-            .addIngredient('b', if (recipe.container.isEmpty) GuiItems.BOWL_UNDERLAY.createItemStack() else recipe.container )
+            .addIngredient('b', if (recipe.result.getCraftingRemainingItem().isEmpty) GuiItems.BOWL_UNDERLAY.createItemStack() else recipe.result.getCraftingRemainingItem())
             .build()
     }
 }

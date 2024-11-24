@@ -13,7 +13,6 @@ class CookingPotRecipe(
     override val id: ResourceLocation,
     override val inputs: List<RecipeChoice>,
     override val result: ItemStack,
-    val container: ItemStack,
     val time: Int,
     val experience: Float
 ) : NovaRecipe, SingleResultRecipe, MultiInputChoiceRecipe {

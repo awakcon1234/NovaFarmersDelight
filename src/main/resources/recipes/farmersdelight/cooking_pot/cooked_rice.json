@@ -1,0 +1,11 @@
+{
+  "time": 100,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "farmersdelight:rice",
+      "amount": 1
+    }
+  ],
+  "result": "farmersdelight:cooked_rice"
+}

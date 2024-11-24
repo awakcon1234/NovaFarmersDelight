@@ -1,0 +1,32 @@
+{
+  "time": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "farmersdelight:pumpkin_slice",
+      "amount": 1
+    },
+    {
+      "item": [
+		"farmersdelight:cabbage",
+		"farmersdelight:cabbage_leaf"
+	  ],
+      "amount": 1
+    },
+    {
+      "item": [
+      "minecraft:porkchop",
+      "farmersdelight:bacon"
+	  ],
+      "amount": 1
+    },
+    {
+      "item": [
+      "minecraft:milk_bucket",
+      "farmersdelight:milk_bottle"
+	  ],
+      "amount": 1
+    }
+  ],
+  "result": "farmersdelight:pumpkin_soup"
+}

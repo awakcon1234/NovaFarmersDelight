@@ -1,0 +1,9 @@
+{
+  "category": "food",
+  "result": "farmersdelight:cooked_chicken_cuts",
+  "experience": 0.35,
+  "time": 200,
+  "input": [
+    "farmersdelight:chicken_cuts"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "time": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": [
+        "minecraft:cod",
+		"farmersdelight:cod_slice"
+      ],
+      "amount": 1
+    },
+    {
+      "item": "minecraft:potato",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:egg",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:tomato",
+      "amount": 1
+    }
+  ],
+  "result": "farmersdelight:baked_cod_stew"
+}

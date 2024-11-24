@@ -1,0 +1,9 @@
+{
+  "category": "food",
+  "result": "farmersdelight:cooked_mutton_chops",
+  "experience": 0.35,
+  "time": 100,
+  "input": [
+    "farmersdelight:mutton_chops"
+  ]
+}

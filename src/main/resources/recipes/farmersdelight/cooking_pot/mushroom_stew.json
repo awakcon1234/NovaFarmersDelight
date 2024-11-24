@@ -1,0 +1,15 @@
+{
+  "time": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:brown_mushroom",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:red_mushroom",
+      "amount": 1
+    }
+  ],
+  "result": "minecraft:mushroom_stew"
+}

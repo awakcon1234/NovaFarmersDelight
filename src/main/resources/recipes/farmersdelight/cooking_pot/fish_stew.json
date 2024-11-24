@@ -1,0 +1,25 @@
+{
+  "time": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": [
+		"minecraft:cod",
+		"farmersdelight:cod_slice",
+		"minecraft:salmon",
+		"farmersdelight:salmon_slice",
+		"minecraft:tropical_fish"
+	  ],
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:tomato_sauce",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:onion",
+      "amount": 1
+    }
+  ],
+  "result": "farmersdelight:fish_stew"
+}

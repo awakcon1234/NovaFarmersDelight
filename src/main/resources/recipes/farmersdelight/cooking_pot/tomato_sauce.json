@@ -1,0 +1,15 @@
+{
+  "time": 100,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "farmersdelight:tomato",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:tomato",
+      "amount": 1
+    }
+  ],
+  "result": "farmersdelight:tomato_sauce"
+}

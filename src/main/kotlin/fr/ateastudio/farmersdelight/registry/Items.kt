@@ -6,6 +6,7 @@ import xyz.xenondevs.nova.addon.registry.ItemRegistry
 import xyz.xenondevs.nova.initialize.Init
 import xyz.xenondevs.nova.initialize.InitStage
 import xyz.xenondevs.nova.world.item.behavior.Consumable
+import xyz.xenondevs.nova.world.item.behavior.Tool
 
 @Suppress("unused")
 @Init(stage = InitStage.PRE_PACK)
@@ -30,6 +31,27 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
     val TATAMI = registerItem(Blocks.TATAMI)
     
     val MUDDY_FARMLAND = registerItem(Blocks.MUDDY_FARMLAND)
+    
+    val FLINT_KNIFE = item("flint_knife") {
+        behaviors(Tool)
+        maxStackSize(1)
+    }
+    val IRON_KNIFE = item("iron_knife") {
+        behaviors(Tool)
+        maxStackSize(1)
+    }
+    val DIAMOND_KNIFE = item("diamond_knife") {
+        behaviors(Tool)
+        maxStackSize(1)
+    }
+    val NETHERITE_KNIFE = item("netherite_knife") {
+        behaviors(Tool)
+        maxStackSize(1)
+    }
+    val GOLDEN_KNIFE = item("golden_knife") {
+        behaviors(Tool)
+        maxStackSize(1)
+    }
     
     val STRAW = registerItem("straw")
     val CANVAS = registerItem("canvas")
@@ -88,6 +110,20 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         models {
             selectModel {
                 createLayeredModel("block/wild_rice")
+            }
+        }
+    }
+    val BROWN_MUSHROOM_COLONY = item(Blocks.BROWN_MUSHROOM_COLONY, "brown_mushroom_colony") {
+        models {
+            selectModel {
+                createLayeredModel("block/brown_mushroom_colony_stage3")
+            }
+        }
+    }
+    val RED_MUSHROOM_COLONY = item(Blocks.RED_MUSHROOM_COLONY, "red_mushroom_colony") {
+        models {
+            selectModel {
+                createLayeredModel("block/red_mushroom_colony_stage3")
             }
         }
     }
@@ -207,6 +243,14 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         behaviors(Consumable)
     }
     val PIE_CRUST = item("pie_crust") {
+        behaviors(Consumable)
+    }
+    //TODO Cake blocks
+    val APPLE_PIE = item("apple_pie") {}
+    val SWEET_BERRY_CHEESECAKE = item("sweet_berry_cheesecake") {}
+    val CHOCOLATE_PIE = item("chocolate_pie") {}
+    
+    val CAKE_SLICE = item("cake_slice") {
         behaviors(Consumable)
     }
     val APPLE_PIE_SLICE = item("apple_pie_slice") {
@@ -362,6 +406,32 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         maxStackSize(16)
     }
     val GRILLED_SALMON = item("grilled_salmon") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    //TODO Meal blocks
+    val ROAST_CHICKEN_BLOCK = item("roast_chicken_block") {}
+    val ROAST_CHICKEN = item("roast_chicken") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val STUFFED_PUMPKIN_BLOCK = item("stuffed_pumpkin_block") {}
+    val STUFFED_PUMPKIN = item("stuffed_pumpkin") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val HONEY_GLAZED_HAM_BLOCK = item("honey_glazed_ham_block") {}
+    val HONEY_GLAZED_HAM = item("honey_glazed_ham") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val SHEPHERDS_PIE_BLOCK = item("shepherds_pie_block") {}
+    val SHEPHERDS_PIE = item("shepherds_pie") {
+        behaviors(Consumable)
+        maxStackSize(16)
+    }
+    val RICE_ROLL_MEDLEY_BLOCK = item("rice_roll_medley_block") {}
+    val DOG_FOOD = item("dog_food") {
         behaviors(Consumable)
         maxStackSize(16)
     }

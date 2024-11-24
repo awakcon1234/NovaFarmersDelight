@@ -1,0 +1,21 @@
+{
+  "time": 200,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "minecraft:bone",
+      "amount": 1
+    },
+    {
+      "item": [
+        "minecraft:glow_berries",
+        "minecraft:brown_mushroom",
+		"minecraft:red_mushroom",
+        "minecraft:hanging_roots",
+        "minecraft:glow_lichen"
+      ],
+      "amount": 1
+    }
+  ],
+  "result": "farmersdelight:bone_broth"
+}

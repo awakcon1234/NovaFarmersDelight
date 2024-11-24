@@ -1,0 +1,9 @@
+{
+  "category": "food",
+  "result": "farmersdelight:smoked_ham",
+  "experience": 0.35,
+  "time": 200,
+  "input": [
+    "farmersdelight:ham"
+  ]
+}

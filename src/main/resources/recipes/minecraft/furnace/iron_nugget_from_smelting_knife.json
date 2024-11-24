@@ -1,0 +1,9 @@
+{
+  "category": "misc",
+  "result": "minecraft:iron_nugget",
+  "experience": 0.1,
+  "time": 200,
+  "input": [
+    "farmersdelight:iron_knife"
+  ]
+}

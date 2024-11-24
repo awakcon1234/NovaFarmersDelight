@@ -1,0 +1,9 @@
+{
+  "category": "food",
+  "result": "farmersdelight:cooked_cod_slice",
+  "experience": 0.35,
+  "time": 100,
+  "input": [
+    "farmersdelight:cod_slice"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "time": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": [
+		"minecraft:beef",
+		"farmersdelight:minced_beef"
+	  ],
+      "amount": 1
+    },
+    {
+      "item": "minecraft:carrot",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:potato",
+      "amount": 1
+    }
+  ],
+  "result": "farmersdelight:beef_stew"
+}

@@ -1,0 +1,19 @@
+{
+  "time": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:apple",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:apple",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:sugar",
+      "amount": 1
+    }
+  ],
+  "result": "farmersdelight:apple_cider"
+}

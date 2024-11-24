@@ -1,0 +1,9 @@
+{
+  "category": "misc",
+  "result": "minecraft:gold_nugget",
+  "experience": 0.1,
+  "time": 100,
+  "input": [
+    "farmersdelight:golden_knife"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "time": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:brown_mushroom",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:red_mushroom",
+      "amount": 1
+    },
+    {
+      "item": "farmersdelight:rice",
+      "amount": 1
+    },
+    {
+      "item": [
+        "minecraft:carrot",
+        "minecraft:potato"
+      ],
+      "amount": 1
+    }
+  ],
+  "result": "farmersdelight:mushroom_rice"
+}

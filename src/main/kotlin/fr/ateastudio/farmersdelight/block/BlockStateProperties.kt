@@ -12,6 +12,7 @@ object BlockStateProperties {
     val BUDDING_AGE = IntProperty(ResourceLocation(NovaFarmersDelight, "budding_age"))
     val HEATED = BooleanProperty(ResourceLocation(NovaFarmersDelight, "heated"))
     val SUPPORT = EnumProperty<CookingPotSupport>(ResourceLocation(NovaFarmersDelight, "support"))
+    val PAIRED = BooleanProperty(ResourceLocation(NovaFarmersDelight, "paired"))
 }
 
 object ScopedBlockStateProperties {
@@ -20,4 +21,5 @@ object ScopedBlockStateProperties {
     val BUDDING_AGE = BlockStateProperties.BUDDING_AGE.scope(-1..7)
     val HEATED = BlockStateProperties.HEATED.scope(true, false)
     val SUPPORT = BlockStateProperties.SUPPORT.scope(CookingPotSupport.NONE, CookingPotSupport.HANDLE, CookingPotSupport.TRAY)
+    val PAIRED = BlockStateProperties.PAIRED.scope(true, false)
 }

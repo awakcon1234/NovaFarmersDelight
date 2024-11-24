@@ -1,0 +1,26 @@
+{
+  "time": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": [
+		"minecraft:milk_bucket",
+		"farmersdelight:milk_bottle"
+	  ],
+      "amount": 1
+    },
+    {
+      "item": "minecraft:sugar",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:cocoa_beans",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:cocoa_beans",
+      "amount": 1
+    }
+  ],
+  "result": "farmersdelight:hot_cocoa"
+}

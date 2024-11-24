@@ -1,9 +1,0 @@
-{
-  "inputs": [
-    "farmersdelight:rice"
-  ],
-  "result": "farmersdelight:cooked_rice",
-  "container": "minecraft:bowl",
-  "experience": 0.35,
-  "time": 100
-}

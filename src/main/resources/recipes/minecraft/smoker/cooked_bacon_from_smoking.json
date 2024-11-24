@@ -1,0 +1,9 @@
+{
+  "category": "food",
+  "result": "farmersdelight:cooked_bacon",
+  "experience": 0.35,
+  "time": 100,
+  "input": [
+    "farmersdelight:bacon"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "category": "food",
+  "result": "minecraft:bread",
+  "experience": 0.35,
+  "time": 100,
+  "input": [
+    "farmersdelight:wheat_dough"
+  ]
+}

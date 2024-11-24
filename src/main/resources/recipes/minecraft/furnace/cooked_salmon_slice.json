@@ -1,0 +1,9 @@
+{
+  "category": "food",
+  "result": "farmersdelight:cooked_salmon_slice",
+  "experience": 0.35,
+  "time": 200,
+  "input": [
+    "farmersdelight:salmon_slice"
+  ]
+}

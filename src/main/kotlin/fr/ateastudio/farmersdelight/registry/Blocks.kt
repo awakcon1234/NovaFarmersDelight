@@ -4,6 +4,7 @@ import fr.ateastudio.farmersdelight.NovaFarmersDelight
 import fr.ateastudio.farmersdelight.block.BlockStateProperties
 import fr.ateastudio.farmersdelight.block.CookingPotSupport
 import fr.ateastudio.farmersdelight.block.ScopedBlockStateProperties
+import fr.ateastudio.farmersdelight.block.ScopedBlockStateProperties.PAIRED
 import fr.ateastudio.farmersdelight.block.behavior.Ageable
 import fr.ateastudio.farmersdelight.block.behavior.CabbageCrop
 import fr.ateastudio.farmersdelight.block.behavior.CookingPotBehavior
@@ -13,7 +14,9 @@ import fr.ateastudio.farmersdelight.block.behavior.OnionCrop
 import fr.ateastudio.farmersdelight.block.behavior.RiceCrop
 import fr.ateastudio.farmersdelight.block.behavior.TomatoCrop
 import fr.ateastudio.farmersdelight.tileentity.CookingPot
+import org.bukkit.Axis
 import org.bukkit.Material
+import org.bukkit.block.BlockFace
 import xyz.xenondevs.nova.addon.registry.BlockRegistry
 import xyz.xenondevs.nova.initialize.Init
 import xyz.xenondevs.nova.initialize.InitStage
@@ -28,7 +31,13 @@ import xyz.xenondevs.nova.world.block.behavior.TileEntityDrops
 import xyz.xenondevs.nova.world.block.behavior.TileEntityInteractive
 import xyz.xenondevs.nova.world.block.behavior.TileEntityLimited
 import xyz.xenondevs.nova.world.block.sound.SoundGroup
+import xyz.xenondevs.nova.world.block.state.property.DefaultBlockStateProperties
+import xyz.xenondevs.nova.world.block.state.property.DefaultScopedBlockStateProperties
+import xyz.xenondevs.nova.world.block.state.property.DefaultScopedBlockStateProperties.AXIS
+import xyz.xenondevs.nova.world.block.state.property.DefaultScopedBlockStateProperties.FACING_CARTESIAN
 import xyz.xenondevs.nova.world.block.state.property.DefaultScopedBlockStateProperties.FACING_HORIZONTAL
+import xyz.xenondevs.nova.world.block.state.property.DefaultScopedBlockStateProperties.FACING_ROTATION
+import xyz.xenondevs.nova.world.block.state.property.DefaultScopedBlockStateProperties.FACING_VERTICAL
 import xyz.xenondevs.nova.world.item.tool.VanillaToolCategories
 import xyz.xenondevs.nova.world.item.tool.VanillaToolTiers
 
@@ -86,9 +95,48 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     val ONION_CRATE = nonInteractiveBlock("onion_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
     val RICE_BALE = nonInteractiveBlock("rice_bale") { behaviors(BALE, BlockDrops, BlockSounds(SoundGroup.GRASS)) }
     val RICE_BAG = nonInteractiveBlock("rice_bag") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
-    val STRAW_BALE = nonInteractiveBlock("straw_bale") { behaviors(BALE, BlockDrops, BlockSounds(SoundGroup.GRASS)) }
+    val STRAW_BALE = block("straw_bale") {
+        behaviors(BALE, BlockDrops, BlockSounds(SoundGroup.GRASS))
+        stateProperties(AXIS)
+        models {
+            stateBacked(BackingStateCategory.MUSHROOM_BLOCK, BackingStateCategory.NOTE_BLOCK)
+            selectModel {
+                //defaultModel.rotated()
+                val axis = getPropertyValueOrThrow(DefaultBlockStateProperties.AXIS)
+                when (axis) {
+                    Axis.X -> getModel("block/straw_bale_horizontal")
+                    Axis.Y -> getModel("block/straw_bale")
+                    Axis.Z -> getModel("block/straw_bale_horizontal").rotateY(Math.toRadians(90.0))
+                }
+            }
+        }
+    }
     
-    val TATAMI = nonInteractiveBlock("tatami") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
+    val TATAMI = nonInteractiveBlock("tatami") {
+        behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL))
+        stateProperties(FACING_CARTESIAN, PAIRED)
+        models {
+            stateBacked(BackingStateCategory.MUSHROOM_BLOCK, BackingStateCategory.NOTE_BLOCK)
+            selectModel {
+                val paired = getPropertyValueOrThrow(BlockStateProperties.PAIRED)
+                val face = getPropertyValueOrThrow(DefaultBlockStateProperties.FACING)
+                if (paired) {
+                    when (face) {
+                        BlockFace.UP -> getModel("block/tatami_even").rotated()
+                        BlockFace.DOWN -> getModel("block/tatami_odd").rotated()
+                        BlockFace.NORTH -> getModel("block/tatami_even").rotated()
+                        BlockFace.SOUTH -> getModel("block/tatami_odd").rotated()
+                        BlockFace.EAST -> getModel("block/tatami_even").rotated()
+                        BlockFace.WEST -> getModel("block/tatami_odd").rotated()
+                        else -> getModel("block/tatami_half")
+                    }
+                }
+                else {
+                    getModel("block/tatami_half")
+                }
+            }
+        }
+    }
     
     val MUDDY_FARMLAND = block("muddy_farmland") {
         behaviors(MUD, BlockSounds(SoundGroup.MUD), MuddyFarmland)
@@ -121,7 +169,7 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     ): NovaBlock = block(name) {
         block()
         models {
-            stateBacked(BackingStateCategory.NOTE_BLOCK, BackingStateCategory.MUSHROOM_BLOCK)
+            stateBacked(BackingStateCategory.MUSHROOM_BLOCK, BackingStateCategory.NOTE_BLOCK)
         }
     }
     

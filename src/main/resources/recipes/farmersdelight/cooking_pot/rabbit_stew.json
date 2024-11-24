@@ -1,0 +1,26 @@
+{
+  "time": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:baked_potato",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:rabbit",
+      "amount": 1
+    },
+    {
+      "item": "minecraft:carrot",
+      "amount": 1
+    },
+    {
+      "item": [
+        "minecraft:brown_mushroom",
+        "minecraft:red_mushroom"
+      ],
+      "amount": 1
+    }
+  ],
+  "result": "minecraft:rabbit_stew"
+}

@@ -1,0 +1,9 @@
+{
+  "category": "food",
+  "result": "farmersdelight:beef_patty",
+  "experience": 0.35,
+  "time": 200,
+  "input": [
+    "farmersdelight:minced_beef"
+  ]
+}
