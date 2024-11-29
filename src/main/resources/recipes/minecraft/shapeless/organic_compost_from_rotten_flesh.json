@@ -9,35 +9,15 @@
     },
     {
       "item": "minecraft:rotten_flesh",
-      "amount": 1
-    },
-    {
-      "item": "minecraft:rotten_flesh",
-      "amount": 1
+      "amount": 2
     },
     {
       "item": "farmersdelight:straw",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:straw",
-      "amount": 1
+      "amount": 2
     },
     {
       "item": "minecraft:bone_meal",
-      "amount": 1
-    },
-    {
-      "item": "minecraft:bone_meal",
-      "amount": 1
-    },
-    {
-      "item": "minecraft:bone_meal",
-      "amount": 1
-    },
-    {
-      "item": "minecraft:bone_meal",
-      "amount": 1
+      "amount": 4
     }
   ]
 }

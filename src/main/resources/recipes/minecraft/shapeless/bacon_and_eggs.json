@@ -5,11 +5,7 @@
   "ingredients": [
     {
       "item": "farmersdelight:cooked_bacon",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:cooked_bacon",
-      "amount": 1
+      "amount": 2
     },
     {
       "item": "minecraft:bowl",
@@ -17,11 +13,7 @@
     },
     {
       "item": "farmersdelight:fried_egg",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:fried_egg",
-      "amount": 1
+      "amount": 2
     }
   ]
 }

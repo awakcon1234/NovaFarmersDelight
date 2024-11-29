@@ -11,10 +11,12 @@ import fr.ateastudio.farmersdelight.block.behavior.CookingPotBehavior
 import fr.ateastudio.farmersdelight.block.behavior.CuttingBoard
 import fr.ateastudio.farmersdelight.block.behavior.MuddyFarmland
 import fr.ateastudio.farmersdelight.block.behavior.OnionCrop
+import fr.ateastudio.farmersdelight.block.behavior.PairedBlock
 import fr.ateastudio.farmersdelight.block.behavior.RiceCrop
+import fr.ateastudio.farmersdelight.block.behavior.TatamiMatFoot
+import fr.ateastudio.farmersdelight.block.behavior.TatamiMatHead
 import fr.ateastudio.farmersdelight.block.behavior.TomatoCrop
 import fr.ateastudio.farmersdelight.tileentity.CookingPot
-import org.bukkit.Axis
 import org.bukkit.Material
 import org.bukkit.block.BlockFace
 import xyz.xenondevs.nova.addon.registry.BlockRegistry
@@ -90,7 +92,16 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     val CABBAGE_CRATE = nonInteractiveBlock("cabbage_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
     val TOMATO_CRATE = nonInteractiveBlock("tomato_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
     val ONION_CRATE = nonInteractiveBlock("onion_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
-    val RICE_BALE = nonInteractiveBlock("rice_bale") { behaviors(BALE, BlockDrops, BlockSounds(SoundGroup.GRASS)) }
+    val RICE_BALE = nonInteractiveBlock("rice_bale") {
+        behaviors(BALE, BlockDrops, BlockSounds(SoundGroup.GRASS))
+        stateProperties(FACING_CARTESIAN)
+        models {
+            stateBacked(BackingStateCategory.MUSHROOM_BLOCK, BackingStateCategory.NOTE_BLOCK)
+            selectModel {
+                defaultModel.rotated()
+            }
+        }
+    }
     val RICE_BAG = nonInteractiveBlock("rice_bag") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
     val STRAW_BALE = block("straw_bale") {
         behaviors(BALE, BlockDrops, BlockSounds(SoundGroup.GRASS))
@@ -98,19 +109,13 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
         models {
             stateBacked(BackingStateCategory.MUSHROOM_BLOCK, BackingStateCategory.NOTE_BLOCK)
             selectModel {
-                //defaultModel.rotated()
-                val axis = getPropertyValueOrThrow(DefaultBlockStateProperties.AXIS)
-                when (axis) {
-                    Axis.X -> getModel("block/straw_bale_horizontal")
-                    Axis.Y -> getModel("block/straw_bale")
-                    Axis.Z -> getModel("block/straw_bale_horizontal").rotateY(Math.toRadians(90.0))
-                }
+                defaultModel.rotated()
             }
         }
     }
     
-    val TATAMI = nonInteractiveBlock("tatami") {
-        behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL))
+    val TATAMI = block("tatami") {
+        behaviors(PairedBlock, BAG, BlockDrops, BlockSounds(SoundGroup.WOOL))
         stateProperties(FACING_CARTESIAN, PAIRED)
         models {
             stateBacked(BackingStateCategory.MUSHROOM_BLOCK, BackingStateCategory.NOTE_BLOCK)
@@ -119,19 +124,63 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
                 val face = getPropertyValueOrThrow(DefaultBlockStateProperties.FACING)
                 if (paired) {
                     when (face) {
-                        BlockFace.UP -> getModel("block/tatami_even").rotated()
-                        BlockFace.DOWN -> getModel("block/tatami_odd").rotated()
-                        BlockFace.NORTH -> getModel("block/tatami_even").rotated()
-                        BlockFace.SOUTH -> getModel("block/tatami_odd").rotated()
-                        BlockFace.EAST -> getModel("block/tatami_even").rotated()
-                        BlockFace.WEST -> getModel("block/tatami_odd").rotated()
-                        else -> getModel("block/tatami_half")
+                        BlockFace.DOWN -> getModel("block/tatami_odd")
+                        BlockFace.UP -> getModel("block/tatami_even").rotateX(-180.0)
+                        BlockFace.NORTH -> getModel("block/tatami_odd").rotateX(-90.0)
+                        BlockFace.SOUTH -> getModel("block/tatami_even").rotateX(90.0)
+                        BlockFace.EAST -> getModel("block/tatami_odd").rotateZ(90.0)
+                        BlockFace.WEST -> getModel("block/tatami_even").rotateZ(-90.0)
+                        else -> getModel("block/tatami_half").rotated()
                     }
                 }
                 else {
-                    getModel("block/tatami_half")
+                    getModel("block/tatami_half").rotated()
                 }
             }
+        }
+    }
+    
+    val FULL_TATAMI_MAT_HEAD = block("full_tatami_mat_head") {
+        behaviors(TatamiMatHead, BAG, BlockDrops, BlockSounds(SoundGroup.WOOL))
+        stateProperties(FACING_HORIZONTAL)
+        models {
+            stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED, BackingStateCategory.TRIPWIRE_UNATTACHED)
+            selectModel {
+                getModel("block/tatami_mat_head").rotateY(180.0).rotated()
+            }
+        }
+    }
+    
+    val FULL_TATAMI_MAT_FOOT = block("full_tatami_mat_foot") {
+        behaviors(TatamiMatFoot, BAG, BlockSounds(SoundGroup.WOOL))
+        stateProperties(FACING_HORIZONTAL)
+        models {
+            stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED, BackingStateCategory.TRIPWIRE_UNATTACHED)
+            selectModel {
+                getModel("block/tatami_mat_foot").rotated()
+            }
+        }
+    }
+    
+    val HALF_TATAMI_MAT = block("half_tatami_mat") {
+        behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL))
+        stateProperties(FACING_HORIZONTAL)
+        models {
+            stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED, BackingStateCategory.TRIPWIRE_UNATTACHED)
+            selectModel {
+                val face = getPropertyValueOrThrow(DefaultBlockStateProperties.FACING)
+                    when (face) {
+                        BlockFace.SOUTH, BlockFace.NORTH -> getModel("block/tatami_mat_half")
+                        else -> getModel("block/tatami_mat_half").rotateY(90.0)
+                    }
+            }
+        }
+    }
+    
+    val CANVAS_RUG = block("canvas_rug") {
+        behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL))
+        models {
+            stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED, BackingStateCategory.TRIPWIRE_UNATTACHED)
         }
     }
     
@@ -151,8 +200,8 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     val WILD_BEETROOTS = plantBlock("wild_beetroots") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
     val WILD_RICE = plantBlock("wild_rice") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
     
-    val BROWN_MUSHROOM_COLONY = cropBlock("brown_mushroom_colony", TomatoCrop, 3)
-    val RED_MUSHROOM_COLONY = cropBlock("red_mushroom_colony", TomatoCrop, 3)
+    // val BROWN_MUSHROOM_COLONY = cropBlock("brown_mushroom_colony", TomatoCrop, 3)
+    // val RED_MUSHROOM_COLONY = cropBlock("red_mushroom_colony", TomatoCrop, 3)
     val CABBAGES_CROP = cropBlock("cabbages", CabbageCrop, 7)
     val TOMATOES_CROP = cropBlock("tomatoes", TomatoCrop, 7,3)
     val ONION_CROP = cropBlock("onions", OnionCrop, 3)

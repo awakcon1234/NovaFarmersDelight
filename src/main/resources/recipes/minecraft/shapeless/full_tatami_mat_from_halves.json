@@ -5,11 +5,7 @@
   "ingredients": [
     {
       "item": "farmersdelight:half_tatami_mat",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:half_tatami_mat",
-      "amount": 1
+      "amount": 2
     }
   ]
 }

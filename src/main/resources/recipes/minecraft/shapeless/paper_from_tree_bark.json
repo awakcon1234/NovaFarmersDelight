@@ -5,15 +5,7 @@
   "ingredients": [
     {
       "item": "farmersdelight:tree_bark",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:tree_bark",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:tree_bark",
-      "amount": 1
+      "amount": 3
     }
   ]
 }

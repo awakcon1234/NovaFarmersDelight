@@ -5,31 +5,7 @@
   "ingredients": [
     {
       "item": "farmersdelight:cake_slice",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:cake_slice",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:cake_slice",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:cake_slice",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:cake_slice",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:cake_slice",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:cake_slice",
-      "amount": 1
+      "amount": 7
     }
   ]
 }

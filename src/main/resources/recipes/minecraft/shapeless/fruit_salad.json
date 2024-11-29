@@ -9,25 +9,14 @@
     },
     {
       "item": "minecraft:melon_slice",
-      "amount": 1
-    },
-    {
-      "item": "minecraft:melon_slice",
-      "amount": 1
+      "amount": 2
     },
     {
       "item": [
-		"minecraft:sweet_berries",
-		"minecraft:glow_berries"
+        "minecraft:sweet_berries",
+        "minecraft:glow_berries"
 	  ],
-      "amount": 1
-    },
-    {
-      "item": [
-		"minecraft:sweet_berries",
-		"minecraft:glow_berries"
-	  ],
-      "amount": 1
+      "amount": 2
     },
     {
       "item": "farmersdelight:pumpkin_slice",

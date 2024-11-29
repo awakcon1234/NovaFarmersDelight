@@ -1,5 +1,6 @@
 package fr.ateastudio.farmersdelight.recipe.cuttingboard
 
+import fr.ateastudio.farmersdelight.registry.Items
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.RecipeChoice
@@ -8,6 +9,7 @@ import xyz.xenondevs.nova.world.item.tool.ToolCategory
 import xyz.xenondevs.nova.world.item.tool.VanillaToolCategories
 
 sealed class ToolActionIngredient : RecipeChoice {
+    abstract fun getChoices() : List<ItemStack>
     
     /**
      * Represents a tool identified by its tag.
@@ -33,6 +35,20 @@ sealed class ToolActionIngredient : RecipeChoice {
                 else -> ItemStack.empty()
             }
         }
+        override fun getChoices(): List<ItemStack> {
+            return when(tag) {
+                ToolTag.SHEARS -> listOf(Material.SHEARS.toItemStack())
+                ToolTag.KNIVES -> listOf(
+                    Items.FLINT_KNIFE.createItemStack(),
+                    Items.IRON_KNIFE.createItemStack(),
+                    Items.GOLDEN_KNIFE.createItemStack(),
+                    Items.DIAMOND_KNIFE.createItemStack(),
+                    Items.NETHERITE_KNIFE.createItemStack(),
+                )
+                else -> listOf(ItemStack.empty())
+            }
+        }
+        
     }
     
     /**
@@ -53,6 +69,55 @@ sealed class ToolActionIngredient : RecipeChoice {
         
         override fun clone(): RecipeChoice {
             return Action(type, action)
+        }
+        
+        override fun getChoices(): List<ItemStack> {
+            return when (action.actionName.split("_").getOrNull(0)) {
+                "axe" -> listOf(
+                    Material.WOODEN_AXE.toItemStack(),
+                    Material.STONE_AXE.toItemStack(),
+                    Material.IRON_AXE.toItemStack(),
+                    Material.GOLDEN_AXE.toItemStack(),
+                    Material.DIAMOND_AXE.toItemStack(),
+                    Material.NETHERITE_AXE.toItemStack(),
+                )
+                "pickaxe" -> listOf(
+                    Material.WOODEN_PICKAXE.toItemStack(),
+                    Material.STONE_PICKAXE.toItemStack(),
+                    Material.IRON_PICKAXE.toItemStack(),
+                    Material.GOLDEN_PICKAXE.toItemStack(),
+                    Material.DIAMOND_PICKAXE.toItemStack(),
+                    Material.NETHERITE_PICKAXE.toItemStack(),
+                )
+                "shovel" -> listOf(
+                    Material.WOODEN_SHOVEL.toItemStack(),
+                    Material.STONE_SHOVEL.toItemStack(),
+                    Material.IRON_SHOVEL.toItemStack(),
+                    Material.GOLDEN_SHOVEL.toItemStack(),
+                    Material.DIAMOND_SHOVEL.toItemStack(),
+                    Material.NETHERITE_SHOVEL.toItemStack(),
+                )
+                "hoe", "till" -> listOf(
+                    Material.WOODEN_HOE.toItemStack(),
+                    Material.STONE_HOE.toItemStack(),
+                    Material.IRON_HOE.toItemStack(),
+                    Material.GOLDEN_HOE.toItemStack(),
+                    Material.DIAMOND_HOE.toItemStack(),
+                    Material.NETHERITE_HOE.toItemStack(),
+                )
+                "sword" -> listOf(
+                    Material.WOODEN_SWORD.toItemStack(),
+                    Material.STONE_SWORD.toItemStack(),
+                    Material.IRON_SWORD.toItemStack(),
+                    Material.GOLDEN_SWORD.toItemStack(),
+                    Material.DIAMOND_SWORD.toItemStack(),
+                    Material.NETHERITE_SWORD.toItemStack(),
+                )
+                "shears" -> listOf(Material.SHEARS.toItemStack())
+                "shield" -> listOf(Material.SHIELD.toItemStack())
+                "fishing" -> listOf(Material.FISHING_ROD.toItemStack())
+                else -> listOf(ItemStack.empty())
+            }
         }
         
         @Deprecated("")

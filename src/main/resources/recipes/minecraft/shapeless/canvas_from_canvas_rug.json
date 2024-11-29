@@ -5,11 +5,7 @@
   "ingredients": [
     {
       "item": "farmersdelight:canvas_rug",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:canvas_rug",
-      "amount": 1
+      "amount": 2
     }
   ]
 }

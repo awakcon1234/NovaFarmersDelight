@@ -5,18 +5,10 @@
   "ingredients": [
     {
       "item": "minecraft:sweet_berries",
-      "amount": 1
+      "amount": 4
     },
     {
       "item": "minecraft:honey_bottle",
-      "amount": 1
-    },
-    {
-      "item": "minecraft:sweet_berries",
-      "amount": 1
-    },
-    {
-      "item": "minecraft:sweet_berries",
       "amount": 1
     },
     {
@@ -24,19 +16,11 @@
       "amount": 1
     },
     {
-      "item": "minecraft:sweet_berries",
-      "amount": 1
-    },
-    {
       "item": "farmersdelight:cooked_rice",
-      "amount": 1
+      "amount": 2
     },
     {
       "item": "minecraft:bowl",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:cooked_rice",
       "amount": 1
     }
   ]

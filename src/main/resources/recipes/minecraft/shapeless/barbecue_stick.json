@@ -14,17 +14,17 @@
     {
       "items": [
         "minecraft:cooked_beef",
-		"farmersdelight:beef_patty",
+		    "farmersdelight:beef_patty",
         "minecraft:cooked_porkchop",
-		"farmersdelight:cooked_bacon",
+		    "farmersdelight:cooked_bacon",
         "minecraft:cooked_chicken",
-		"farmersdelight:cooked_chicken_cuts",
+		    "farmersdelight:cooked_chicken_cuts",
         "minecraft:cooked_mutton",
-		"farmersdelight:cooked_mutton_chops",
-		"minecraft:cooked_cod",
-		"farmersdelight:cooked_cod_slice",
-		"minecraft:cooked_salmon",
-		"farmersdelight:cooked_salmon_slice",
+		    "farmersdelight:cooked_mutton_chops",
+		    "minecraft:cooked_cod",
+		    "farmersdelight:cooked_cod_slice",
+		    "minecraft:cooked_salmon",
+		    "farmersdelight:cooked_salmon_slice",
         "minecraft:cooked_rabbit"
       ],
       "amount": 1

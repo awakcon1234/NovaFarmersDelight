@@ -9,11 +9,7 @@
     },
     {
       "item": "minecraft:wheat",
-      "amount": 1
-    },
-    {
-      "item": "minecraft:wheat",
-      "amount": 1
+      "amount": 2
     }
   ]
 }

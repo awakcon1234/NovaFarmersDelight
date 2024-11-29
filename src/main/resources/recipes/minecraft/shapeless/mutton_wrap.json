@@ -9,15 +9,15 @@
     },
     {
       "item": [
-		"minecraft:cooked_mutton",
-		"farmersdelight:cooked_mutton_chops"
+        "minecraft:cooked_mutton",
+        "farmersdelight:cooked_mutton_chops"
 	  ],
       "amount": 1
     },
     {
       "item": [
-		"farmersdelight:cabbage",
-		"farmersdelight:cabbage_leaf"
+        "farmersdelight:cabbage",
+        "farmersdelight:cabbage_leaf"
 	  ],
       "amount": 1
     },

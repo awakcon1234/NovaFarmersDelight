@@ -5,11 +5,7 @@
   "ingredients": [
     {
       "item": "farmersdelight:cod_slice",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:cod_slice",
-      "amount": 1
+      "amount": 2
     },
     {
       "item": "farmersdelight:cooked_rice",

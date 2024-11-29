@@ -5,8 +5,8 @@
   "ingredients": [
     {
       "item": [
-		"minecraft:cooked_salmon",
-		"farmersdelight:cooked_salmon_slice"
+        "minecraft:cooked_salmon",
+        "farmersdelight:cooked_salmon_slice"
 	  ],
       "amount": 1
     },
@@ -20,8 +20,8 @@
     },
     {
       "item": [
-		"farmersdelight:cabbage",
-		"farmersdelight:cabbage_leaf"
+        "farmersdelight:cabbage",
+        "farmersdelight:cabbage_leaf"
 	  ],
       "amount": 1
     },

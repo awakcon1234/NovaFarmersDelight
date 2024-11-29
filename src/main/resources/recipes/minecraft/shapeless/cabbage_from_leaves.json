@@ -5,11 +5,7 @@
   "ingredients": [
     {
       "item": "farmersdelight:cabbage_leaf",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:cabbage_leaf",
-      "amount": 1
+      "amount": 2
     }
   ]
 }

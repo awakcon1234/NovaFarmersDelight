@@ -17,7 +17,7 @@
     },
     {
       "item": "minecraft:carrot",
-      "amount": 1
+      "amount": 2
     },
     {
       "item": "minecraft:cooked_chicken",
@@ -25,18 +25,10 @@
     },
     {
       "item": "minecraft:baked_potato",
-      "amount": 1
-    },
-    {
-      "item": "minecraft:carrot",
-      "amount": 1
+      "amount": 2
     },
     {
       "item": "minecraft:bowl",
-      "amount": 1
-    },
-    {
-      "item": "minecraft:baked_potato",
       "amount": 1
     }
   ]

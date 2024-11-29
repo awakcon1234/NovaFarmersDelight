@@ -2,11 +2,12 @@ package fr.ateastudio.farmersdelight.recipe.cuttingboard
 
 import fr.ateastudio.farmersdelight.registry.GuiTextures
 import fr.ateastudio.farmersdelight.registry.Items
-import net.kyori.adventure.text.Component
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 import xyz.xenondevs.commons.collections.mapToArray
 import xyz.xenondevs.invui.gui.Gui
+import xyz.xenondevs.invui.item.Item
+import xyz.xenondevs.invui.item.ItemWrapper
 import xyz.xenondevs.nova.ui.menu.explorer.recipes.createRecipeChoiceItem
 import xyz.xenondevs.nova.ui.menu.explorer.recipes.group.RecipeGroup
 import xyz.xenondevs.nova.util.item.toItemStack
@@ -27,12 +28,9 @@ object CuttingBoardRecipeGroup : RecipeGroup<CuttingBoardRecipe>() {
             }
         }
         
-        fun toolItem() : ItemStack {
-            @Suppress("DEPRECATION") val item = recipe.tool.itemStack
-            val meta = item.itemMeta
-            meta.displayName(Component.text(recipe.tool.toString()))
-            item.setItemMeta(meta)
-            return item
+        fun toolItem(): Item {
+            val itemProviders = recipe.tool.getChoices().map { ItemWrapper(it) }
+            return createRecipeChoiceItem(itemProviders)
         }
             
         return Gui.normal()

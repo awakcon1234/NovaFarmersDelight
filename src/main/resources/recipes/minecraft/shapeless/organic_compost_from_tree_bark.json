@@ -9,35 +9,15 @@
     },
     {
       "item": "farmersdelight:straw",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:straw",
-      "amount": 1
+      "amount": 2
     },
     {
       "item": "minecraft:bone_meal",
-      "amount": 1
-    },
-    {
-      "item": "minecraft:bone_meal",
-      "amount": 1
+      "amount": 2
     },
     {
       "item": "farmersdelight:tree_bark",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:tree_bark",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:tree_bark",
-      "amount": 1
-    },
-    {
-      "item": "farmersdelight:tree_bark",
-      "amount": 1
+      "amount": 4
     }
   ]
 }

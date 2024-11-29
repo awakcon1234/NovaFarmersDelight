@@ -30,6 +30,22 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
     
     val TATAMI = registerItem(Blocks.TATAMI)
     
+    val FULL_TATAMI_MAT = item(Blocks.FULL_TATAMI_MAT_HEAD, "full_tatami_mat") {
+        models {
+            selectModel {
+                createLayeredModel("item/full_tatami_mat")
+            }
+        }
+    }
+    val HALF_TATAMI_MAT = item(Blocks.HALF_TATAMI_MAT) {
+        models {
+            selectModel {
+                createLayeredModel("item/half_tatami_mat")
+            }
+        }
+    }
+    val CANVAS_RUG = registerItem(Blocks.CANVAS_RUG)
+    
     val MUDDY_FARMLAND = registerItem(Blocks.MUDDY_FARMLAND)
     
     val FLINT_KNIFE = item("flint_knife") {
@@ -113,7 +129,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
             }
         }
     }
-    val BROWN_MUSHROOM_COLONY = item(Blocks.BROWN_MUSHROOM_COLONY, "brown_mushroom_colony") {
+    /* val BROWN_MUSHROOM_COLONY = item(Blocks.BROWN_MUSHROOM_COLONY, "brown_mushroom_colony") {
         models {
             selectModel {
                 createLayeredModel("block/brown_mushroom_colony_stage3")
@@ -126,7 +142,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
                 createLayeredModel("block/red_mushroom_colony_stage3")
             }
         }
-    }
+    }*/
     
     val CABBAGE = registerItem("cabbage", Consumable)
     val TOMATO = registerItem("tomato", Consumable)

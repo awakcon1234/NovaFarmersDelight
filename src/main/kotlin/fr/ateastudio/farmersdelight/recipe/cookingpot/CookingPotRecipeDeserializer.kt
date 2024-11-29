@@ -29,7 +29,8 @@ object CookingPotRecipeDeserializer : RecipeDeserializer<CookingPotRecipe> {
                 
                 val items = it.get("item") ?: it.get("items")
                 val choice = RecipeDeserializer.parseRecipeChoice(items)
-                ingredientsMap[choice] = it.getIntOrNull("amount") ?: 1
+                val current = ingredientsMap[choice] ?: 0
+                ingredientsMap[choice] = current + (it.getIntOrNull("amount") ?: 1)
             }
         }
         

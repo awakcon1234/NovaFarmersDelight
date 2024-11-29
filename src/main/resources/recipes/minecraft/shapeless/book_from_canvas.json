@@ -5,15 +5,7 @@
   "ingredients": [
     {
       "item": "minecraft:paper",
-      "amount": 1
-    },
-    {
-      "item": "minecraft:paper",
-      "amount": 1
-    },
-    {
-      "item": "minecraft:paper",
-      "amount": 1
+      "amount": 3
     },
     {
       "item": "farmersdelight:canvas",

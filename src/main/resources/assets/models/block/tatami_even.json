@@ -1,6 +1,6 @@
 {
   "credit": "Made with Blockbench",
-  "parent": "block/block",
+  "parent": "minecraft:block/block",
   "textures": {
     "particle": "farmersdelight:block/tatami_mat_even",
     "even": "farmersdelight:block/tatami_mat_even",

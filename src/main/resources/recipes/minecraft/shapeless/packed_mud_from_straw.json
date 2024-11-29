@@ -9,11 +9,7 @@
     },
     {
       "item": "minecraft:mud",
-      "amount": 1
-    },
-    {
-      "item": "minecraft:mud",
-      "amount": 1
+      "amount": 2
     }
   ]
 }
