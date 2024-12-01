@@ -71,10 +71,10 @@ object CookingPotListener : Listener {
             val default = updateSupport(pos)
             if (isHandle) {
                 if (default != CookingPotSupport.HANDLE) {
-                    BlockUtils.updateBlockState(pos, state.with(BlockStateProperties.SUPPORT, updateSupport(pos)))
+                    BlockUtils.updateBlockState(pos, state.with(BlockStateProperties.SUPPORT, default))
                 }
                 else {
-                    BlockUtils.updateBlockState(pos, state.with(BlockStateProperties.SUPPORT, CookingPotSupport.NONE))
+                    BlockUtils.updateBlockState(pos, state.with(BlockStateProperties.SUPPORT, updateSupport(pos, BlockFace.UP)))
                 }
             }
             else {
