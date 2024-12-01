@@ -83,7 +83,7 @@ class CookingPot(
     
     private val mealContainerStack: ItemStack
         get() {
-            return mealStorageInventory[0]?.getCraftingRemainingItem() ?: ItemStack.empty()
+            return currentRecipe?.result?.getCraftingRemainingItem() ?: ItemStack.empty()
         }
     
     override fun handleRightClick(ctx: Context<BlockInteract>): Boolean {
