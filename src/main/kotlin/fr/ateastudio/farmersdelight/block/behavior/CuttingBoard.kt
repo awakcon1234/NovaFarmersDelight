@@ -3,7 +3,6 @@ package fr.ateastudio.farmersdelight.block.behavior
 import fr.ateastudio.farmersdelight.recipe.cuttingboard.CuttingBoardRecipe
 import fr.ateastudio.farmersdelight.registry.RecipeTypes
 import fr.ateastudio.farmersdelight.registry.Sounds
-import fr.ateastudio.farmersdelight.util.LogDebug
 import fr.ateastudio.farmersdelight.util.random
 import fr.ateastudio.farmersdelight.util.safeGive
 import net.kyori.adventure.text.Component

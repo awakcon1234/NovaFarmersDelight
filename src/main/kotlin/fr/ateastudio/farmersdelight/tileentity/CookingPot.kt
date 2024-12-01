@@ -194,6 +194,7 @@ class CookingPot(
         }
     }
     
+    @Suppress("UNUSED_PARAMETER")
     private fun validateRecipe(event: ItemPostUpdateEvent) {
         val recipe = getMatchingRecipe(ingredientsInventory.items.toList())
         if (recipe != null && recipe != currentRecipe && canCook(recipe)) {
