@@ -41,8 +41,6 @@ object CuttingBoard : BlockBehavior {
         
         val existingDisplay = findItemDisplay(pos)
         
-        LogDebug("Tool: $tool")
-        
         // If an ItemDisplay already exists, return without spawning a new one
         if (existingDisplay != null) {
             if (tool.isEmpty) {
