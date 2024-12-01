@@ -1,0 +1,24 @@
+{
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "farmersdelight:patch_wild_beetroots",
+      "farmersdelight:patch_wild_cabbages",
+      "farmersdelight:patch_wild_carrots",
+      "farmersdelight:patch_wild_onions",
+      "farmersdelight:patch_wild_potatoes",
+      "farmersdelight:patch_wild_rice",
+      "farmersdelight:patch_wild_tomatoes"
+    ],
+    []
+  ]
+}
