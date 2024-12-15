@@ -1,18 +1,17 @@
 package fr.ateastudio.farmersdelight.block
 
-import fr.ateastudio.farmersdelight.NovaFarmersDelight
-import xyz.xenondevs.nova.util.ResourceLocation
+import net.kyori.adventure.key.Key
 import xyz.xenondevs.nova.world.block.state.property.impl.BooleanProperty
 import xyz.xenondevs.nova.world.block.state.property.impl.EnumProperty
 import xyz.xenondevs.nova.world.block.state.property.impl.IntProperty
 
 object BlockStateProperties {
-    val AGE = IntProperty(ResourceLocation(NovaFarmersDelight, "age"))
-    val MAX_AGE = IntProperty(ResourceLocation(NovaFarmersDelight, "max_age"))
-    val BUDDING_AGE = IntProperty(ResourceLocation(NovaFarmersDelight, "budding_age"))
-    val HEATED = BooleanProperty(ResourceLocation(NovaFarmersDelight, "heated"))
-    val SUPPORT = EnumProperty<CookingPotSupport>(ResourceLocation(NovaFarmersDelight, "support"))
-    val PAIRED = BooleanProperty(ResourceLocation(NovaFarmersDelight, "paired"))
+    val AGE = IntProperty(Key.key("farmersdelight","age"))
+    val MAX_AGE = IntProperty(Key.key("farmersdelight", "max_age"))
+    val BUDDING_AGE = IntProperty(Key.key("farmersdelight", "budding_age"))
+    val HEATED = BooleanProperty(Key.key("farmersdelight", "heated"))
+    val SUPPORT = EnumProperty<CookingPotSupport>(Key.key("farmersdelight", "support"))
+    val PAIRED = BooleanProperty(Key.key("farmersdelight", "paired"))
 }
 
 object ScopedBlockStateProperties {

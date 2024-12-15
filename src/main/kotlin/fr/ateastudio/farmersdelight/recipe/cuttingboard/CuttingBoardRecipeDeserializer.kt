@@ -9,7 +9,7 @@ import xyz.xenondevs.commons.gson.getObject
 import xyz.xenondevs.commons.gson.getString
 import xyz.xenondevs.commons.gson.getStringOrNull
 import xyz.xenondevs.nova.serialization.json.serializer.RecipeDeserializer
-import xyz.xenondevs.nova.serialization.json.serializer.RecipeDeserializer.Companion.getRecipeId
+import xyz.xenondevs.nova.serialization.json.serializer.RecipeDeserializer.Companion.getRecipeKey
 import xyz.xenondevs.nova.serialization.json.serializer.RecipeDeserializer.Companion.parseRecipeChoice
 import xyz.xenondevs.nova.util.item.ItemUtils
 import xyz.xenondevs.nova.util.item.ItemUtils.getItemStack
@@ -59,7 +59,7 @@ object CuttingBoardRecipeDeserializer : RecipeDeserializer<CuttingBoardRecipe> {
         val toolIn = parseTool(toolObject)
         
         val soundId = json.getStringOrNull("sound") ?: ""
-        return CuttingBoardRecipe(getRecipeId(file), inputItemIn, toolIn, resultsMap.toList(), soundId)
+        return CuttingBoardRecipe(getRecipeKey(file), inputItemIn, toolIn, resultsMap.toList(), soundId)
     }
     
     

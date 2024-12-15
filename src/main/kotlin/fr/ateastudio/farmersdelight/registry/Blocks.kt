@@ -22,7 +22,7 @@ import org.bukkit.block.BlockFace
 import xyz.xenondevs.nova.addon.registry.BlockRegistry
 import xyz.xenondevs.nova.initialize.Init
 import xyz.xenondevs.nova.initialize.InitStage
-import xyz.xenondevs.nova.resources.layout.block.BackingStateCategory
+import xyz.xenondevs.nova.resources.builder.layout.block.BackingStateCategory
 import xyz.xenondevs.nova.world.block.NovaBlock
 import xyz.xenondevs.nova.world.block.NovaBlockBuilder
 import xyz.xenondevs.nova.world.block.behavior.BlockBehaviorHolder
@@ -42,13 +42,13 @@ import xyz.xenondevs.nova.world.item.tool.VanillaToolTiers
 
 @Init(stage = InitStage.PRE_PACK)
 object Blocks : BlockRegistry by NovaFarmersDelight.registry {
-    private val CROP = Breakable(0.0, VanillaToolCategories.AXE, VanillaToolTiers.WOOD, false, Material.TALL_GRASS)
-    private val MUD = Breakable(0.5, VanillaToolCategories.SHOVEL, VanillaToolTiers.WOOD, false, Material.MUD)
-    private val BAG = Breakable(0.8, VanillaToolCategories.SHEARS, VanillaToolTiers.WOOD, false, Material.WHITE_WOOL)
-    private val BALE = Breakable(0.8, VanillaToolCategories.HOE, VanillaToolTiers.WOOD, false, Material.HAY_BLOCK)
-    private val CRATE = Breakable(2.0, VanillaToolCategories.AXE, VanillaToolTiers.WOOD, false, Material.OAK_PLANKS)
-    private val LIGHT_METAL = Breakable(0.5, VanillaToolCategories.PICKAXE, VanillaToolTiers.WOOD, false, Material.CAULDRON)
-    private val SPRUCE_PLANK = Breakable(0.5, VanillaToolCategories.AXE, VanillaToolTiers.WOOD, false, Material.SPRUCE_PLANKS)
+    private val CROP = Breakable(0.0, setOf(VanillaToolCategories.AXE), VanillaToolTiers.WOOD, false, Material.TALL_GRASS)
+    private val MUD = Breakable(0.5, setOf(VanillaToolCategories.SHOVEL), VanillaToolTiers.WOOD, false, Material.MUD)
+    private val BAG = Breakable(0.8, setOf(VanillaToolCategories.SHEARS), VanillaToolTiers.WOOD, false, Material.WHITE_WOOL)
+    private val BALE = Breakable(0.8, setOf(VanillaToolCategories.HOE), VanillaToolTiers.WOOD, false, Material.HAY_BLOCK)
+    private val CRATE = Breakable(2.0, setOf(VanillaToolCategories.AXE), VanillaToolTiers.WOOD, false, Material.OAK_PLANKS)
+    private val LIGHT_METAL = Breakable(0.5, setOf(VanillaToolCategories.PICKAXE), VanillaToolTiers.WOOD, false, Material.CAULDRON)
+    private val SPRUCE_PLANK = Breakable(0.5, setOf(VanillaToolCategories.AXE), VanillaToolTiers.WOOD, false, Material.SPRUCE_PLANKS)
     
     val COOKING_POT = tileEntity("cooking_pot", ::CookingPot) {
         behaviors(
@@ -61,14 +61,12 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
         )
         tickrate(20)
         stateProperties(FACING_HORIZONTAL, ScopedBlockStateProperties.SUPPORT, ScopedBlockStateProperties.HEATED)
-        models {
-            selectModel {
-                val support = getPropertyValueOrThrow(BlockStateProperties.SUPPORT)
-                when (support) {
-                    CookingPotSupport.HANDLE -> getModel("block/cooking_pot_handle").rotated()
-                    CookingPotSupport.TRAY -> getModel("block/cooking_pot_tray").rotated()
-                    else -> getModel("block/cooking_pot").rotated()
-                }
+        stateBacked(BackingStateCategory.LEAVES) {
+            val support = getPropertyValueOrThrow(BlockStateProperties.SUPPORT)
+            when (support) {
+                CookingPotSupport.HANDLE -> getModel("block/cooking_pot_handle").rotated()
+                CookingPotSupport.TRAY -> getModel("block/cooking_pot_tray").rotated()
+                else -> getModel("block/cooking_pot").rotated()
             }
         }
     }
@@ -80,10 +78,7 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
             CuttingBoard
         )
         stateProperties(FACING_HORIZONTAL)
-        models {
-            stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED)
-            selectModel { defaultModel.rotated() }
-        }
+        stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED) { defaultModel.rotated() }
     }
     
     val CARROT_CRATE = nonInteractiveBlock("carrot_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
@@ -95,47 +90,38 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     val RICE_BALE = nonInteractiveBlock("rice_bale") {
         behaviors(BALE, BlockDrops, BlockSounds(SoundGroup.GRASS))
         stateProperties(FACING_CARTESIAN)
-        models {
-            stateBacked(BackingStateCategory.MUSHROOM_BLOCK, BackingStateCategory.NOTE_BLOCK)
-            selectModel {
-                defaultModel.rotated()
-            }
+        stateBacked(BackingStateCategory.MUSHROOM_BLOCK, BackingStateCategory.NOTE_BLOCK) {
+            defaultModel.rotated()
         }
     }
     val RICE_BAG = nonInteractiveBlock("rice_bag") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
     val STRAW_BALE = block("straw_bale") {
         behaviors(BALE, BlockDrops, BlockSounds(SoundGroup.GRASS))
         stateProperties(AXIS)
-        models {
-            stateBacked(BackingStateCategory.MUSHROOM_BLOCK, BackingStateCategory.NOTE_BLOCK)
-            selectModel {
-                defaultModel.rotated()
-            }
+        stateBacked(BackingStateCategory.MUSHROOM_BLOCK, BackingStateCategory.NOTE_BLOCK) {
+            defaultModel.rotated()
         }
     }
     
     val TATAMI = block("tatami") {
         behaviors(PairedBlock, BAG, BlockDrops, BlockSounds(SoundGroup.WOOL))
         stateProperties(FACING_CARTESIAN, PAIRED)
-        models {
-            stateBacked(BackingStateCategory.MUSHROOM_BLOCK, BackingStateCategory.NOTE_BLOCK)
-            selectModel {
-                val paired = getPropertyValueOrThrow(BlockStateProperties.PAIRED)
-                val face = getPropertyValueOrThrow(DefaultBlockStateProperties.FACING)
-                if (paired) {
-                    when (face) {
-                        BlockFace.DOWN -> getModel("block/tatami_odd")
-                        BlockFace.UP -> getModel("block/tatami_even").rotateX(-180.0)
-                        BlockFace.NORTH -> getModel("block/tatami_odd").rotateX(-90.0)
-                        BlockFace.SOUTH -> getModel("block/tatami_even").rotateX(90.0)
-                        BlockFace.EAST -> getModel("block/tatami_odd").rotateZ(90.0)
-                        BlockFace.WEST -> getModel("block/tatami_even").rotateZ(-90.0)
-                        else -> getModel("block/tatami_half").rotated()
-                    }
+        stateBacked(BackingStateCategory.MUSHROOM_BLOCK, BackingStateCategory.NOTE_BLOCK) {
+            val paired = getPropertyValueOrThrow(BlockStateProperties.PAIRED)
+            val face = getPropertyValueOrThrow(DefaultBlockStateProperties.FACING)
+            if (paired) {
+                when (face) {
+                    BlockFace.DOWN -> getModel("block/tatami_odd")
+                    BlockFace.UP -> getModel("block/tatami_even").rotateX(-180.0)
+                    BlockFace.NORTH -> getModel("block/tatami_odd").rotateX(-90.0)
+                    BlockFace.SOUTH -> getModel("block/tatami_even").rotateX(90.0)
+                    BlockFace.EAST -> getModel("block/tatami_odd").rotateZ(90.0)
+                    BlockFace.WEST -> getModel("block/tatami_even").rotateZ(-90.0)
+                    else -> getModel("block/tatami_half").rotated()
                 }
-                else {
-                    getModel("block/tatami_half").rotated()
-                }
+            }
+            else {
+                getModel("block/tatami_half").rotated()
             }
         }
     }
@@ -143,52 +129,39 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     val FULL_TATAMI_MAT_HEAD = block("full_tatami_mat_head") {
         behaviors(TatamiMatHead, BAG, BlockDrops, BlockSounds(SoundGroup.WOOL))
         stateProperties(FACING_HORIZONTAL)
-        models {
-            stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED, BackingStateCategory.TRIPWIRE_UNATTACHED)
-            selectModel {
-                getModel("block/tatami_mat_head").rotateY(180.0).rotated()
-            }
+        stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED, BackingStateCategory.TRIPWIRE_UNATTACHED) {
+            getModel("block/tatami_mat_head").rotateY(180.0).rotated()
         }
     }
     
     val FULL_TATAMI_MAT_FOOT = block("full_tatami_mat_foot") {
         behaviors(TatamiMatFoot, BAG, BlockSounds(SoundGroup.WOOL))
         stateProperties(FACING_HORIZONTAL)
-        models {
-            stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED, BackingStateCategory.TRIPWIRE_UNATTACHED)
-            selectModel {
-                getModel("block/tatami_mat_foot").rotated()
-            }
+        stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED, BackingStateCategory.TRIPWIRE_UNATTACHED) {
+            getModel("block/tatami_mat_foot").rotated()
         }
     }
     
     val HALF_TATAMI_MAT = block("half_tatami_mat") {
         behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL))
         stateProperties(FACING_HORIZONTAL)
-        models {
-            stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED, BackingStateCategory.TRIPWIRE_UNATTACHED)
-            selectModel {
-                val face = getPropertyValueOrThrow(DefaultBlockStateProperties.FACING)
-                    when (face) {
-                        BlockFace.SOUTH, BlockFace.NORTH -> getModel("block/tatami_mat_half")
-                        else -> getModel("block/tatami_mat_half").rotateY(90.0)
-                    }
-            }
+        stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED, BackingStateCategory.TRIPWIRE_UNATTACHED) {
+            val face = getPropertyValueOrThrow(DefaultBlockStateProperties.FACING)
+                when (face) {
+                    BlockFace.SOUTH, BlockFace.NORTH -> getModel("block/tatami_mat_half")
+                    else -> getModel("block/tatami_mat_half").rotateY(90.0)
+                }
         }
     }
     
     val CANVAS_RUG = block("canvas_rug") {
         behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL))
-        models {
-            stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED, BackingStateCategory.TRIPWIRE_UNATTACHED)
-        }
+        stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED, BackingStateCategory.TRIPWIRE_UNATTACHED)
     }
     
     val MUDDY_FARMLAND = block("muddy_farmland") {
         behaviors(MUD, BlockSounds(SoundGroup.MUD), MuddyFarmland)
-        models {
-            stateBacked(BackingStateCategory.LEAVES, BackingStateCategory.NOTE_BLOCK)
-        }
+        stateBacked(BackingStateCategory.LEAVES, BackingStateCategory.NOTE_BLOCK)
     }
     
     val SANDY_SHRUB = plantBlock("sandy_shrub") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
@@ -214,9 +187,7 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
         block: NovaBlockBuilder.() -> Unit
     ): NovaBlock = block(name) {
         block()
-        models {
-            stateBacked(BackingStateCategory.MUSHROOM_BLOCK, BackingStateCategory.NOTE_BLOCK)
-        }
+        stateBacked(BackingStateCategory.MUSHROOM_BLOCK, BackingStateCategory.NOTE_BLOCK)
     }
     
     private fun plantBlock(
@@ -225,9 +196,7 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     ): NovaBlock = block(name) {
         block()
         stateProperties(ScopedBlockStateProperties.AGE, ScopedBlockStateProperties.BUDDING_AGE, ScopedBlockStateProperties.MAX_AGE)
-        models {
-            stateBacked(BackingStateCategory.TRIPWIRE_UNATTACHED, BackingStateCategory.TRIPWIRE_ATTACHED)
-        }
+        stateBacked(BackingStateCategory.TRIPWIRE_UNATTACHED, BackingStateCategory.TRIPWIRE_ATTACHED)
     }
     
     private fun cropBlock(
@@ -240,18 +209,15 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
         block()
         behaviors(CROP, Ageable(maxAge, buddingAge), cropBehavior, BlockSounds(SoundGroup.CROP))
         stateProperties(ScopedBlockStateProperties.AGE, ScopedBlockStateProperties.BUDDING_AGE, ScopedBlockStateProperties.MAX_AGE)
-        models {
-            stateBacked(BackingStateCategory.TRIPWIRE_UNATTACHED, BackingStateCategory.TRIPWIRE_ATTACHED)
-            selectModel {
-                val age = getPropertyValueOrThrow(BlockStateProperties.AGE)
-                var id = if (age > maxAge) maxAge else age
-                if (id > buddingAge) {
-                    id -= (buddingAge + 1)
-                    getModel("block/${name}_stage$id")
-                }
-                else {
-                    getModel("block/budding_${name}_stage$id")
-                }
+        stateBacked(BackingStateCategory.TRIPWIRE_UNATTACHED, BackingStateCategory.TRIPWIRE_ATTACHED) {
+            val age = getPropertyValueOrThrow(BlockStateProperties.AGE)
+            var id = if (age > maxAge) maxAge else age
+            if (id > buddingAge) {
+                id -= (buddingAge + 1)
+                getModel("block/${name}_stage$id")
+            }
+            else {
+                getModel("block/budding_${name}_stage$id")
             }
         }
     }

@@ -46,6 +46,6 @@ object CookingPotRecipeDeserializer : RecipeDeserializer<CookingPotRecipe> {
         result.amount = json.getIntOrNull("amount") ?: 1
         
         
-        return CookingPotRecipe(RecipeDeserializer.getRecipeId(file), inputChoice, result, time, experience)
+        return CookingPotRecipe(RecipeDeserializer.getRecipeKey(file), inputChoice, result, time, experience)
     }
 }

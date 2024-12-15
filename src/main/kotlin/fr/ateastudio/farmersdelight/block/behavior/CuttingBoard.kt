@@ -112,7 +112,7 @@ object CuttingBoard : BlockBehavior {
         else if (ToolCategory.ofItem(tool).contains(VanillaToolCategories.SHEARS)) {
             pos.location.playSoundNearby(Sound.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1f, 1f)
         }
-        else if (ToolCategory.ofItem(tool).contains(VanillaToolCategories.SWORD) || ToolCategory.ofItem(tool).any { it.id.path == "knives" || it.id.path == "knife" }) {
+        else if (ToolCategory.ofItem(tool).contains(VanillaToolCategories.SWORD) || ToolCategory.ofItem(tool).any { it.id.value() == "knives" || it.id.value() == "knife" }) {
             pos.playSound(Sounds.BLOCK_CUTTING_BOARD_KNIFE, SoundCategory.BLOCKS, 0.8f, 1f)
         }
         else if (ToolCategory.ofItem(tool).contains(VanillaToolCategories.AXE)) {

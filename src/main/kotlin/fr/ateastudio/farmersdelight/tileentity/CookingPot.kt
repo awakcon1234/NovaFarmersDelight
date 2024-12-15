@@ -11,11 +11,11 @@ import fr.ateastudio.farmersdelight.util.getCraftingRemainingItem
 import fr.ateastudio.farmersdelight.util.hasCraftingRemainingItem
 import fr.ateastudio.farmersdelight.util.replacePlaceholders
 import fr.ateastudio.farmersdelight.util.safeGive
+import net.kyori.adventure.key.Key
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.TextDecoration
 import net.minecraft.core.component.DataComponents
-import net.minecraft.resources.ResourceLocation
 import net.minecraft.util.Mth
 import org.bukkit.Location
 import org.bukkit.Material
@@ -25,20 +25,19 @@ import org.bukkit.SoundCategory
 import org.bukkit.entity.ExperienceOrb
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
-import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.inventory.ItemStack
 import org.bukkit.util.Vector
 import xyz.xenondevs.cbf.Compound
-import xyz.xenondevs.commons.provider.mutable.mapNonNull
+import xyz.xenondevs.commons.provider.mapNonNull
 import xyz.xenondevs.invui.gui.Gui
 import xyz.xenondevs.invui.inventory.event.ItemPostUpdateEvent
 import xyz.xenondevs.invui.inventory.event.ItemPreUpdateEvent
 import xyz.xenondevs.invui.inventory.event.PlayerUpdateReason
 import xyz.xenondevs.invui.inventory.get
+import xyz.xenondevs.invui.item.AbstractItem
+import xyz.xenondevs.invui.item.Click
+import xyz.xenondevs.invui.item.ItemBuilder
 import xyz.xenondevs.invui.item.ItemProvider
-import xyz.xenondevs.invui.item.builder.ItemBuilder
-import xyz.xenondevs.invui.item.builder.setDisplayName
-import xyz.xenondevs.invui.item.impl.AbstractItem
 import xyz.xenondevs.nova.context.Context
 import xyz.xenondevs.nova.context.intention.DefaultContextIntentions
 import xyz.xenondevs.nova.context.intention.DefaultContextIntentions.BlockInteract
@@ -70,7 +69,7 @@ class CookingPot(
     private val outputInventory = storedInventory("output_slot", 1, ::preventOutputInput, ::takeOutput)
     
     private var storedXp: Float by storedValue<Float>("storedXp", true) {0.0f}
-    private var currentRecipe: CookingPotRecipe? by storedValue<ResourceLocation>("currentRecipe", true).mapNonNull(
+    private var currentRecipe: CookingPotRecipe? by storedValue<Key>("currentRecipe", true).mapNonNull(
         { RecipeManager.getRecipe(RecipeTypes.COOKING_POT, it) },
         NovaRecipe::id
     )
@@ -438,14 +437,14 @@ class CookingPot(
                     }
                 }
             
-            override fun getItemProvider(): ItemProvider {
+            override fun getItemProvider(p0: Player): ItemProvider {
                 val itemBuilder = ItemBuilder(if (heated) GuiItems.COOKING_POT_HEATED.createItemStack() else Material.AIR.toItemStack())
-                    .setDisplayName(Component.translatable(if (heated) "block.farmersdelight.cooking_pot.heated" else "menu.farmersdelight.need_heat"))
+                    .setName(Component.translatable(if (heated) "block.farmersdelight.cooking_pot.heated" else "menu.farmersdelight.need_heat"))
                     .clearModifiers()
                 return itemBuilder
             }
             
-            override fun handleClick(clickType: ClickType, player: Player, event: InventoryClickEvent) {
+            override fun handleClick(clickType: ClickType, player: Player, p2: Click) {
                 return
             }
         }

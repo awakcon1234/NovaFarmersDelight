@@ -122,7 +122,7 @@ abstract class CropBlock : BlockBehavior {
         }
     }
     
-    override fun handleNeighborChanged(pos: BlockPos, state: NovaBlockState, neighborPos: BlockPos) {
+    override fun handleNeighborChanged(pos: BlockPos, state: NovaBlockState) {
         if (!canSurvive(state, pos)) {
             breakBlock(pos)
         }

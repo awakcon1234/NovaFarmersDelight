@@ -1,7 +1,6 @@
 package fr.ateastudio.farmersdelight.registry
 
 import fr.ateastudio.farmersdelight.NovaFarmersDelight
-import org.bukkit.Material
 import xyz.xenondevs.nova.addon.registry.ItemRegistry
 import xyz.xenondevs.nova.initialize.Init
 import xyz.xenondevs.nova.initialize.InitStage
@@ -16,9 +15,10 @@ object GuiItems : ItemRegistry by NovaFarmersDelight.registry {
         localizedName("")
         hidden(true)
         
-        models {
-            itemType(Material.SHULKER_SHELL)
-            selectModels(0..22, "item/gui/progress/arrow/%s")
+        modelDefinition {
+            model = rangedModels(23) {
+                createGuiModel(background = false, stretched = false, "item/gui/progress/arrow/$it")
+            }
         }
     }
     
@@ -32,32 +32,9 @@ object GuiItems : ItemRegistry by NovaFarmersDelight.registry {
             name(null)
         } else localizedName(localizedName)
         hidden(true)
-        models {
-            itemType(Material.SHULKER_SHELL)
-            selectModel { createGuiModel(background, stretched, "item/gui/$name") }
-        }
-    }
-    
-    private fun guiItemWithModel(
-        name: String,
-        localizedName: String? = null,
-        stretched: Boolean = false,
-        background: Boolean = false
-    ): NovaItem = item(name) {
-        if (localizedName == null) {
-            name(null)
-        } else localizedName(localizedName)
-        hidden(true)
-    }
-    
-    private fun progressItem(name: String, range: IntRange) = item("gui/opaque/$name") {
-        localizedName("")
-        hidden(true)
-        
-        models {
-            itemType(Material.SHULKER_SHELL)
-            selectModels(range, true) {
-                createGuiModel(background = true, stretched = false, "item/gui/$name/$it")
+        modelDefinition {
+            model = buildModel {
+                createGuiModel(background, stretched, "item/gui/$name")
             }
         }
     }

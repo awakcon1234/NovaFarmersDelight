@@ -21,12 +21,17 @@ import xyz.xenondevs.nova.util.above
 import xyz.xenondevs.nova.util.damageToolBreakBlock
 import xyz.xenondevs.nova.util.item.toItemStack
 import xyz.xenondevs.nova.util.playSoundNearby
+import xyz.xenondevs.nova.util.registerEvents
 import xyz.xenondevs.nova.world.item.tool.ToolCategory
 import xyz.xenondevs.nova.world.item.tool.VanillaToolCategories
 import xyz.xenondevs.nova.world.pos
 
 @Init(stage = InitStage.POST_WORLD)
 object MuddyFarmlandListener : Listener {
+    
+    init {
+        this.registerEvents()
+    }
     
     @EventHandler
     fun onUseWaterBottle(event: PlayerInteractEvent) {

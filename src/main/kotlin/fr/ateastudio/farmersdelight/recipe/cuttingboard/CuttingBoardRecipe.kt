@@ -1,7 +1,7 @@
 package fr.ateastudio.farmersdelight.recipe.cuttingboard
 
 import fr.ateastudio.farmersdelight.registry.RecipeTypes
-import net.minecraft.resources.ResourceLocation
+import net.kyori.adventure.key.Key
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.RecipeChoice
 import xyz.xenondevs.nova.world.item.recipe.MultiResultRecipe
@@ -11,7 +11,7 @@ import kotlin.random.Random
 
 
 class CuttingBoardRecipe(
-    override val id: ResourceLocation,
+    override val id: Key,
     override val input: RecipeChoice,
     val tool: ToolActionIngredient,
     val chanceResults: List<ChanceResult>,

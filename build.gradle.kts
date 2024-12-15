@@ -1,6 +1,3 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 group = "fr.ateastudio.farmersdelight"
 version = "1.0-SNAPSHOT"
 
@@ -22,28 +19,18 @@ dependencies {
 }
 
 addon {
-    id = "farmersdelight"
     name = "FarmersDelight"
     version = project.version.toString()
-    novaVersion = libs.versions.nova
     main = "fr.ateastudio.farmersdelight.NovaFarmersDelight"
     authors = listOf("Katalijst")
-}
-
-tasks {
-    register<Copy>("addonJar") {
-        group = "build"
-        dependsOn("jar")
-        from(File(project.layout.buildDirectory.get().asFile, "libs/${project.name}-${project.version}.jar"))
-        into((project.findProperty("outDir") as? String)?.let(::File) ?: project.layout.buildDirectory.get().asFile)
-        rename { "${addonMetadata.get().addonName.get()}-${project.version}.jar" }
-    }
+    description = "Farming's Delight ported to Nova"
+    website = "https://atea-studio.fr/nova-addons"
+    prefix = "FarmersDelight"
     
-    withType<KotlinCompile> {
-        compilerOptions { 
-            jvmTarget = JvmTarget.JVM_21
-        }
-    }
+    // output directory for the generated addon jar is read from the "outDir" project property (-PoutDir="...")
+    val outDir = project.findProperty("outDir")
+    if (outDir is String)
+        destination.set(File(outDir))
 }
 
 afterEvaluate {

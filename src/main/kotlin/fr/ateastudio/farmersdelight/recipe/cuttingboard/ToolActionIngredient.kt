@@ -18,7 +18,7 @@ sealed class ToolActionIngredient : RecipeChoice {
         override fun test(itemStack: ItemStack): Boolean {
             return when(tag) {
                 ToolTag.SHEARS -> ToolCategory.ofItem(itemStack).contains(VanillaToolCategories.SHEARS)
-                ToolTag.KNIVES -> ToolCategory.ofItem(itemStack).any { it.id.path == "knives" || it.id.path == "knife" }
+                ToolTag.KNIVES -> ToolCategory.ofItem(itemStack).any { it.id.value() == "knives" || it.id.value() == "knife" }
                 else -> true
             }
         }

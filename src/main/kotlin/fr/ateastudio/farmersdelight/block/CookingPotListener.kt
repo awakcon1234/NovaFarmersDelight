@@ -13,12 +13,17 @@ import xyz.xenondevs.nova.initialize.Init
 import xyz.xenondevs.nova.initialize.InitStage
 import xyz.xenondevs.nova.util.BlockUtils
 import xyz.xenondevs.nova.util.novaBlock
+import xyz.xenondevs.nova.util.registerEvents
 import xyz.xenondevs.nova.world.BlockPos
 import xyz.xenondevs.nova.world.player.WrappedPlayerInteractEvent
 import xyz.xenondevs.nova.world.pos
 
 @Init(stage = InitStage.POST_WORLD)
 object CookingPotListener : Listener {
+    
+    init {
+        this.registerEvents()
+    }
     
     private val clickMap: MutableMap<Location, Long> = mutableMapOf()
     private const val CLICK_COOLDOWN_TIME: Long = 100

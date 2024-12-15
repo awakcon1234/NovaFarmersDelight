@@ -10,8 +10,6 @@ import org.bukkit.Material
 import org.bukkit.inventory.RecipeChoice
 import xyz.xenondevs.invui.gui.Gui
 import xyz.xenondevs.invui.item.Item
-import xyz.xenondevs.invui.item.builder.setDisplayName
-import xyz.xenondevs.invui.item.impl.SimpleItem
 import xyz.xenondevs.nova.ui.menu.explorer.recipes.createRecipeChoiceItem
 import xyz.xenondevs.nova.ui.menu.explorer.recipes.group.RecipeGroup
 import xyz.xenondevs.nova.util.item.toItemStack
@@ -19,14 +17,14 @@ import xyz.xenondevs.nova.world.item.DefaultGuiItems
 
 object CookingPotRecipeGroup : RecipeGroup<CookingPotRecipe>() {
     override val priority = 4
-    override val icon = Items.COOKING_POT.model.clientsideProvider
+    override val icon = Items.COOKING_POT.clientsideProvider
     override val texture = GuiTextures.COOKING_POT_RECIPE
     
     private fun getSafeRecipeChoice(inputs: List<RecipeChoice>, index: Int) : Item {
         return if (inputs.size > index) {
             createRecipeChoiceItem(inputs[index])
         } else {
-            SimpleItem(Material.AIR.toItemStack())
+            Item.simple(Material.AIR.toItemStack())
         }
     }
     
@@ -43,9 +41,9 @@ object CookingPotRecipeGroup : RecipeGroup<CookingPotRecipe>() {
             .addIngredient('l', getSafeRecipeChoice(recipe.inputs,3))
             .addIngredient('m', getSafeRecipeChoice(recipe.inputs,4))
             .addIngredient('n', getSafeRecipeChoice(recipe.inputs,5))
-            .addIngredient('t', DefaultGuiItems.TP_STOPWATCH.model
+            .addIngredient('t', DefaultGuiItems.TP_STOPWATCH
                 .createClientsideItemBuilder()
-                .setDisplayName(Component.translatable("menu.nova.recipe.time", Component.text(recipe.time / Blocks.COOKING_POT.tickrate)))
+                .setName(Component.translatable("menu.nova.recipe.time", Component.text(recipe.time / Blocks.COOKING_POT.tickrate)))
             )
             .addIngredient('p', recipe.result)
             .addIngredient('f', GuiItems.COOKING_POT_HEATED.createItemStack())

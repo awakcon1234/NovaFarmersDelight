@@ -1,4 +1,4 @@
-rootProject.name = "FarmersDelight"
+rootProject.name = "farmersdelight"
 
 dependencyResolutionManagement {
     repositories {
@@ -8,7 +8,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         create("libs") {
-            from("xyz.xenondevs.nova:catalog:0.17-alpha.39") // TODO: change this when updating to a newer Nova version
+            from("xyz.xenondevs.nova:catalog:0.18-alpha.5")
         }
     }
 }

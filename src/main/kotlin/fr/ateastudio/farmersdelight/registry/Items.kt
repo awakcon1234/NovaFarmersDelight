@@ -2,6 +2,8 @@ package fr.ateastudio.farmersdelight.registry
 
 import fr.ateastudio.farmersdelight.NovaFarmersDelight
 import net.kyori.adventure.text.Component
+import net.minecraft.sounds.SoundEvents
+import net.minecraft.world.item.ItemUseAnimation
 import xyz.xenondevs.nova.addon.registry.ItemRegistry
 import xyz.xenondevs.nova.initialize.Init
 import xyz.xenondevs.nova.initialize.InitStage
@@ -31,15 +33,15 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
     val TATAMI = registerItem(Blocks.TATAMI)
     
     val FULL_TATAMI_MAT = item(Blocks.FULL_TATAMI_MAT_HEAD, "full_tatami_mat") {
-        models {
-            selectModel {
+        modelDefinition {
+            model = buildModel {
                 createLayeredModel("item/full_tatami_mat")
             }
         }
     }
     val HALF_TATAMI_MAT = item(Blocks.HALF_TATAMI_MAT) {
-        models {
-            selectModel {
+        modelDefinition {
+            model = buildModel {
                 createLayeredModel("item/half_tatami_mat")
             }
         }
@@ -49,23 +51,23 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
     val MUDDY_FARMLAND = registerItem(Blocks.MUDDY_FARMLAND)
     
     val FLINT_KNIFE = item("flint_knife") {
-        behaviors(Tool)
+        behaviors(Tool())
         maxStackSize(1)
     }
     val IRON_KNIFE = item("iron_knife") {
-        behaviors(Tool)
+        behaviors(Tool())
         maxStackSize(1)
     }
     val DIAMOND_KNIFE = item("diamond_knife") {
-        behaviors(Tool)
+        behaviors(Tool())
         maxStackSize(1)
     }
     val NETHERITE_KNIFE = item("netherite_knife") {
-        behaviors(Tool)
+        behaviors(Tool())
         maxStackSize(1)
     }
     val GOLDEN_KNIFE = item("golden_knife") {
-        behaviors(Tool)
+        behaviors(Tool())
         maxStackSize(1)
     }
     
@@ -74,83 +76,69 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
     val TREE_BARK = registerItem("tree_bark")
     
     val SANDY_SHRUB = item(Blocks.SANDY_SHRUB) {
-        models {
-            selectModel {
+        modelDefinition {
+            model = buildModel {
                 createLayeredModel("block/sandy_shrub")
             }
         }
     }
     val WILD_CABBAGES = item(Blocks.WILD_CABBAGES) {
-        models {
-            selectModel {
+        modelDefinition {
+            model = buildModel {
                 createLayeredModel("block/wild_cabbages")
             }
         }
     }
     val WILD_ONIONS = item(Blocks.WILD_ONIONS) {
-        models {
-            selectModel {
+        modelDefinition {
+            model = buildModel {
                 createLayeredModel("block/wild_onions")
             }
         }
     }
     val WILD_TOMATOES = item(Blocks.WILD_TOMATOES) {
-        models {
-            selectModel {
+        modelDefinition {
+            model = buildModel {
                 createLayeredModel("block/wild_tomatoes")
             }
         }
     }
     val WILD_CARROTS = item(Blocks.WILD_CARROTS) {
-        models {
-            selectModel {
+        modelDefinition {
+            model = buildModel {
                 createLayeredModel("block/wild_carrots")
             }
         }
     }
     val WILD_POTATOES = item(Blocks.WILD_POTATOES) {
-        models {
-            selectModel {
+        modelDefinition {
+            model = buildModel {
                 createLayeredModel("block/wild_potatoes")
             }
         }
     }
     val WILD_BEETROOTS = item(Blocks.WILD_BEETROOTS) {
-        models {
-            selectModel {
+        modelDefinition {
+            model = buildModel {
                 createLayeredModel("block/wild_beetroots")
             }
         }
     }
     val WILD_RICE = item(Blocks.WILD_RICE) {
-        models {
-            selectModel {
+        modelDefinition {
+            model = buildModel {
                 createLayeredModel("block/wild_rice")
             }
         }
     }
-    /* val BROWN_MUSHROOM_COLONY = item(Blocks.BROWN_MUSHROOM_COLONY, "brown_mushroom_colony") {
-        models {
-            selectModel {
-                createLayeredModel("block/brown_mushroom_colony_stage3")
-            }
-        }
-    }
-    val RED_MUSHROOM_COLONY = item(Blocks.RED_MUSHROOM_COLONY, "red_mushroom_colony") {
-        models {
-            selectModel {
-                createLayeredModel("block/red_mushroom_colony_stage3")
-            }
-        }
-    }*/
     
     val CABBAGE = registerItem("cabbage", Consumable)
     val TOMATO = registerItem("tomato", Consumable)
     val ONION = item(Blocks.ONION_CROP, "onion") {
         name(Component.translatable("item.farmersdelight.onion"))
         behaviors(Consumable)
-        models {
-            selectModel {
+        modelDefinition {
+            model = buildModel {
                 createLayeredModel("item/onion")
             }
         }
@@ -158,24 +146,24 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
     val RICE_PANICLE = registerItem("rice_panicle")
     val RICE = item(Blocks.RICE_CROP, "rice") {
         name(Component.translatable("item.farmersdelight.rice"))
-        models {
-            selectModel {
+        modelDefinition {
+            model = buildModel {
                 createLayeredModel("item/rice")
             }
         }
     }
     val CABBAGE_SEEDS = item(Blocks.CABBAGES_CROP, "cabbage_seeds") {
         name(Component.translatable("item.farmersdelight.cabbage_seeds"))
-        models {
-            selectModel {
+        modelDefinition {
+            model = buildModel {
                 createLayeredModel("item/cabbage_seeds")
             }
         }
     }
     val TOMATO_SEEDS = item(Blocks.TOMATOES_CROP, "tomato_seeds") {
         name(Component.translatable("item.farmersdelight.tomato_seeds"))
-        models {
-            selectModel {
+        modelDefinition {
+            model = buildModel {
                 createLayeredModel("item/tomato_seeds")
             }
         }
@@ -194,7 +182,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         maxStackSize(16)
     }
     val APPLE_CIDER = item("apple_cider") {
-        behaviors(Consumable)
+        behaviors(Consumable(animation = ItemUseAnimation.DRINK, sound = SoundEvents.GENERIC_DRINK))
         maxStackSize(16)
     }
     val MELON_JUICE = item("melon_juice") {
