@@ -10,7 +10,6 @@
     [],
     [],
     [],
-    [],
     [
       "farmersdelight:patch_wild_beetroots",
       "farmersdelight:patch_wild_cabbages",
@@ -19,6 +18,7 @@
       "farmersdelight:patch_wild_potatoes",
       "farmersdelight:patch_wild_rice",
       "farmersdelight:patch_wild_tomatoes"
-    ]
+    ],
+    []
   ]
 }

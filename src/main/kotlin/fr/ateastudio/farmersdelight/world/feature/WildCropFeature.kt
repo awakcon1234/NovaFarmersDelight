@@ -11,8 +11,8 @@ import xyz.xenondevs.nova.world.generation.ExperimentalWorldGen
 import xyz.xenondevs.nova.world.generation.FeatureType
 import kotlin.jvm.optionals.getOrNull
 
-// SOURCE: https://github.com/vectorwing/FarmersDelight/blob/1.21/src/main/java/vectorwing/farmersdelight/common/world/feature/WildCropFeature.java
-// TODO Remove logger calls
+//SOURCE: https://github.com/vectorwing/FarmersDelight/blob/1.21/src/main/java/vectorwing/farmersdelight/common/world/feature/WildCropFeature.java
+//TODO Remove logger calls
 @OptIn(ExperimentalWorldGen::class)
 object WildCropFeature : FeatureType<WildCropConfiguration>(WildCropConfiguration.CODEC) {
     
