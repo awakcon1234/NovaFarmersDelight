@@ -1,5 +1,5 @@
 {
-  "feature": "farmersdelight:patch_wild_potatoes",
+  "feature": "farmersdelight:patch_wild_tomatoes",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
@@ -14,10 +14,6 @@
     },
     {
       "type": "minecraft:biome"
-    },
-    {
-      "type": "farmersdelight:biome_tag",
-      "tag": "minecraft:is_overworld"
     }
   ]
 }

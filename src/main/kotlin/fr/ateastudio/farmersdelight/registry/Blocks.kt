@@ -195,7 +195,6 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
         block: NovaBlockBuilder.() -> Unit ={}
     ): NovaBlock = block(name) {
         block()
-        stateProperties(ScopedBlockStateProperties.AGE, ScopedBlockStateProperties.BUDDING_AGE, ScopedBlockStateProperties.MAX_AGE)
         stateBacked(BackingStateCategory.TRIPWIRE_UNATTACHED, BackingStateCategory.TRIPWIRE_ATTACHED)
     }
     
