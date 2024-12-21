@@ -76,12 +76,12 @@ object CuttingBoard : BlockBehavior {
             val fortuneLevel = tool.getEnchantmentLevel(Enchantment.FORTUNE)
             val recipes = getMatchingRecipes(input)
             if (recipes.isEmpty()) {
-                player.sendMessage(Component.translatable("block.farmersdelight.cutting_board.invalid_item"))
+                player.sendMessage(Component.translatable("farmersdelight.block.cutting_board.invalid_item"))
                 return
             }
             val matchingRecipe = recipes.firstOrNull { it.tool.test(tool)}
             if (matchingRecipe == null) {
-                player.sendMessage(Component.translatable("block.farmersdelight.cutting_board.invalid_tool"))
+                player.sendMessage(Component.translatable("farmersdelight.block.cutting_board.invalid_tool"))
                 return
             }
             

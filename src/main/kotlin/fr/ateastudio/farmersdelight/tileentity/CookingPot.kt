@@ -9,7 +9,6 @@ import fr.ateastudio.farmersdelight.registry.RecipeTypes
 import fr.ateastudio.farmersdelight.registry.Sounds
 import fr.ateastudio.farmersdelight.util.getCraftingRemainingItem
 import fr.ateastudio.farmersdelight.util.hasCraftingRemainingItem
-import fr.ateastudio.farmersdelight.util.replacePlaceholders
 import fr.ateastudio.farmersdelight.util.safeGive
 import net.kyori.adventure.key.Key
 import net.kyori.adventure.text.Component
@@ -119,22 +118,25 @@ class CookingPot(
         
         val self = drop[0]
         if (mealStorageInventory.isEmpty) {
-            val lore = Component.translatable("block.farmersdelight.cooking_pot.empty")
+            val lore = Component.translatable("farmersdelight.tooltip.cooking_pot.empty")
                 .color(NamedTextColor.GRAY)
                 .decoration(TextDecoration.ITALIC, false)
             self.lore(listOf(lore))
         }
         else {
             val storedStack = mealStorageInventory[0]!!
-            val placeholders = mapOf(
-                "amount" to "${storedStack.amount}",
-                "s" to if (storedStack.amount != 1) "s" else ""
-            )
-            val holdComponent = Component.translatable("block.farmersdelight.cooking_pot.hold_serving")
-                .replacePlaceholders(placeholders)
-                .color(NamedTextColor.GRAY)
-                .decoration(TextDecoration.ITALIC, false)
-                .decoration(TextDecoration.ITALIC, false)
+            val holdComponent = if (storedStack.amount != 1) {
+                Component.translatable("farmersdelight.tooltip.cooking_pot.many_servings",
+                    Component.text("${storedStack.amount}")
+                )
+            }
+            else {
+                Component.translatable("farmersdelight.tooltip.cooking_pot.single_serving")
+            }
+            .color(NamedTextColor.GRAY)
+            .decoration(TextDecoration.ITALIC, false)
+            .decoration(TextDecoration.ITALIC, false)
+            
             val displayNameComponent = (storedStack.novaItem?.name ?: storedStack.displayName())
                 .color(NamedTextColor.WHITE)
                 .decoration(TextDecoration.ITALIC, false)
@@ -260,12 +262,9 @@ class CookingPot(
         newStack.setItemMeta(meta)
         val container = mealContainerStack
         if (!container.isEmpty) {
-            val servedOnComponent = Component.translatable("block.farmersdelight.cooking_pot.served_on")
-            val displayNameComponent = container.displayName()
-                .color(NamedTextColor.GRAY)
+            val servedOnComponent = Component.translatable("farmersdelight.container.cooking_pot.served_on", Component.translatable(container.translationKey()))
             val lore = servedOnComponent
                 .append(Component.text(" "))
-                .append(displayNameComponent)
                 .color(NamedTextColor.GRAY)
                 .decoration(TextDecoration.ITALIC, false)
             newStack.lore(listOf(lore))
@@ -424,7 +423,7 @@ class CookingPot(
     @TileEntityMenuClass
     private inner class CookingPotMenu : GlobalTileEntityMenu(GuiTextures.COOKING_POT) {
         override fun getTitle(): Component {
-            return texture?.getTitle(Component.text("    ").append(block.name)) ?: Component.text("    ").append(block.name)
+            return texture?.getTitle(Component.text("    ").append(Component.translatable("farmersdelight.container.cooking_pot"))) ?: Component.text("    ").append(block.name)
         }
         
         private inner class HeatedInfoItem : AbstractItem() {
@@ -439,7 +438,7 @@ class CookingPot(
             
             override fun getItemProvider(p0: Player): ItemProvider {
                 val itemBuilder = ItemBuilder(if (heated) GuiItems.COOKING_POT_HEATED.createItemStack() else Material.AIR.toItemStack())
-                    .setName(Component.translatable(if (heated) "block.farmersdelight.cooking_pot.heated" else "menu.farmersdelight.need_heat"))
+                    .setName(Component.translatable(if (heated) "farmersdelight.container.cooking_pot.heated" else "farmersdelight.container.cooking_pot.not_heated"))
                     .clearModifiers()
                 return itemBuilder
             }
