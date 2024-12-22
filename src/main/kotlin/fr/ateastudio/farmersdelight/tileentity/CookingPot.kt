@@ -138,7 +138,7 @@ class CookingPot(
             .decoration(TextDecoration.ITALIC, false)
             
             val displayNameComponent = (storedStack.novaItem?.name ?: storedStack.displayName())
-                .color(NamedTextColor.WHITE)
+                .color(NamedTextColor.GRAY)
                 .decoration(TextDecoration.ITALIC, false)
             self.lore(listOf(holdComponent, displayNameComponent))
             val damage = min(mealStorageInventory.getMaxSlotStackSize(0) - storedStack.amount, mealStorageInventory.getMaxSlotStackSize(0))
@@ -436,10 +436,9 @@ class CookingPot(
                     }
                 }
             
+            
             override fun getItemProvider(p0: Player): ItemProvider {
-                val itemBuilder = ItemBuilder(if (heated) GuiItems.COOKING_POT_HEATED.createItemStack() else Material.AIR.toItemStack())
-                    .setName(Component.translatable(if (heated) "farmersdelight.container.cooking_pot.heated" else "farmersdelight.container.cooking_pot.not_heated"))
-                    .clearModifiers()
+                val itemBuilder = ItemBuilder(if (heated) GuiItems.COOKING_POT_HEATED.createItemStack() else GuiItems.COOKING_POT_NOT_HEATED.createItemStack())
                 return itemBuilder
             }
             

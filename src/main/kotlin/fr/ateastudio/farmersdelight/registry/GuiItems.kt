@@ -9,15 +9,23 @@ import xyz.xenondevs.nova.world.item.NovaItem
 @Suppress("unused")
 @Init(stage = InitStage.PRE_PACK)
 object GuiItems : ItemRegistry by NovaFarmersDelight.registry {
-    val COOKING_POT_HEATED = guiItem("cooking_pot_heated")
+    val COOKING_POT_HEATED = guiItem("cooking_pot_heated", "farmersdelight.container.cooking_pot.heated")
+    val COOKING_POT_NOT_HEATED = item("gui/opaque/cooking_pot_not_heat") {
+        localizedName("farmersdelight.container.cooking_pot.not_heated")
+        hidden(true)
+        modelDefinition {
+            model = buildModel {
+                getModel("item/gui/cooking_pot_not_heated")
+            }
+        }
+    }
     val BOWL_UNDERLAY = guiItem("bowl")
     val ARROW_PROGRESS = item("gui/opaque/progress/arrow") {
         localizedName("")
         hidden(true)
-        
         modelDefinition {
             model = rangedModels(23) {
-                createGuiModel(background = false, stretched = false, "item/gui/progress/arrow/$it")
+                getModel("item/gui/progress/arrow/$it")
             }
         }
     }
