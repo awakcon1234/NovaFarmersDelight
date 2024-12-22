@@ -1,5 +1,9 @@
 {
   "block.farmersdelight.muddy_farmland": "Muddy Farmland",
+  "block.farmersdelight.tomatoes_crop": "Tomatoes",
+  "block.farmersdelight.cabbages_crop": "Cabbages",
+  "block.farmersdelight.rice_crop": "Rice",
+  "block.farmersdelight.onions_crop": "Onions",
   "block.farmersdelight.stove": "Stove",
   "block.farmersdelight.cooking_pot": "Cooking Pot",
   "block.farmersdelight.basket": "Basket",
