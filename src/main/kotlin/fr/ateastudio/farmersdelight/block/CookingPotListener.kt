@@ -78,8 +78,11 @@ object CookingPotListener : Listener {
                 if (default != CookingPotSupport.HANDLE) {
                     BlockUtils.updateBlockState(pos, state.with(BlockStateProperties.SUPPORT, default))
                 }
+                else if (pos.below.block.isTag(Tags.TRAY_HEAT_SOURCE)) {
+                    BlockUtils.updateBlockState(pos, state.with(BlockStateProperties.SUPPORT, CookingPotSupport.TRAY))
+                }
                 else {
-                    BlockUtils.updateBlockState(pos, state.with(BlockStateProperties.SUPPORT, updateSupport(pos, BlockFace.UP)))
+                    BlockUtils.updateBlockState(pos, state.with(BlockStateProperties.SUPPORT, CookingPotSupport.NONE))
                 }
             }
             else {
