@@ -1,5 +1,5 @@
 group = "fr.ateastudio.farmersdelight"
-version = "SNAPSHOT-24w51"
+version = "SNAPSHOT-25w01"
 
 plugins {
     alias(libs.plugins.kotlin)
@@ -9,7 +9,7 @@ plugins {
 
 repositories {
     mavenCentral()
-    maven("https://papermc.io/repo/repository/maven-public/")
+    maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://repo.xenondevs.xyz/releases")
 }
 
