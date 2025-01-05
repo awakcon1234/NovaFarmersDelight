@@ -1,6 +1,5 @@
 package fr.ateastudio.farmersdelight.world.feature
 
-import fr.ateastudio.farmersdelight.util.Logger
 import fr.ateastudio.farmersdelight.world.WildCropConfiguration
 import net.minecraft.core.BlockPos
 import net.minecraft.core.BlockPos.MutableBlockPos
@@ -12,7 +11,6 @@ import xyz.xenondevs.nova.world.generation.FeatureType
 import kotlin.jvm.optionals.getOrNull
 
 //SOURCE: https://github.com/vectorwing/FarmersDelight/blob/1.21/src/main/java/vectorwing/farmersdelight/common/world/feature/WildCropFeature.java
-//TODO Remove logger calls
 @OptIn(ExperimentalWorldGen::class)
 object WildCropFeature : FeatureType<WildCropConfiguration>(WildCropConfiguration.CODEC) {
     
@@ -22,7 +20,6 @@ object WildCropFeature : FeatureType<WildCropConfiguration>(WildCropConfiguratio
         val level: WorldGenLevel = ctx.level()
         val random: RandomSource = ctx.random()
         
-        Logger.info("Placing wild crop feature at $origin")
         var i = 0
         val tries = config.tries
         val xzSpread = config.xzSpread + 1
@@ -36,7 +33,6 @@ object WildCropFeature : FeatureType<WildCropConfiguration>(WildCropConfiguratio
                 mutablePos.setWithOffset(origin, random.nextInt(xzSpread) - random.nextInt(xzSpread), random.nextInt(ySpread) - random.nextInt(ySpread), random.nextInt(xzSpread) - random.nextInt(xzSpread))
                 if (floorFeature.value().place(level, ctx.chunkGenerator(), random, mutablePos)) {
                     ++i
-                    Logger.info("Placed floor feature at $mutablePos")
                 }
             }
         }
@@ -46,7 +42,6 @@ object WildCropFeature : FeatureType<WildCropConfiguration>(WildCropConfiguratio
             mutablePos.setWithOffset(origin, random.nextInt(shorterXZ) - random.nextInt(shorterXZ), random.nextInt(ySpread) - random.nextInt(ySpread), random.nextInt(shorterXZ) - random.nextInt(shorterXZ))
             if (config.primaryFeature.value().place(level, ctx.chunkGenerator(), random, mutablePos)) {
                 ++i
-                Logger.info("Placed primary feature at $mutablePos")
             }
         }
         
@@ -54,7 +49,6 @@ object WildCropFeature : FeatureType<WildCropConfiguration>(WildCropConfiguratio
             mutablePos.setWithOffset(origin, random.nextInt(xzSpread) - random.nextInt(xzSpread), random.nextInt(ySpread) - random.nextInt(ySpread), random.nextInt(xzSpread) - random.nextInt(xzSpread))
             if (config.secondaryFeature.value().place(level, ctx.chunkGenerator(), random, mutablePos)) {
                 ++i
-                Logger.info("Placed secondary feature at $mutablePos")
             }
         }
         
