@@ -182,7 +182,7 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     val RICE_CROP = cropBlock("rice", RiceCrop, 7,3)
     
     
-    val SHEPHERDS_PIE_BLOCK = foodBlock("shepherds_pie_block", ShepherdsPieBlock)
+    val SHEPHERDS_PIE_BLOCK = feastBlock("shepherds_pie_block", ShepherdsPieBlock)
     
     
     private fun nonInteractiveBlock(
@@ -224,7 +224,7 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
         }
     }
     
-    private fun foodBlock(
+    private fun feastBlock(
         name: String,
         behaviorHolder: BlockBehaviorHolder,
         block: NovaBlockBuilder.() -> Unit ={}
@@ -239,7 +239,7 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
         }
     }
     
-   private fun feastBlock(
+   private fun pieBlock(
         name: String,
         pieBehavior: BlockBehaviorHolder,
         block: NovaBlockBuilder.() -> Unit ={}

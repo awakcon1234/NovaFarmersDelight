@@ -53,7 +53,7 @@ abstract class FeastBlock(private val hasLeftovers: Boolean) : BlockBehavior {
         }
         
         val servings = state[BlockStateProperties.SERVINGS] ?: 0
-        if (servings != maxServings) {
+        if (servings != maxServings && hasLeftovers) {
             return listOf(Material.BOWL.toItemStack())
         } else {
             return state.block.item

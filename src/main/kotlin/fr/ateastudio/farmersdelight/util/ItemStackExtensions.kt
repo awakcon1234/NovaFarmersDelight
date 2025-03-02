@@ -7,9 +7,7 @@ import org.bukkit.craftbukkit.inventory.CraftItemStack
 import org.bukkit.entity.Item
 import org.bukkit.inventory.ItemStack
 import org.bukkit.util.Vector
-import xyz.xenondevs.nova.util.Location
 import xyz.xenondevs.nova.util.item.novaItem
-import xyz.xenondevs.nova.world.BlockPos
 import xyz.xenondevs.nova.world.item.NovaItem
 import xyz.xenondevs.nova.world.item.behavior.Consumable
 
