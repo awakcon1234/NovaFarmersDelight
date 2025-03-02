@@ -16,7 +16,10 @@ import fr.ateastudio.farmersdelight.block.behavior.crop.RiceCrop
 import fr.ateastudio.farmersdelight.block.behavior.TatamiMatFoot
 import fr.ateastudio.farmersdelight.block.behavior.TatamiMatHead
 import fr.ateastudio.farmersdelight.block.behavior.crop.TomatoCrop
-import fr.ateastudio.farmersdelight.block.behavior.pie.ShepherdsPieBlock
+import fr.ateastudio.farmersdelight.block.behavior.feastblock.HoneyGlazedHamBlock
+import fr.ateastudio.farmersdelight.block.behavior.feastblock.RoastChickenBlock
+import fr.ateastudio.farmersdelight.block.behavior.feastblock.ShepherdsPieBlock
+import fr.ateastudio.farmersdelight.block.behavior.feastblock.StuffedPumpkinBlock
 import fr.ateastudio.farmersdelight.tileentity.CookingPot
 import org.bukkit.Material
 import org.bukkit.block.BlockFace
@@ -182,7 +185,10 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     val RICE_CROP = cropBlock("rice", RiceCrop, 7,3)
     
     
-    val SHEPHERDS_PIE_BLOCK = feastBlock("shepherds_pie_block", ShepherdsPieBlock)
+    val ROAST_CHICKEN_BLOCK = feastBlock("roast_chicken_block", RoastChickenBlock, true)
+    val STUFFED_PUMPKIN_BLOCK = feastBlock("stuffed_pumpkin_block", StuffedPumpkinBlock, false)
+    val HONEY_GLAZED_HAM_BLOCK = feastBlock("honey_glazed_ham_block", HoneyGlazedHamBlock, true)
+    val SHEPHERDS_PIE_BLOCK = feastBlock("shepherds_pie_block", ShepherdsPieBlock, true)
     
     
     private fun nonInteractiveBlock(
@@ -227,6 +233,7 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     private fun feastBlock(
         name: String,
         behaviorHolder: BlockBehaviorHolder,
+        hasLeftover: Boolean,
         block: NovaBlockBuilder.() -> Unit ={}
     ): NovaBlock = block(name) {
         block()
@@ -234,7 +241,7 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
         stateProperties(ScopedBlockStateProperties.SERVINGS, FACING_HORIZONTAL)
         stateBacked(BackingStateCategory.LEAVES, BackingStateCategory.NOTE_BLOCK, BackingStateCategory.MUSHROOM_BLOCK) {
             val servings = (4 - getPropertyValueOrThrow(BlockStateProperties.SERVINGS))
-            val suffix = if (servings <= 3) "_stage$servings" else "_leftover"
+            val suffix = if (servings <= 3) "_stage$servings" else if (hasLeftover) "_leftover" else "_stage3"
             getModel("block/${name}$suffix").rotated()
         }
     }

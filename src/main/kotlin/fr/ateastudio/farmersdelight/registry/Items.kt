@@ -413,7 +413,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         maxStackSize(16)
     }
     //TODO Meal blocks
-    val ROAST_CHICKEN_BLOCK = item("roast_chicken_block") {
+    val ROAST_CHICKEN_BLOCK = item(Blocks.ROAST_CHICKEN_BLOCK,"roast_chicken_block") {
         maxStackSize(16)
         modelDefinition {
             model = buildModel {
@@ -425,7 +425,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         behaviors(Consumable)
         maxStackSize(16)
     }
-    val STUFFED_PUMPKIN_BLOCK = item("stuffed_pumpkin_block") {
+    val STUFFED_PUMPKIN_BLOCK = item(Blocks.STUFFED_PUMPKIN_BLOCK,"stuffed_pumpkin_block") {
         maxStackSize(16)
         modelDefinition {
             model = buildModel {
@@ -437,7 +437,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         behaviors(Consumable)
         maxStackSize(16)
     }
-    val HONEY_GLAZED_HAM_BLOCK = item("honey_glazed_ham_block") {
+    val HONEY_GLAZED_HAM_BLOCK = item(Blocks.HONEY_GLAZED_HAM_BLOCK,"honey_glazed_ham_block") {
         maxStackSize(16)
         modelDefinition {
             model = buildModel {

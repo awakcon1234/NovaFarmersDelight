@@ -1,14 +1,14 @@
-package fr.ateastudio.farmersdelight.block.behavior.pie
+package fr.ateastudio.farmersdelight.block.behavior.feastblock
 
 import fr.ateastudio.farmersdelight.block.behavior.FeastBlock
 import fr.ateastudio.farmersdelight.registry.Items
 import xyz.xenondevs.nova.world.item.NovaItem
 
-object ShepherdsPieBlock : FeastBlock(true) {
+object StuffedPumpkinBlock : FeastBlock(false) {
     
     override fun servingItem(): NovaItem? {
         return try {
-            Items.SHEPHERDS_PIE
+            Items.STUFFED_PUMPKIN
         } catch (e : Exception) {
             null
         }
