@@ -6,16 +6,17 @@ import fr.ateastudio.farmersdelight.block.CookingPotSupport
 import fr.ateastudio.farmersdelight.block.ScopedBlockStateProperties
 import fr.ateastudio.farmersdelight.block.ScopedBlockStateProperties.PAIRED
 import fr.ateastudio.farmersdelight.block.behavior.Ageable
-import fr.ateastudio.farmersdelight.block.behavior.CabbageCrop
+import fr.ateastudio.farmersdelight.block.behavior.crop.CabbageCrop
 import fr.ateastudio.farmersdelight.block.behavior.CookingPotBehavior
 import fr.ateastudio.farmersdelight.block.behavior.CuttingBoard
 import fr.ateastudio.farmersdelight.block.behavior.MuddyFarmland
-import fr.ateastudio.farmersdelight.block.behavior.OnionCrop
+import fr.ateastudio.farmersdelight.block.behavior.crop.OnionCrop
 import fr.ateastudio.farmersdelight.block.behavior.PairedBlock
-import fr.ateastudio.farmersdelight.block.behavior.RiceCrop
+import fr.ateastudio.farmersdelight.block.behavior.crop.RiceCrop
 import fr.ateastudio.farmersdelight.block.behavior.TatamiMatFoot
 import fr.ateastudio.farmersdelight.block.behavior.TatamiMatHead
-import fr.ateastudio.farmersdelight.block.behavior.TomatoCrop
+import fr.ateastudio.farmersdelight.block.behavior.crop.TomatoCrop
+import fr.ateastudio.farmersdelight.block.behavior.pie.ShepherdsPieBlock
 import fr.ateastudio.farmersdelight.tileentity.CookingPot
 import org.bukkit.Material
 import org.bukkit.block.BlockFace
@@ -181,6 +182,8 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     val RICE_CROP = cropBlock("rice", RiceCrop, 7,3)
     
     
+    val SHEPHERDS_PIE_BLOCK = foodBlock("shepherds_pie_block", ShepherdsPieBlock)
+    
     
     private fun nonInteractiveBlock(
         name: String,
@@ -218,6 +221,36 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
             else {
                 getModel("block/budding_${name}_stage$id")
             }
+        }
+    }
+    
+    private fun foodBlock(
+        name: String,
+        behaviorHolder: BlockBehaviorHolder,
+        block: NovaBlockBuilder.() -> Unit ={}
+    ): NovaBlock = block(name) {
+        block()
+        behaviors(behaviorHolder, BlockSounds(SoundGroup.WOOL), Breakable(0.5, emptySet(), null, false, Material.MUD))
+        stateProperties(ScopedBlockStateProperties.SERVINGS, FACING_HORIZONTAL)
+        stateBacked(BackingStateCategory.LEAVES, BackingStateCategory.NOTE_BLOCK, BackingStateCategory.MUSHROOM_BLOCK) {
+            val servings = (4 - getPropertyValueOrThrow(BlockStateProperties.SERVINGS))
+            val suffix = if (servings <= 3) "_stage$servings" else "_leftover"
+            getModel("block/${name}$suffix").rotated()
+        }
+    }
+    
+   private fun feastBlock(
+        name: String,
+        pieBehavior: BlockBehaviorHolder,
+        block: NovaBlockBuilder.() -> Unit ={}
+    ): NovaBlock = block(name) {
+        block()
+        behaviors(pieBehavior, BlockSounds(SoundGroup.WOOL))
+        stateProperties(ScopedBlockStateProperties.BITES, FACING_HORIZONTAL)
+        stateBacked(BackingStateCategory.LEAVES, BackingStateCategory.NOTE_BLOCK, BackingStateCategory.MUSHROOM_BLOCK) {
+            val bites = getPropertyValueOrThrow(BlockStateProperties.BITES)
+            val suffix = if (bites > 0) "_slice$bites" else ""
+            getModel("block/${name}$suffix").rotated()
         }
     }
     

@@ -12,6 +12,8 @@ object BlockStateProperties {
     val HEATED = BooleanProperty(Key.key("farmersdelight", "heated"))
     val SUPPORT = EnumProperty<CookingPotSupport>(Key.key("farmersdelight", "support"))
     val PAIRED = BooleanProperty(Key.key("farmersdelight", "paired"))
+    val BITES = IntProperty(Key.key("farmersdelight", "bites"))
+    val SERVINGS = IntProperty(Key.key("farmersdelight", "servings"))
 }
 
 object ScopedBlockStateProperties {
@@ -21,4 +23,6 @@ object ScopedBlockStateProperties {
     val HEATED = BlockStateProperties.HEATED.scope(true, false)
     val SUPPORT = BlockStateProperties.SUPPORT.scope(CookingPotSupport.NONE, CookingPotSupport.HANDLE, CookingPotSupport.TRAY)
     val PAIRED = BlockStateProperties.PAIRED.scope(false, true)
+    val BITES = BlockStateProperties.BITES.scope(-1..7)
+    val SERVINGS = BlockStateProperties.SERVINGS.scope(0..4)
 }

@@ -413,27 +413,62 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         maxStackSize(16)
     }
     //TODO Meal blocks
-    val ROAST_CHICKEN_BLOCK = item("roast_chicken_block") {}
+    val ROAST_CHICKEN_BLOCK = item("roast_chicken_block") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/roast_chicken_block")
+            }
+        }
+    }
     val ROAST_CHICKEN = item("roast_chicken") {
         behaviors(Consumable)
         maxStackSize(16)
     }
-    val STUFFED_PUMPKIN_BLOCK = item("stuffed_pumpkin_block") {}
+    val STUFFED_PUMPKIN_BLOCK = item("stuffed_pumpkin_block") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/stuffed_pumpkin_block")
+            }
+        }
+    }
     val STUFFED_PUMPKIN = item("stuffed_pumpkin") {
         behaviors(Consumable)
         maxStackSize(16)
     }
-    val HONEY_GLAZED_HAM_BLOCK = item("honey_glazed_ham_block") {}
+    val HONEY_GLAZED_HAM_BLOCK = item("honey_glazed_ham_block") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/honey_glazed_ham_block")
+            }
+        }
+    }
     val HONEY_GLAZED_HAM = item("honey_glazed_ham") {
         behaviors(Consumable)
         maxStackSize(16)
     }
-    val SHEPHERDS_PIE_BLOCK = item("shepherds_pie_block") {}
+    val SHEPHERDS_PIE_BLOCK = item(Blocks.SHEPHERDS_PIE_BLOCK,"shepherds_pie_block") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/shepherds_pie_block")
+            }
+        }
+    }
     val SHEPHERDS_PIE = item("shepherds_pie") {
         behaviors(Consumable)
         maxStackSize(16)
     }
-    val RICE_ROLL_MEDLEY_BLOCK = item("rice_roll_medley_block") {}
+    val RICE_ROLL_MEDLEY_BLOCK = item("rice_roll_medley_block") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/rice_roll_medley_block")
+            }
+        }
+    }
     val DOG_FOOD = item("dog_food") {
         behaviors(Consumable)
         maxStackSize(16)

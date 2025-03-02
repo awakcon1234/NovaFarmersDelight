@@ -1,5 +1,6 @@
-package fr.ateastudio.farmersdelight.block.behavior
+package fr.ateastudio.farmersdelight.block.behavior.crop
 
+import fr.ateastudio.farmersdelight.block.behavior.CropBlock
 import fr.ateastudio.farmersdelight.registry.Items
 import xyz.xenondevs.nova.world.item.NovaItem
 

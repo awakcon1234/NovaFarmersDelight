@@ -1,12 +1,27 @@
 package fr.ateastudio.farmersdelight.util
 
+import org.bukkit.Location
 import org.bukkit.Material
+import org.bukkit.World
 import org.bukkit.craftbukkit.inventory.CraftItemStack
 import org.bukkit.entity.Item
 import org.bukkit.inventory.ItemStack
+import org.bukkit.util.Vector
+import xyz.xenondevs.nova.util.Location
 import xyz.xenondevs.nova.util.item.novaItem
+import xyz.xenondevs.nova.world.BlockPos
 import xyz.xenondevs.nova.world.item.NovaItem
 import xyz.xenondevs.nova.world.item.behavior.Consumable
+
+fun ItemStack.spawnItemEntity(world: World, x: Double, y: Double, z: Double, motionX: Double, motionY: Double, motionZ: Double) {
+    val location = Location(world, x, y, z)
+    this.spawnItemEntity(location, motionX, motionY, motionZ)
+}
+
+fun ItemStack.spawnItemEntity(location: Location, motionX: Double, motionY: Double, motionZ: Double) {
+    val itemEntity: Item = location.world.dropItem(location, this)
+    itemEntity.velocity = Vector(motionX, motionY, motionZ)
+}
 
 fun ItemStack.getItemId(): String {
     if (this.novaItem is NovaItem) {

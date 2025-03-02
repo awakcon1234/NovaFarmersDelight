@@ -1,19 +1,22 @@
-package fr.ateastudio.farmersdelight.block.behavior
+package fr.ateastudio.farmersdelight.block.behavior.crop
 
+import fr.ateastudio.farmersdelight.block.behavior.BerryBlock
+import fr.ateastudio.farmersdelight.registry.Blocks
 import fr.ateastudio.farmersdelight.registry.Items
 import org.bukkit.GameRule
 import org.bukkit.Material
 import org.bukkit.block.BlockFace
 import org.bukkit.block.data.Levelled
+import xyz.xenondevs.nova.util.novaBlock
 import xyz.xenondevs.nova.world.BlockPos
 import xyz.xenondevs.nova.world.block.state.NovaBlockState
 import xyz.xenondevs.nova.world.item.NovaItem
 import kotlin.random.Random
 
-object TomatoCrop : BerryBlock() {
+object RiceCrop : BerryBlock() {
     override fun resultItem(): NovaItem? {
         return try {
-            Items.TOMATO
+            Items.RICE_PANICLE
         } catch (e : Exception) {
             null
         }
@@ -21,22 +24,16 @@ object TomatoCrop : BerryBlock() {
     
     override fun seedItem(): NovaItem? {
         return try {
-            Items.TOMATO_SEEDS
+            Items.RICE
         } catch (e : Exception) {
             null
         }
     }
     
-    override fun badResultItem(): NovaItem? {
-        return try {
-            Items.ROTTEN_TOMATO
-        } catch (e : Exception) {
-            null
-        }
-    }
     
     override fun mayPlaceOn(pos: BlockPos, state: NovaBlockState): Boolean {
-        return pos.block.type == Material.FARMLAND && hasSufficientLight(pos)
+        return pos.block.novaBlock == Blocks.MUDDY_FARMLAND && hasSufficientLight(pos)
+        
     }
     
     override fun handleRandomTick(pos: BlockPos, state: NovaBlockState) {
