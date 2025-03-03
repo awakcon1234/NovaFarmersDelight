@@ -17,6 +17,7 @@ import fr.ateastudio.farmersdelight.block.behavior.TatamiMatFoot
 import fr.ateastudio.farmersdelight.block.behavior.TatamiMatHead
 import fr.ateastudio.farmersdelight.block.behavior.crop.TomatoCrop
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.HoneyGlazedHamBlock
+import fr.ateastudio.farmersdelight.block.behavior.feastblock.RiceRollMedleyBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.RoastChickenBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.ShepherdsPieBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.StuffedPumpkinBlock
@@ -184,11 +185,16 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     val ONION_CROP = cropBlock("onions", OnionCrop, 3)
     val RICE_CROP = cropBlock("rice", RiceCrop, 7,3)
     
+    //TODO Pie blocks
+    /*val APPLE_PIE = item("apple_pie") {}
+    val SWEET_BERRY_CHEESECAKE = item("sweet_berry_cheesecake") {}
+    val CHOCOLATE_PIE = pieBlock("chocolate_pie") {}*/
     
     val ROAST_CHICKEN_BLOCK = feastBlock("roast_chicken_block", RoastChickenBlock, true)
     val STUFFED_PUMPKIN_BLOCK = feastBlock("stuffed_pumpkin_block", StuffedPumpkinBlock, false)
     val HONEY_GLAZED_HAM_BLOCK = feastBlock("honey_glazed_ham_block", HoneyGlazedHamBlock, true)
     val SHEPHERDS_PIE_BLOCK = feastBlock("shepherds_pie_block", ShepherdsPieBlock, true)
+    val RICE_ROLL_MEDLEY_BLOCK = feastBlock("rice_roll_medley_block", RiceRollMedleyBlock, true, 8)
     
     
     private fun nonInteractiveBlock(
@@ -234,14 +240,19 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
         name: String,
         behaviorHolder: BlockBehaviorHolder,
         hasLeftover: Boolean,
+        maxServing: Int = 4,
         block: NovaBlockBuilder.() -> Unit ={}
     ): NovaBlock = block(name) {
         block()
         behaviors(behaviorHolder, BlockSounds(SoundGroup.WOOL), Breakable(0.5, emptySet(), null, false, Material.MUD))
         stateProperties(ScopedBlockStateProperties.SERVINGS, FACING_HORIZONTAL)
         stateBacked(BackingStateCategory.LEAVES, BackingStateCategory.NOTE_BLOCK, BackingStateCategory.MUSHROOM_BLOCK) {
-            val servings = (4 - getPropertyValueOrThrow(BlockStateProperties.SERVINGS))
-            val suffix = if (servings <= 3) "_stage$servings" else if (hasLeftover) "_leftover" else "_stage3"
+            val servings = (maxServing - minOf(getPropertyValueOrThrow(BlockStateProperties.SERVINGS), maxServing))
+            if (name == "rice_roll_medley_block") {
+                NovaFarmersDelight.logger.info("$name serving $servings")
+                NovaFarmersDelight.logger.info("$name maxServing $maxServing")
+            }
+            val suffix = if (servings <= (maxServing - 1)) "_stage$servings" else if (hasLeftover) "_leftover" else "_stage3"
             getModel("block/${name}$suffix").rotated()
         }
     }

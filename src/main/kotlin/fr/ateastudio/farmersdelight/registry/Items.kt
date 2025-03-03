@@ -461,7 +461,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         behaviors(Consumable)
         maxStackSize(16)
     }
-    val RICE_ROLL_MEDLEY_BLOCK = item("rice_roll_medley_block") {
+    val RICE_ROLL_MEDLEY_BLOCK = item(Blocks.RICE_ROLL_MEDLEY_BLOCK,"rice_roll_medley_block") {
         maxStackSize(16)
         modelDefinition {
             model = buildModel {

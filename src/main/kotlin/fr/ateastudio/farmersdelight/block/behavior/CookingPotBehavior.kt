@@ -24,9 +24,9 @@ object CookingPotBehavior : BlockBehavior {
         
     }
     
-    override fun handleNeighborChanged(pos: BlockPos, state: NovaBlockState) {
-        updateBlockState(pos, state.with(BlockStateProperties.SUPPORT, updateSupport(pos))
-            .with(BlockStateProperties.HEATED,updateHeated(pos)))
+    override fun updateShape(pos: BlockPos, state: NovaBlockState, neighborPos: BlockPos): NovaBlockState {
+        return state.with(BlockStateProperties.SUPPORT, updateSupport(pos))
+            .with(BlockStateProperties.HEATED,updateHeated(pos))
     }
     
     private fun updateHeated(pos: BlockPos) : Boolean {

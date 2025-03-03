@@ -1,6 +1,5 @@
 package fr.ateastudio.farmersdelight.block.behavior
 
-import fr.ateastudio.farmersdelight.NovaFarmersDelight
 import fr.ateastudio.farmersdelight.block.BlockStateProperties
 import fr.ateastudio.farmersdelight.util.getCraftingRemainingItem
 import fr.ateastudio.farmersdelight.util.hasCraftingRemainingItem
@@ -24,17 +23,13 @@ import xyz.xenondevs.nova.util.item.toItemStack
 import xyz.xenondevs.nova.world.BlockPos
 import xyz.xenondevs.nova.world.block.behavior.BlockBehavior
 import xyz.xenondevs.nova.world.block.state.NovaBlockState
-import xyz.xenondevs.nova.world.item.NovaItem
 
 abstract class FeastBlock(private val hasLeftovers: Boolean) : BlockBehavior {
-    private val maxServings : Int
+    protected open val maxServings : Int
         get() = 4
     
-    abstract fun servingItem() : NovaItem?
     
-    private fun getServingItem(state: NovaBlockState): ItemStack {
-        return servingItem()?.createItemStack() ?: ItemStack.empty()
-    }
+    abstract fun getServingItem(state: NovaBlockState): ItemStack
     
     override fun handlePlace(pos: BlockPos, state: NovaBlockState, ctx: Context<DefaultContextIntentions.BlockPlace>) {
         updateBlockState(pos, state.with(BlockStateProperties.SERVINGS, maxServings))
@@ -47,7 +42,6 @@ abstract class FeastBlock(private val hasLeftovers: Boolean) : BlockBehavior {
     }
     
     override fun getDrops(pos: BlockPos, state: NovaBlockState, ctx: Context<DefaultContextIntentions.BlockBreak>): List<ItemStack> {
-        NovaFarmersDelight.logger.info("getDrops")
         if (ctx[DefaultContextParamTypes.SOURCE_PLAYER]?.gameMode == GameMode.CREATIVE) {
             return emptyList()
         }
