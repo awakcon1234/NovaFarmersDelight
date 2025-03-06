@@ -21,6 +21,9 @@ import fr.ateastudio.farmersdelight.block.behavior.feastblock.RiceRollMedleyBloc
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.RoastChickenBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.ShepherdsPieBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.StuffedPumpkinBlock
+import fr.ateastudio.farmersdelight.block.behavior.pie.ApplePie
+import fr.ateastudio.farmersdelight.block.behavior.pie.ChocolatePie
+import fr.ateastudio.farmersdelight.block.behavior.pie.SweetBerryCheesecake
 import fr.ateastudio.farmersdelight.tileentity.CookingPot
 import org.bukkit.Material
 import org.bukkit.block.BlockFace
@@ -186,9 +189,9 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     val RICE_CROP = cropBlock("rice", RiceCrop, 7,3)
     
     //TODO Pie blocks
-    /*val APPLE_PIE = item("apple_pie") {}
-    val SWEET_BERRY_CHEESECAKE = item("sweet_berry_cheesecake") {}
-    val CHOCOLATE_PIE = pieBlock("chocolate_pie") {}*/
+    val APPLE_PIE = pieBlock("apple_pie", ApplePie)
+    val SWEET_BERRY_CHEESECAKE = pieBlock("sweet_berry_cheesecake", SweetBerryCheesecake)
+    val CHOCOLATE_PIE = pieBlock("chocolate_pie", ChocolatePie)
     
     val ROAST_CHICKEN_BLOCK = feastBlock("roast_chicken_block", RoastChickenBlock, true)
     val STUFFED_PUMPKIN_BLOCK = feastBlock("stuffed_pumpkin_block", StuffedPumpkinBlock, false)
@@ -244,14 +247,10 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
         block: NovaBlockBuilder.() -> Unit ={}
     ): NovaBlock = block(name) {
         block()
-        behaviors(behaviorHolder, BlockSounds(SoundGroup.WOOL), Breakable(0.5, emptySet(), null, false, Material.MUD))
+        behaviors(behaviorHolder, BlockSounds(SoundGroup.WOOL), Breakable(0.5, emptySet(), null, false, Material.WHEAT))
         stateProperties(ScopedBlockStateProperties.SERVINGS, FACING_HORIZONTAL)
         stateBacked(BackingStateCategory.LEAVES, BackingStateCategory.NOTE_BLOCK, BackingStateCategory.MUSHROOM_BLOCK) {
             val servings = (maxServing - minOf(getPropertyValueOrThrow(BlockStateProperties.SERVINGS), maxServing))
-            if (name == "rice_roll_medley_block") {
-                NovaFarmersDelight.logger.info("$name serving $servings")
-                NovaFarmersDelight.logger.info("$name maxServing $maxServing")
-            }
             val suffix = if (servings <= (maxServing - 1)) "_stage$servings" else if (hasLeftover) "_leftover" else "_stage3"
             getModel("block/${name}$suffix").rotated()
         }
@@ -259,11 +258,11 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     
    private fun pieBlock(
         name: String,
-        pieBehavior: BlockBehaviorHolder,
+        behaviorHolder: BlockBehaviorHolder,
         block: NovaBlockBuilder.() -> Unit ={}
     ): NovaBlock = block(name) {
         block()
-        behaviors(pieBehavior, BlockSounds(SoundGroup.WOOL))
+       behaviors(behaviorHolder, BlockSounds(SoundGroup.WOOL), Breakable(0.5, emptySet(), null, false, Material.CAKE))
         stateProperties(ScopedBlockStateProperties.BITES, FACING_HORIZONTAL)
         stateBacked(BackingStateCategory.LEAVES, BackingStateCategory.NOTE_BLOCK, BackingStateCategory.MUSHROOM_BLOCK) {
             val bites = getPropertyValueOrThrow(BlockStateProperties.BITES)

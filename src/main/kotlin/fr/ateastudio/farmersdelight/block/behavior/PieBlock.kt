@@ -1,6 +1,5 @@
 package fr.ateastudio.farmersdelight.block.behavior
 
-import fr.ateastudio.farmersdelight.NovaFarmersDelight
 import fr.ateastudio.farmersdelight.block.BlockStateProperties
 import fr.ateastudio.farmersdelight.util.spawnItemEntity
 import io.papermc.paper.datacomponent.DataComponentTypes
@@ -22,12 +21,11 @@ import xyz.xenondevs.nova.context.Context
 import xyz.xenondevs.nova.context.intention.DefaultContextIntentions
 import xyz.xenondevs.nova.context.intention.DefaultContextIntentions.BlockInteract
 import xyz.xenondevs.nova.context.param.DefaultContextParamTypes
-import xyz.xenondevs.nova.integration.customitems.CustomItemServiceManager.removeBlock
+import xyz.xenondevs.nova.util.BlockUtils.breakBlockNaturally
 import xyz.xenondevs.nova.util.BlockUtils.updateBlockState
 import xyz.xenondevs.nova.world.BlockPos
 import xyz.xenondevs.nova.world.block.behavior.BlockBehavior
 import xyz.xenondevs.nova.world.block.state.NovaBlockState
-import xyz.xenondevs.nova.world.item.NovaItem
 import xyz.xenondevs.nova.world.item.tool.ToolCategory
 import kotlin.random.Random
 
@@ -35,10 +33,10 @@ import kotlin.random.Random
 @Suppress("UnstableApiUsage")
 abstract class PieBlock : BlockBehavior {
     
-    abstract fun getPieSliceItem() : NovaItem
+    abstract fun getPieSliceItem() : ItemStack
     
     open fun getMaxBites() : Int {
-        return 7
+        return 4
     }
     
     override fun handlePlace(pos: BlockPos, state: NovaBlockState, ctx: Context<DefaultContextIntentions.BlockPlace>) {
@@ -49,15 +47,11 @@ abstract class PieBlock : BlockBehavior {
         val player = ctx[DefaultContextParamTypes.SOURCE_PLAYER]
         if (player != null) {
             val heldStack = ctx[DefaultContextParamTypes.INTERACTION_ITEM_STACK] ?: ItemStack.empty()
-            NovaFarmersDelight.logger.debug("Held stack: $heldStack")
             if (ToolCategory.ofItem(heldStack).any { it.id.value() == "knives" || it.id.value() == "knife" }) {
-                NovaFarmersDelight.logger.debug("Knife found")
                 return cutSlice(pos, state, player)
             }
             
-            NovaFarmersDelight.logger.debug("No knife found")
             if (consumeBite(pos, state, player)) {
-                NovaFarmersDelight.logger.debug("Consumed bite")
                 return true
             }
         }
@@ -66,18 +60,13 @@ abstract class PieBlock : BlockBehavior {
     
     private fun consumeBite(pos: BlockPos, state: NovaBlockState, player: Player): Boolean {
         if (player.foodLevel >= 20 && player.gameMode != GameMode.CREATIVE) {
-            NovaFarmersDelight.logger.debug("Player is full")
             return false
         }
         
-        val sliceStack = getPieSliceItem().createItemStack()
+        val sliceStack = getPieSliceItem()
         val food = sliceStack.getData(DataComponentTypes.FOOD) ?: return false
         val consumable = sliceStack.getData(DataComponentTypes.CONSUMABLE) ?: return false
         val consumeEffects = consumable.consumeEffects()
-        
-        NovaFarmersDelight.logger.debug("Consumable: {}", consumable)
-        NovaFarmersDelight.logger.debug("Food: {}", food)
-        NovaFarmersDelight.logger.debug("Consume effects: {}", consumeEffects)
         
         val consumeEvent = PlayerItemConsumeEvent(player, sliceStack, EquipmentSlot.HAND)
         Bukkit.getPluginManager().callEvent(consumeEvent)
@@ -125,15 +114,18 @@ abstract class PieBlock : BlockBehavior {
         
         // Handle cake bites
         val bites = state[BlockStateProperties.BITES] ?: return false
-        NovaFarmersDelight.logger.debug("Bites: $bites")
-        NovaFarmersDelight.logger.debug("Max bites: ${getMaxBites()}")
         if (bites < getMaxBites() - 1) {
-            NovaFarmersDelight.logger.debug("Updating block state")
             updateBlockState(pos, state.with(BlockStateProperties.BITES, bites + 1))
         }
         else {
-            NovaFarmersDelight.logger.debug("Removing block")
-            removeBlock(pos.block, false)
+            pos.world.playSound(pos.location, Sound.BLOCK_WOOL_BREAK, SoundCategory.PLAYERS, 0.8f, 0.8f)
+            val ctx = Context.intention(DefaultContextIntentions.BlockBreak)
+                .param(DefaultContextParamTypes.BLOCK_POS, pos)
+                .param(DefaultContextParamTypes.BLOCK_BREAK_EFFECTS, true)
+                .param(DefaultContextParamTypes.SOURCE_PLAYER, player)
+                .param(DefaultContextParamTypes.BLOCK_DROPS, true)
+                .build()
+            breakBlockNaturally(ctx)
         }
         
         return true
@@ -141,15 +133,19 @@ abstract class PieBlock : BlockBehavior {
     
     private fun cutSlice(pos: BlockPos, state: NovaBlockState, player: Player): Boolean {
         val bites = state[BlockStateProperties.BITES] ?: return false
-        NovaFarmersDelight.logger.debug("Bites: $bites")
-        NovaFarmersDelight.logger.debug("Max bites: ${getMaxBites()}")
         if (bites < getMaxBites() - 1) {
-            NovaFarmersDelight.logger.debug("Updating block state")
             updateBlockState(pos, state.with(BlockStateProperties.BITES, bites + 1))
         }
         else {
-            NovaFarmersDelight.logger.debug("Removing block")
-            removeBlock(pos.block, false)
+            pos.world.playSound(pos.location, Sound.BLOCK_WOOL_BREAK, SoundCategory.PLAYERS, 0.8f, 0.8f)
+            val ctx = Context.intention(DefaultContextIntentions.BlockBreak)
+                .param(DefaultContextParamTypes.BLOCK_POS, pos)
+                .param(DefaultContextParamTypes.BLOCK_BREAK_EFFECTS, true)
+                .param(DefaultContextParamTypes.SOURCE_PLAYER, player)
+                .param(DefaultContextParamTypes.BLOCK_DROPS, true)
+                .build()
+            breakBlockNaturally(ctx)
+            return true
         }
         
         // Calculate item spawn position and motion
@@ -158,7 +154,7 @@ abstract class PieBlock : BlockBehavior {
         val xMotion = direction.direction.x * 0.15
         val yMotion = 0.05
         val zMotion = direction.direction.z * 0.15
-        getPieSliceItem().createItemStack().spawnItemEntity(spawnLocation, xMotion, yMotion, zMotion)
+        getPieSliceItem().spawnItemEntity(spawnLocation, xMotion, yMotion, zMotion)
         pos.world.playSound(pos.block.location, Sound.BLOCK_WOOL_BREAK, 0.8f, 0.8f)
         return true
     }

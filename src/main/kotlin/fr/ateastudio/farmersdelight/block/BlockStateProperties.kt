@@ -23,6 +23,6 @@ object ScopedBlockStateProperties {
     val HEATED = BlockStateProperties.HEATED.scope(true, false)
     val SUPPORT = BlockStateProperties.SUPPORT.scope(CookingPotSupport.NONE, CookingPotSupport.HANDLE, CookingPotSupport.TRAY)
     val PAIRED = BlockStateProperties.PAIRED.scope(false, true)
-    val BITES = BlockStateProperties.BITES.scope(-1..7)
+    val BITES = BlockStateProperties.BITES.scope(0..3)
     val SERVINGS = BlockStateProperties.SERVINGS.scope(0..8)
 }

@@ -248,10 +248,30 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
     val PIE_CRUST = item("pie_crust") {
         behaviors(Consumable)
     }
-    //TODO Cake blocks
-    val APPLE_PIE = item("apple_pie") {}
-    val SWEET_BERRY_CHEESECAKE = item("sweet_berry_cheesecake") {}
-    val CHOCOLATE_PIE = item("chocolate_pie") {}
+    val APPLE_PIE = item(Blocks.APPLE_PIE,"apple_pie") {
+        maxStackSize(1)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/apple_pie")
+            }
+        }
+    }
+    val SWEET_BERRY_CHEESECAKE = item(Blocks.SWEET_BERRY_CHEESECAKE,"sweet_berry_cheesecake") {
+        maxStackSize(1)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/sweet_berry_cheesecake")
+            }
+        }
+    }
+    val CHOCOLATE_PIE = item(Blocks.CHOCOLATE_PIE,"chocolate_pie") {
+        maxStackSize(1)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/chocolate_pie")
+            }
+        }
+    }
     
     val CAKE_SLICE = item("cake_slice") {
         behaviors(Consumable)
