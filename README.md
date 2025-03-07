@@ -17,10 +17,8 @@ Whether you're running a survival server, an RPG world, or just want to enhance 
 
 ## Features
 - 🍽 **Cooking System** – Craft and cook a variety of meals with unique effects.
-- 🌾 **Farming Enhancements** – Improve soil quality and crop yields.
 - 🛠 **New Tools & Equipment** – Scavenge, prepare, and store food efficiently.
 - 🏡 **Decorative Elements** – Customize kitchens, farms, and more.
-- 🎭 **Seamless Nova API Integration** – Fully optimized for PaperMC servers.
 
 ## Installation
 1. **Ensure you have PaperMC** installed on your server.
