@@ -1,0 +1,8 @@
+{
+  "feature": "farmersdelight:patch_sandy_shrub",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

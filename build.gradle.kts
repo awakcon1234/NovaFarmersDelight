@@ -1,5 +1,5 @@
 group = "fr.ateastudio.farmersdelight"
-version = "SNAPSHOT-25w01"
+version = "1.0.0"
 
 plugins {
     alias(libs.plugins.kotlin)
