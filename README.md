@@ -5,6 +5,8 @@
 
 ---
 
+<img src="https://i.imgur.com/Iy0ddGy.png" width="45%"> <img src="https://i.imgur.com/Ktk1Pee.png" width="45%">
+
 ## Overview
 
 **Farmer's Delight** is a Nova Addon that brings the beloved farming and cooking mechanics of the original **Farmer's Delight** mod into Paper servers using the [**Nova Framework**](https://github.com/xenondevs/Nova).
