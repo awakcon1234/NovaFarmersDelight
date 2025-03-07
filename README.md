@@ -21,11 +21,11 @@ Whether you're running a survival server, an RPG world, or just want to enhance 
 - 🎭 **Seamless Nova API Integration** – Fully optimized for PaperMC servers.
 
 ## Installation
-1. [**Download the latest release**](https://github.com/Atea-Studio/NovaFarmersDelight/releases)
-2. **Ensure you have PaperMC** installed on your server.
-3. [**Install the Nova plugin**](https://github.com/xenondevs/Nova)
-4. **Place Nova plugin and the FarmersDelight Nova addon** into your `plugins/` folder.
-5. **Restart your server** and enjoy the new farming and cooking mechanics!
+1. **Ensure you have PaperMC** installed on your server.
+2. [**Download the latest release of the addon**](https://github.com/Atea-Studio/NovaFarmersDelight/releases)
+4. [**Install the Nova plugin**](https://github.com/xenondevs/Nova)
+5. **Place Nova plugin and the FarmersDelight Nova addon** into your `plugins/` folder.
+6. **Restart your server** and enjoy the new farming and cooking mechanics!
 
 ## Configuration
 The addon comes with config files in `plugins/FarmersDelight`, allowing server owners to adjust mechanics, balance recipes, and tweak gameplay elements.
