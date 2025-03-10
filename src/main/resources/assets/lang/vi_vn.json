@@ -183,7 +183,7 @@
   "item.farmersdelight.roasted_mutton_chops": "Thịt cừu nướng",
   "item.farmersdelight.steak_and_potatoes": "Bít tết và khoai tây",
   "item.farmersdelight.vegetable_noodles": "Mì xào rau củ",
-  "item.farmersdelight.ratatouille": "Rau Củ Hầm Kiểu Pháp",
+  "item.farmersdelight.ratatouille": "Rau củ hầm kiểu Pháp",
   "item.farmersdelight.squid_ink_pasta": "Mỳ Ý mực đen",
   "item.farmersdelight.grilled_salmon": "Cá hồi nướng",
   "item.farmersdelight.mushroom_rice": "Cơm nấm",
@@ -194,8 +194,8 @@
   "item.farmersdelight.stuffed_pumpkin": "Bát bí ngô nhồi",
   "block.farmersdelight.honey_glazed_ham_block": "Đùi heo tẩm mật ong",
   "item.farmersdelight.honey_glazed_ham": "Đĩa đùi heo tẩm mật ong",
-  "block.farmersdelight.shepherds_pie_block": "Bánh Pie bò Shepherd",
-  "item.farmersdelight.shepherds_pie": "Đĩa bánh Pie bò Shepherd",
+  "block.farmersdelight.shepherds_pie_block": "Bánh bò Shepherd",
+  "item.farmersdelight.shepherds_pie": "Đĩa bánh bò Shepherd",
   "block.farmersdelight.rice_roll_medley_block": "Đĩa cơm cuộn",
 
   "item.farmersdelight.dog_food": "Thức ăn cho chó",
@@ -203,10 +203,10 @@
 
   "entity.farmersdelight.rotten_tomato": "Cà chua thối",
 
-  "effect.farmersdelight.nourishment": "Nuôi dưỡng",
-  "effect.farmersdelight.comfort": "An nhàn",
+  "effect.farmersdelight.nourishment": "No lâu",
+  "effect.farmersdelight.comfort": "Hồi phục",
 
-  "effect.farmersdelight.nourishment.0.desc": "Ngăn chặn đói, ngoại trừ khi sử dụng bão hòa để chữa lành sát thương.",
+  "effect.farmersdelight.nourishment.0.desc": "Ngăn chặn đói, ngoại trừ khi sử dụng bão hòa để chữa lành vết thương.",
   "effect.farmersdelight.comfort.0.desc": "Cung cấp khả năng hồi phục tự nhiên, bất kể bạn đói như thế nào.",
 
   "enchantment.farmersdelight.backstabbing": "Đâm lén",
@@ -216,7 +216,7 @@
 
   "farmersdelight.container.recipe_book.cookable": "Hiển thị có thể nấu được",
   "farmersdelight.container.cooking_pot": "Nồi nấu ăn",
-  "farmersdelight.container.cooking_pot.served_on": "Phục vụ trên: %s",
+  "farmersdelight.container.cooking_pot.served_on": "Nguồn nhiệt: %s",
   "farmersdelight.container.cooking_pot.not_heated": "Cần nguồn nhiệt từ bên dưới",
   "farmersdelight.container.cooking_pot.heated": "Đã nóng",
   "farmersdelight.container.basket": "Giỏ",
