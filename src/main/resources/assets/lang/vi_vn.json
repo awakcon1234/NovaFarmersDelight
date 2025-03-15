@@ -1,4 +1,5 @@
 {
+  "block.farmersdelight.muddy_farmland": "Ruộng bùn",
   "block.farmersdelight.stove": "Bếp lò",
   "block.farmersdelight.cooking_pot": "Nồi nấu ăn",
   "block.farmersdelight.basket": "Giỏ",
@@ -161,8 +162,8 @@
   "item.farmersdelight.cabbage_rolls": "Bắp cải cuộn",
   "item.farmersdelight.salmon_roll": "Cá hồi cuộn",
   "item.farmersdelight.cod_roll": "Cá tuyết cuộn",
-  "item.farmersdelight.kelp_roll": "Tảo bẹ cuộn",
-  "item.farmersdelight.kelp_roll_slice": "Tảo bẹ cuộn cắt lát",
+  "item.farmersdelight.kelp_roll": "Cơm cuộn",
+  "item.farmersdelight.kelp_roll_slice": "Cơm cuộn cắt lát",
 
   "item.farmersdelight.cooked_rice": "Cơm",
   "item.farmersdelight.mixed_salad": "Salad trộn",
