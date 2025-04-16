@@ -24,6 +24,14 @@ import fr.ateastudio.farmersdelight.block.behavior.feastblock.StuffedPumpkinBloc
 import fr.ateastudio.farmersdelight.block.behavior.pie.ApplePie
 import fr.ateastudio.farmersdelight.block.behavior.pie.ChocolatePie
 import fr.ateastudio.farmersdelight.block.behavior.pie.SweetBerryCheesecake
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.SandyShrub
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildBeetroots
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildCabbages
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildCarrots
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildOnions
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildPotatoes
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildRice
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildTomatoes
 import fr.ateastudio.farmersdelight.tileentity.CookingPot
 import org.bukkit.Material
 import org.bukkit.block.BlockFace
@@ -134,7 +142,7 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
         }
     }
     
-    val FULL_TATAMI_MAT_HEAD = block("full_tatami_mat_head") {
+    val FULL_TATAMI_MAT_HEAD = block("full_tatami_mat") {
         behaviors(TatamiMatHead, BAG, BlockDrops, BlockSounds(SoundGroup.WOOL))
         stateProperties(FACING_HORIZONTAL)
         stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED, BackingStateCategory.TRIPWIRE_UNATTACHED) {
@@ -169,17 +177,17 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     
     val MUDDY_FARMLAND = block("muddy_farmland") {
         behaviors(MUD, BlockSounds(SoundGroup.MUD), MuddyFarmland)
-        stateBacked(BackingStateCategory.LEAVES, BackingStateCategory.NOTE_BLOCK)
+        stateBacked(BackingStateCategory.LEAVES, BackingStateCategory.MUSHROOM_BLOCK, BackingStateCategory.NOTE_BLOCK)
     }
     
-    val SANDY_SHRUB = plantBlock("sandy_shrub") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
-    val WILD_CABBAGES = plantBlock("wild_cabbages") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
-    val WILD_ONIONS = plantBlock("wild_onions") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
-    val WILD_TOMATOES = plantBlock("wild_tomatoes") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
-    val WILD_CARROTS = plantBlock("wild_carrots") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
-    val WILD_POTATOES = plantBlock("wild_potatoes") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
-    val WILD_BEETROOTS = plantBlock("wild_beetroots") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
-    val WILD_RICE = plantBlock("wild_rice") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
+    val SANDY_SHRUB = plantBlock("sandy_shrub") { behaviors(SandyShrub(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_CABBAGES = plantBlock("wild_cabbages") { behaviors(WildCabbages(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_ONIONS = plantBlock("wild_onions") { behaviors(WildOnions(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_TOMATOES = plantBlock("wild_tomatoes") { behaviors(WildTomatoes(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_CARROTS = plantBlock("wild_carrots") { behaviors(WildCarrots(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_POTATOES = plantBlock("wild_potatoes") { behaviors(WildPotatoes(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_BEETROOTS = plantBlock("wild_beetroots") { behaviors(WildBeetroots(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_RICE = plantBlock("wild_rice") { behaviors(WildRice(), CROP, BlockSounds(SoundGroup.GRASS))}
     
     // val BROWN_MUSHROOM_COLONY = cropBlock("brown_mushroom_colony", TomatoCrop, 3)
     // val RED_MUSHROOM_COLONY = cropBlock("red_mushroom_colony", TomatoCrop, 3)
