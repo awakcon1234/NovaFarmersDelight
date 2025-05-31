@@ -33,7 +33,7 @@ object CuttingBoardRecipeGroup : RecipeGroup<CuttingBoardRecipe>() {
             return createRecipeChoiceItem(itemProviders)
         }
             
-        return Gui.normal()
+        return Gui.builder()
             .setStructure(
                 ". . . . . . . . .",
                 ". i . t . j k . .",

@@ -1,5 +1,5 @@
 group = "fr.ateastudio.farmersdelight"
-version = "1.0.1"
+version = "1.1.0"
 
 plugins {
     alias(libs.plugins.kotlin)
@@ -33,8 +33,3 @@ addon {
         destination.set(File(outDir))
 }
 
-afterEvaluate {
-    tasks.getByName<Jar>("jar") {
-        archiveClassifier = ""
-    }
-}

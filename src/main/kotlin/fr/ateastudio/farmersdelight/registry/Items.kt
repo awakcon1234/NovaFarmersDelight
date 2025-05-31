@@ -1,9 +1,10 @@
 package fr.ateastudio.farmersdelight.registry
 
 import fr.ateastudio.farmersdelight.NovaFarmersDelight
+import io.papermc.paper.datacomponent.item.consumable.ItemUseAnimation
+import io.papermc.paper.registry.keys.SoundEventKeys
 import net.kyori.adventure.text.Component
 import net.minecraft.sounds.SoundEvents
-import net.minecraft.world.item.ItemUseAnimation
 import xyz.xenondevs.nova.addon.registry.ItemRegistry
 import xyz.xenondevs.nova.initialize.Init
 import xyz.xenondevs.nova.initialize.InitStage
@@ -131,11 +132,11 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         }
     }
     
-    val CABBAGE = registerItem("cabbage", Consumable)
-    val TOMATO = registerItem("tomato", Consumable)
+    val CABBAGE = registerItem("cabbage", Consumable())
+    val TOMATO = registerItem("tomato", Consumable())
     val ONION = item(Blocks.ONION_CROP, "onion") {
         name(Component.translatable("item.farmersdelight.onion"))
-        behaviors(Consumable)
+        behaviors(Consumable())
         modelDefinition {
             model = buildModel {
                 createLayeredModel("item/onion")
@@ -169,84 +170,84 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
     }
     val ROTTEN_TOMATO = registerItem("rotten_tomato")
     val FRIED_EGG = item("fried_egg") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     // TODO Add drinks effects
     val MILK_BOTTLE = item("milk_bottle") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val HOT_COCOA = item("hot_cocoa") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val APPLE_CIDER = item("apple_cider") {
-        behaviors(Consumable(animation = ItemUseAnimation.DRINK, sound = SoundEvents.GENERIC_DRINK))
+        behaviors(Consumable(animation = ItemUseAnimation.DRINK, sound = SoundEventKeys.ENTITY_GENERIC_DRINK))
         maxStackSize(16)
     }
     val MELON_JUICE = item("melon_juice") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val TOMATO_SAUCE = item("tomato_sauce") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val WHEAT_DOUGH = item("wheat_dough") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val RAW_PASTA = item("raw_pasta") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val PUMPKIN_SLICE = item("pumpkin_slice") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val CABBAGE_LEAF = item("cabbage_leaf") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val MINCED_BEEF = item("minced_beef") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val BEEF_PATTY = item("beef_patty") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val CHICKEN_CUTS = item("chicken_cuts") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val COOKED_CHICKEN_CUTS = item("cooked_chicken_cuts") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val BACON = item("bacon") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val COOKED_BACON = item("cooked_bacon") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val COD_SLICE = item("cod_slice") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val COOKED_COD_SLICE = item("cooked_cod_slice") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val SALMON_SLICE = item("salmon_slice") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val COOKED_SALMON_SLICE = item("cooked_salmon_slice") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val MUTTON_CHOPS = item("mutton_chops") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val COOKED_MUTTON_CHOPS = item("cooked_mutton_chops") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val HAM = item("ham") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val SMOKED_HAM = item("smoked_ham") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val PIE_CRUST = item("pie_crust") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val APPLE_PIE = item(Blocks.APPLE_PIE,"apple_pie") {
         maxStackSize(1)
@@ -274,162 +275,162 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
     }
     
     val CAKE_SLICE = item("cake_slice") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val APPLE_PIE_SLICE = item("apple_pie_slice") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val SWEET_BERRY_CHEESECAKE_SLICE = item("sweet_berry_cheesecake_slice") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val CHOCOLATE_PIE_SLICE = item("chocolate_pie_slice") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val SWEET_BERRY_COOKIE = item("sweet_berry_cookie") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val HONEY_COOKIE = item("honey_cookie") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val MELON_POPSICLE = item("melon_popsicle") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val GLOW_BERRY_CUSTARD = item("glow_berry_custard") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val FRUIT_SALAD = item("fruit_salad") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     
     val MIXED_SALAD = item("mixed_salad") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val NETHER_SALAD = item("nether_salad") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val BARBECUE_STICK = item("barbecue_stick") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val EGG_SANDWICH = item("egg_sandwich") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val CHICKEN_SANDWICH = item("chicken_sandwich") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val HAMBURGER = item("hamburger") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val BACON_SANDWICH = item("bacon_sandwich") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val MUTTON_WRAP = item("mutton_wrap") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val DUMPLINGS = item("dumplings") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val STUFFED_POTATO = item("stuffed_potato") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val CABBAGE_ROLLS = item("cabbage_rolls") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val SALMON_ROLL = item("salmon_roll") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val COD_ROLL = item("cod_roll") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val KELP_ROLL = item("kelp_roll") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     val KELP_ROLL_SLICE = item("kelp_roll_slice") {
-        behaviors(Consumable)
+        behaviors(Consumable())
     }
     
     val COOKED_RICE = item("cooked_rice") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val BONE_BROTH = item("bone_broth") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val BEEF_STEW = item("beef_stew") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val CHICKEN_SOUP = item("chicken_soup") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val VEGETABLE_SOUP = item("vegetable_soup") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val FISH_STEW = item("fish_stew") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val FRIED_RICE = item("fried_rice") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val PUMPKIN_SOUP = item("pumpkin_soup") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val BAKED_COD_STEW = item("baked_cod_stew") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val NOODLE_SOUP = item("noodle_soup") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     
     val BACON_AND_EGGS = item("bacon_and_eggs") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val PASTA_WITH_MEATBALLS = item("pasta_with_meatballs") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val PASTA_WITH_MUTTON_CHOP = item("pasta_with_mutton_chop") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val MUSHROOM_RICE = item("mushroom_rice") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val ROASTED_MUTTON_CHOPS = item("roasted_mutton_chops") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val VEGETABLE_NOODLES = item("vegetable_noodles") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val STEAK_AND_POTATOES = item("steak_and_potatoes") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val RATATOUILLE = item("ratatouille") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val SQUID_INK_PASTA = item("squid_ink_pasta") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val GRILLED_SALMON = item("grilled_salmon") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     //TODO Meal blocks
@@ -442,7 +443,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         }
     }
     val ROAST_CHICKEN = item("roast_chicken") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val STUFFED_PUMPKIN_BLOCK = item(Blocks.STUFFED_PUMPKIN_BLOCK,"stuffed_pumpkin_block") {
@@ -454,7 +455,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         }
     }
     val STUFFED_PUMPKIN = item("stuffed_pumpkin") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val HONEY_GLAZED_HAM_BLOCK = item(Blocks.HONEY_GLAZED_HAM_BLOCK,"honey_glazed_ham_block") {
@@ -466,7 +467,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         }
     }
     val HONEY_GLAZED_HAM = item("honey_glazed_ham") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val SHEPHERDS_PIE_BLOCK = item(Blocks.SHEPHERDS_PIE_BLOCK,"shepherds_pie_block") {
@@ -478,7 +479,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         }
     }
     val SHEPHERDS_PIE = item("shepherds_pie") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     val RICE_ROLL_MEDLEY_BLOCK = item(Blocks.RICE_ROLL_MEDLEY_BLOCK,"rice_roll_medley_block") {
@@ -490,7 +491,7 @@ object Items : ItemRegistry by NovaFarmersDelight.registry {
         }
     }
     val DOG_FOOD = item("dog_food") {
-        behaviors(Consumable)
+        behaviors(Consumable())
         maxStackSize(16)
     }
     

@@ -29,7 +29,7 @@ object CookingPotRecipeGroup : RecipeGroup<CookingPotRecipe>() {
     }
     
     override fun createGui(recipe: CookingPotRecipe): Gui {
-        return Gui.normal()
+        return Gui.builder()
             .setStructure(
                 ". i j k . . . p .",
                 ". l m n . t . . .",
