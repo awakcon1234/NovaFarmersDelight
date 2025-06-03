@@ -1,11 +1,10 @@
 package fr.ateastudio.farmersdelight.registry
 
-import fr.ateastudio.farmersdelight.NovaFarmersDelight
+import fr.ateastudio.farmersdelight.NovaFarmersDelight.item
+import fr.ateastudio.farmersdelight.NovaFarmersDelight.registerItem
 import io.papermc.paper.datacomponent.item.consumable.ItemUseAnimation
 import io.papermc.paper.registry.keys.SoundEventKeys
 import net.kyori.adventure.text.Component
-import net.minecraft.sounds.SoundEvents
-import xyz.xenondevs.nova.addon.registry.ItemRegistry
 import xyz.xenondevs.nova.initialize.Init
 import xyz.xenondevs.nova.initialize.InitStage
 import xyz.xenondevs.nova.world.item.behavior.Consumable
@@ -13,7 +12,7 @@ import xyz.xenondevs.nova.world.item.behavior.Tool
 
 @Suppress("unused")
 @Init(stage = InitStage.PRE_PACK)
-object Items : ItemRegistry by NovaFarmersDelight.registry {
+object Items {
     
     val COOKING_POT = item(Blocks.COOKING_POT) {
         maxStackSize(1)

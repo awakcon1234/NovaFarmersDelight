@@ -1,14 +1,13 @@
 package fr.ateastudio.farmersdelight.registry
 
-import fr.ateastudio.farmersdelight.NovaFarmersDelight
-import xyz.xenondevs.nova.addon.registry.GuiTextureRegistry
+import fr.ateastudio.farmersdelight.NovaFarmersDelight.guiTexture
 import xyz.xenondevs.nova.initialize.Init
 import xyz.xenondevs.nova.initialize.InitStage
 import xyz.xenondevs.nova.resources.builder.layout.gui.GuiTextureAlignment
 
 @Suppress("unused")
 @Init(stage = InitStage.PRE_PACK)
-object GuiTextures : GuiTextureRegistry by NovaFarmersDelight.registry {
+object GuiTextures {
     val COOKING_POT = guiTexture("cooking_pot") {
         alignment(alignment = GuiTextureAlignment.ChestDefault)
         path("gui/cooking_pot")

@@ -1,20 +1,21 @@
 package fr.ateastudio.farmersdelight.registry
 
-import fr.ateastudio.farmersdelight.NovaFarmersDelight
+import fr.ateastudio.farmersdelight.NovaFarmersDelight.block
+import fr.ateastudio.farmersdelight.NovaFarmersDelight.tileEntity
 import fr.ateastudio.farmersdelight.block.BlockStateProperties
 import fr.ateastudio.farmersdelight.block.CookingPotSupport
 import fr.ateastudio.farmersdelight.block.ScopedBlockStateProperties
 import fr.ateastudio.farmersdelight.block.ScopedBlockStateProperties.PAIRED
 import fr.ateastudio.farmersdelight.block.behavior.Ageable
-import fr.ateastudio.farmersdelight.block.behavior.crop.CabbageCrop
 import fr.ateastudio.farmersdelight.block.behavior.CookingPotBehavior
 import fr.ateastudio.farmersdelight.block.behavior.CuttingBoard
 import fr.ateastudio.farmersdelight.block.behavior.MuddyFarmland
-import fr.ateastudio.farmersdelight.block.behavior.crop.OnionCrop
 import fr.ateastudio.farmersdelight.block.behavior.PairedBlock
-import fr.ateastudio.farmersdelight.block.behavior.crop.RiceCrop
 import fr.ateastudio.farmersdelight.block.behavior.TatamiMatFoot
 import fr.ateastudio.farmersdelight.block.behavior.TatamiMatHead
+import fr.ateastudio.farmersdelight.block.behavior.crop.CabbageCrop
+import fr.ateastudio.farmersdelight.block.behavior.crop.OnionCrop
+import fr.ateastudio.farmersdelight.block.behavior.crop.RiceCrop
 import fr.ateastudio.farmersdelight.block.behavior.crop.TomatoCrop
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.HoneyGlazedHamBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.RiceRollMedleyBlock
@@ -35,7 +36,6 @@ import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildTomatoes
 import fr.ateastudio.farmersdelight.tileentity.CookingPot
 import org.bukkit.Material
 import org.bukkit.block.BlockFace
-import xyz.xenondevs.nova.addon.registry.BlockRegistry
 import xyz.xenondevs.nova.initialize.Init
 import xyz.xenondevs.nova.initialize.InitStage
 import xyz.xenondevs.nova.resources.builder.layout.block.BackingStateCategory
@@ -57,7 +57,7 @@ import xyz.xenondevs.nova.world.item.tool.VanillaToolCategories
 import xyz.xenondevs.nova.world.item.tool.VanillaToolTiers
 
 @Init(stage = InitStage.PRE_PACK)
-object Blocks : BlockRegistry by NovaFarmersDelight.registry {
+object Blocks {
     private val CROP = Breakable(0.0, setOf(VanillaToolCategories.AXE), VanillaToolTiers.WOOD, false, Material.TALL_GRASS)
     private val MUD = Breakable(0.5, setOf(VanillaToolCategories.SHOVEL), VanillaToolTiers.WOOD, false, Material.MUD)
     private val BAG = Breakable(0.8, setOf(VanillaToolCategories.SHEARS), VanillaToolTiers.WOOD, false, Material.WHITE_WOOL)
