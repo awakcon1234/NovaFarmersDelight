@@ -9,7 +9,7 @@ object HoneyGlazedHamBlock : FeastBlock(true) {
     
     override fun getServingItem(state: NovaBlockState): ItemStack {
         return try {
-            Items.SHEPHERDS_PIE.createItemStack()
+            Items.HONEY_GLAZED_HAM.createItemStack()
         } catch (e : Exception) {
             ItemStack.empty()
         }
