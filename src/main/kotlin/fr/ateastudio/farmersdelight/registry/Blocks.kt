@@ -196,7 +196,6 @@ object Blocks {
     val ONION_CROP = cropBlock("onions", OnionCrop, 3)
     val RICE_CROP = cropBlock("rice", RiceCrop, 7,3)
     
-    //TODO Pie blocks
     val APPLE_PIE = pieBlock("apple_pie", ApplePie)
     val SWEET_BERRY_CHEESECAKE = pieBlock("sweet_berry_cheesecake", SweetBerryCheesecake)
     val CHOCOLATE_PIE = pieBlock("chocolate_pie", ChocolatePie)
