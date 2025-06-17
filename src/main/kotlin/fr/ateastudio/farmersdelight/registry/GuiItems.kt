@@ -1,14 +1,13 @@
 package fr.ateastudio.farmersdelight.registry
 
-import fr.ateastudio.farmersdelight.NovaFarmersDelight
-import xyz.xenondevs.nova.addon.registry.ItemRegistry
+import fr.ateastudio.farmersdelight.NovaFarmersDelight.item
 import xyz.xenondevs.nova.initialize.Init
 import xyz.xenondevs.nova.initialize.InitStage
 import xyz.xenondevs.nova.world.item.NovaItem
 
 @Suppress("unused")
 @Init(stage = InitStage.PRE_PACK)
-object GuiItems : ItemRegistry by NovaFarmersDelight.registry {
+object GuiItems {
     val COOKING_POT_HEATED = guiItem("cooking_pot_heated", "farmersdelight.container.cooking_pot.heated")
     val COOKING_POT_NOT_HEATED = item("gui/opaque/cooking_pot_not_heat") {
         localizedName("farmersdelight.container.cooking_pot.not_heated")

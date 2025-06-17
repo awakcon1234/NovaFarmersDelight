@@ -20,7 +20,7 @@ object ScopedBlockStateProperties {
     val AGE = BlockStateProperties.AGE.scope(0..7)
     val MAX_AGE = BlockStateProperties.MAX_AGE.scope(0..7)
     val BUDDING_AGE = BlockStateProperties.BUDDING_AGE.scope(-1..7)
-    val HEATED = BlockStateProperties.HEATED.scope(true, false)
+    val HEATED = BlockStateProperties.HEATED.scope(false, true)
     val SUPPORT = BlockStateProperties.SUPPORT.scope(CookingPotSupport.NONE, CookingPotSupport.HANDLE, CookingPotSupport.TRAY)
     val PAIRED = BlockStateProperties.PAIRED.scope(false, true)
     val BITES = BlockStateProperties.BITES.scope(0..3)

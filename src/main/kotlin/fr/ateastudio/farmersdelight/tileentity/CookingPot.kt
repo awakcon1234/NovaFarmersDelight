@@ -28,13 +28,13 @@ import org.bukkit.inventory.ItemStack
 import org.bukkit.util.Vector
 import xyz.xenondevs.cbf.Compound
 import xyz.xenondevs.commons.provider.mapNonNull
+import xyz.xenondevs.invui.Click
 import xyz.xenondevs.invui.gui.Gui
 import xyz.xenondevs.invui.inventory.event.ItemPostUpdateEvent
 import xyz.xenondevs.invui.inventory.event.ItemPreUpdateEvent
 import xyz.xenondevs.invui.inventory.event.PlayerUpdateReason
 import xyz.xenondevs.invui.inventory.get
 import xyz.xenondevs.invui.item.AbstractItem
-import xyz.xenondevs.invui.item.Click
 import xyz.xenondevs.invui.item.ItemBuilder
 import xyz.xenondevs.invui.item.ItemProvider
 import xyz.xenondevs.nova.context.Context
@@ -43,7 +43,6 @@ import xyz.xenondevs.nova.context.intention.DefaultContextIntentions.BlockIntera
 import xyz.xenondevs.nova.context.param.DefaultContextParamTypes
 import xyz.xenondevs.nova.util.center
 import xyz.xenondevs.nova.util.item.novaItem
-import xyz.xenondevs.nova.util.item.toItemStack
 import xyz.xenondevs.nova.util.runTask
 import xyz.xenondevs.nova.util.unwrap
 import xyz.xenondevs.nova.world.BlockPos
@@ -168,7 +167,7 @@ class CookingPot(
             cookTime = Math.clamp(cookTime - 2L, 0, cookTimeTotal)
         }
         
-        menuContainer.forEachMenu(CookingPotMenu::updateProgress)
+        menuContainer.forEachMenu<CookingPotMenu> { it.updateProgress() }
     }
     
     private fun animateTick() {
@@ -241,7 +240,7 @@ class CookingPot(
     private fun takeOutput(event: ItemPostUpdateEvent) {
         if (event.isRemove && event.updateReason is PlayerUpdateReason) {
             val reason = event.updateReason as PlayerUpdateReason
-            awardUsedRecipes(reason.player)
+            awardUsedRecipes(reason.player())
             val mealStack = getMeal()
             if (!mealStack.isEmpty) {
                 if (!doesMealHaveContainer(mealStack)) {
@@ -450,7 +449,7 @@ class CookingPot(
         private val heatedInfoItem = HeatedInfoItem()
         private val progressionInfoItem = ProgressArrowItem()
         
-        override val gui = Gui.normal()
+        override val gui = Gui.builder()
             .setStructure(
                 ". i i i . t . p .",
                 ". i i i . . . . .",

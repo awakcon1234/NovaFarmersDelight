@@ -8,7 +8,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         create("libs") {
-            from("xyz.xenondevs.nova:catalog:0.18-RC.2")
+            from("xyz.xenondevs.nova:catalog:0.19-RC.3")
         }
     }
 }

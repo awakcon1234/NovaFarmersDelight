@@ -1,20 +1,21 @@
 package fr.ateastudio.farmersdelight.registry
 
-import fr.ateastudio.farmersdelight.NovaFarmersDelight
+import fr.ateastudio.farmersdelight.NovaFarmersDelight.block
+import fr.ateastudio.farmersdelight.NovaFarmersDelight.tileEntity
 import fr.ateastudio.farmersdelight.block.BlockStateProperties
 import fr.ateastudio.farmersdelight.block.CookingPotSupport
 import fr.ateastudio.farmersdelight.block.ScopedBlockStateProperties
 import fr.ateastudio.farmersdelight.block.ScopedBlockStateProperties.PAIRED
 import fr.ateastudio.farmersdelight.block.behavior.Ageable
-import fr.ateastudio.farmersdelight.block.behavior.crop.CabbageCrop
 import fr.ateastudio.farmersdelight.block.behavior.CookingPotBehavior
 import fr.ateastudio.farmersdelight.block.behavior.CuttingBoard
 import fr.ateastudio.farmersdelight.block.behavior.MuddyFarmland
-import fr.ateastudio.farmersdelight.block.behavior.crop.OnionCrop
 import fr.ateastudio.farmersdelight.block.behavior.PairedBlock
-import fr.ateastudio.farmersdelight.block.behavior.crop.RiceCrop
 import fr.ateastudio.farmersdelight.block.behavior.TatamiMatFoot
 import fr.ateastudio.farmersdelight.block.behavior.TatamiMatHead
+import fr.ateastudio.farmersdelight.block.behavior.crop.CabbageCrop
+import fr.ateastudio.farmersdelight.block.behavior.crop.OnionCrop
+import fr.ateastudio.farmersdelight.block.behavior.crop.RiceCrop
 import fr.ateastudio.farmersdelight.block.behavior.crop.TomatoCrop
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.HoneyGlazedHamBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.RiceRollMedleyBlock
@@ -24,10 +25,17 @@ import fr.ateastudio.farmersdelight.block.behavior.feastblock.StuffedPumpkinBloc
 import fr.ateastudio.farmersdelight.block.behavior.pie.ApplePie
 import fr.ateastudio.farmersdelight.block.behavior.pie.ChocolatePie
 import fr.ateastudio.farmersdelight.block.behavior.pie.SweetBerryCheesecake
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.SandyShrub
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildBeetroots
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildCabbages
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildCarrots
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildOnions
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildPotatoes
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildRice
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildTomatoes
 import fr.ateastudio.farmersdelight.tileentity.CookingPot
 import org.bukkit.Material
 import org.bukkit.block.BlockFace
-import xyz.xenondevs.nova.addon.registry.BlockRegistry
 import xyz.xenondevs.nova.initialize.Init
 import xyz.xenondevs.nova.initialize.InitStage
 import xyz.xenondevs.nova.resources.builder.layout.block.BackingStateCategory
@@ -49,7 +57,7 @@ import xyz.xenondevs.nova.world.item.tool.VanillaToolCategories
 import xyz.xenondevs.nova.world.item.tool.VanillaToolTiers
 
 @Init(stage = InitStage.PRE_PACK)
-object Blocks : BlockRegistry by NovaFarmersDelight.registry {
+object Blocks {
     private val CROP = Breakable(0.0, setOf(VanillaToolCategories.AXE), VanillaToolTiers.WOOD, false, Material.TALL_GRASS)
     private val MUD = Breakable(0.5, setOf(VanillaToolCategories.SHOVEL), VanillaToolTiers.WOOD, false, Material.MUD)
     private val BAG = Breakable(0.8, setOf(VanillaToolCategories.SHEARS), VanillaToolTiers.WOOD, false, Material.WHITE_WOOL)
@@ -134,7 +142,7 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
         }
     }
     
-    val FULL_TATAMI_MAT_HEAD = block("full_tatami_mat_head") {
+    val FULL_TATAMI_MAT_HEAD = block("full_tatami_mat") {
         behaviors(TatamiMatHead, BAG, BlockDrops, BlockSounds(SoundGroup.WOOL))
         stateProperties(FACING_HORIZONTAL)
         stateBacked(BackingStateCategory.TRIPWIRE_ATTACHED, BackingStateCategory.TRIPWIRE_UNATTACHED) {
@@ -169,17 +177,17 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     
     val MUDDY_FARMLAND = block("muddy_farmland") {
         behaviors(MUD, BlockSounds(SoundGroup.MUD), MuddyFarmland)
-        stateBacked(BackingStateCategory.LEAVES, BackingStateCategory.NOTE_BLOCK)
+        stateBacked(BackingStateCategory.LEAVES, BackingStateCategory.MUSHROOM_BLOCK, BackingStateCategory.NOTE_BLOCK)
     }
     
-    val SANDY_SHRUB = plantBlock("sandy_shrub") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
-    val WILD_CABBAGES = plantBlock("wild_cabbages") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
-    val WILD_ONIONS = plantBlock("wild_onions") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
-    val WILD_TOMATOES = plantBlock("wild_tomatoes") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
-    val WILD_CARROTS = plantBlock("wild_carrots") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
-    val WILD_POTATOES = plantBlock("wild_potatoes") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
-    val WILD_BEETROOTS = plantBlock("wild_beetroots") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
-    val WILD_RICE = plantBlock("wild_rice") { behaviors(CROP, BlockSounds(SoundGroup.GRASS))}
+    val SANDY_SHRUB = plantBlock("sandy_shrub") { behaviors(SandyShrub(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_CABBAGES = plantBlock("wild_cabbages") { behaviors(WildCabbages(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_ONIONS = plantBlock("wild_onions") { behaviors(WildOnions(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_TOMATOES = plantBlock("wild_tomatoes") { behaviors(WildTomatoes(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_CARROTS = plantBlock("wild_carrots") { behaviors(WildCarrots(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_POTATOES = plantBlock("wild_potatoes") { behaviors(WildPotatoes(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_BEETROOTS = plantBlock("wild_beetroots") { behaviors(WildBeetroots(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_RICE = plantBlock("wild_rice") { behaviors(WildRice(), CROP, BlockSounds(SoundGroup.GRASS))}
     
     // val BROWN_MUSHROOM_COLONY = cropBlock("brown_mushroom_colony", TomatoCrop, 3)
     // val RED_MUSHROOM_COLONY = cropBlock("red_mushroom_colony", TomatoCrop, 3)
@@ -188,7 +196,6 @@ object Blocks : BlockRegistry by NovaFarmersDelight.registry {
     val ONION_CROP = cropBlock("onions", OnionCrop, 3)
     val RICE_CROP = cropBlock("rice", RiceCrop, 7,3)
     
-    //TODO Pie blocks
     val APPLE_PIE = pieBlock("apple_pie", ApplePie)
     val SWEET_BERRY_CHEESECAKE = pieBlock("sweet_berry_cheesecake", SweetBerryCheesecake)
     val CHOCOLATE_PIE = pieBlock("chocolate_pie", ChocolatePie)

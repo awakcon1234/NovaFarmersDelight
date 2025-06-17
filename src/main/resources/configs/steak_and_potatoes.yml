@@ -1,7 +1,7 @@
 # The nutrition value this food provides.
 nutrition: 12
 # The saturation this food provides.
-saturation: 0.8
+saturation: 19.2
 # Whether the food can always be eaten, or only when hungry.
 can_always_eat: false
 # The time it takes for the food to be consumed, in ticks.
