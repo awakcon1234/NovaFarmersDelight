@@ -36,6 +36,8 @@ fun ItemStack.getCraftingRemainingItem(): ItemStack {
             Material.BEETROOT_SOUP,
             Material.SUSPICIOUS_STEW -> ItemStack(Material.BOWL)
             Material.MILK_BUCKET,
+            Material.WATER_BUCKET,
+            Material.LAVA_BUCKET,
             Material.POWDER_SNOW_BUCKET,
             Material.AXOLOTL_BUCKET,
             Material.COD_BUCKET,

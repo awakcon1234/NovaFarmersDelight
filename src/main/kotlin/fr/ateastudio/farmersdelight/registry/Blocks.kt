@@ -256,7 +256,7 @@ object Blocks {
         block()
         behaviors(behaviorHolder, BlockSounds(SoundGroup.WOOL), Breakable(0.5, emptySet(), null, false, Material.WHEAT))
         stateProperties(ScopedBlockStateProperties.SERVINGS, FACING_HORIZONTAL)
-        stateBacked(BackingStateCategory.LEAVES, BackingStateCategory.NOTE_BLOCK, BackingStateCategory.MUSHROOM_BLOCK) {
+        entityBacked {
             val servings = (maxServing - minOf(getPropertyValueOrThrow(BlockStateProperties.SERVINGS), maxServing))
             val suffix = if (servings <= (maxServing - 1)) "_stage$servings" else if (hasLeftover) "_leftover" else "_stage3"
             getModel("block/${name}$suffix").rotated()
@@ -271,7 +271,7 @@ object Blocks {
         block()
        behaviors(behaviorHolder, BlockSounds(SoundGroup.WOOL), Breakable(0.5, emptySet(), null, false, Material.CAKE))
         stateProperties(ScopedBlockStateProperties.BITES, FACING_HORIZONTAL)
-        stateBacked(BackingStateCategory.LEAVES, BackingStateCategory.NOTE_BLOCK, BackingStateCategory.MUSHROOM_BLOCK) {
+       entityBacked {
             val bites = getPropertyValueOrThrow(BlockStateProperties.BITES)
             val suffix = if (bites > 0) "_slice$bites" else ""
             getModel("block/${name}$suffix").rotated()
