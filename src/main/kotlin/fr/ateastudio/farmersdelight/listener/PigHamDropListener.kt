@@ -1,6 +1,7 @@
 package fr.ateastudio.farmersdelight.listener
 
 import fr.ateastudio.farmersdelight.registry.Items
+import fr.ateastudio.farmersdelight.util.isKnife
 import org.bukkit.enchantments.Enchantment
 import org.bukkit.entity.EntityType
 import org.bukkit.event.EventHandler
@@ -9,11 +10,10 @@ import org.bukkit.event.entity.EntityDeathEvent
 import xyz.xenondevs.nova.initialize.Init
 import xyz.xenondevs.nova.initialize.InitStage
 import xyz.xenondevs.nova.util.registerEvents
-import xyz.xenondevs.nova.world.item.tool.ToolCategory
 import kotlin.random.Random
 
 @Init(stage = InitStage.POST_WORLD)
-class PigHamDropListener : Listener {
+object PigHamDropListener : Listener {
     
     init {
         this.registerEvents()
@@ -31,8 +31,7 @@ class PigHamDropListener : Listener {
         val itemInHand = killer.inventory.itemInMainHand
         
         // Check if item is tagged as "knife"
-        val isKnife = ToolCategory.ofItem(itemInHand).any { it.id.value() == "knives" || it.id.value() == "knife" }
-        if (!isKnife) return
+        if (!itemInHand.isKnife()) return
         
         // Calculate chance: base 0.5 + looting_bonus (0.1 * level)
         val lootingLevel = itemInHand.getEnchantmentLevel(Enchantment.LOOTING)
