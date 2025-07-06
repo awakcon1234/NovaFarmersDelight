@@ -8,6 +8,8 @@ import net.kyori.adventure.text.Component
 import xyz.xenondevs.nova.initialize.Init
 import xyz.xenondevs.nova.initialize.InitStage
 import xyz.xenondevs.nova.world.item.behavior.Consumable
+import xyz.xenondevs.nova.world.item.behavior.Damageable
+import xyz.xenondevs.nova.world.item.behavior.Enchantable
 import xyz.xenondevs.nova.world.item.behavior.Tool
 
 @Suppress("unused")
@@ -50,23 +52,23 @@ object Items {
     val MUDDY_FARMLAND = registerItem(Blocks.MUDDY_FARMLAND)
     
     val FLINT_KNIFE = item("flint_knife") {
-        behaviors(Tool())
+        behaviors(Tool(), Damageable(), Enchantable())
         maxStackSize(1)
     }
     val IRON_KNIFE = item("iron_knife") {
-        behaviors(Tool())
+        behaviors(Tool(), Damageable(), Enchantable())
         maxStackSize(1)
     }
     val DIAMOND_KNIFE = item("diamond_knife") {
-        behaviors(Tool())
+        behaviors(Tool(), Damageable(), Enchantable())
         maxStackSize(1)
     }
     val NETHERITE_KNIFE = item("netherite_knife") {
-        behaviors(Tool())
+        behaviors(Tool(), Damageable(), Enchantable())
         maxStackSize(1)
     }
     val GOLDEN_KNIFE = item("golden_knife") {
-        behaviors(Tool())
+        behaviors(Tool(), Damageable(), Enchantable())
         maxStackSize(1)
     }
     
