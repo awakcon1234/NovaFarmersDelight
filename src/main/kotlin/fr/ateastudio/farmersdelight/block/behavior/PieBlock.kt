@@ -1,6 +1,7 @@
 package fr.ateastudio.farmersdelight.block.behavior
 
 import fr.ateastudio.farmersdelight.block.BlockStateProperties
+import fr.ateastudio.farmersdelight.util.isKnife
 import fr.ateastudio.farmersdelight.util.spawnItemEntity
 import io.papermc.paper.datacomponent.DataComponentTypes
 import io.papermc.paper.datacomponent.item.consumable.ConsumeEffect
@@ -26,7 +27,6 @@ import xyz.xenondevs.nova.util.BlockUtils.updateBlockState
 import xyz.xenondevs.nova.world.BlockPos
 import xyz.xenondevs.nova.world.block.behavior.BlockBehavior
 import xyz.xenondevs.nova.world.block.state.NovaBlockState
-import xyz.xenondevs.nova.world.item.tool.ToolCategory
 import kotlin.random.Random
 
 
@@ -47,7 +47,7 @@ abstract class PieBlock : BlockBehavior {
         val player = ctx[DefaultContextParamTypes.SOURCE_PLAYER]
         if (player != null) {
             val heldStack = ctx[DefaultContextParamTypes.INTERACTION_ITEM_STACK] ?: ItemStack.empty()
-            if (ToolCategory.ofItem(heldStack).any { it.id.value() == "knives" || it.id.value() == "knife" }) {
+            if (heldStack.isKnife()) {
                 return cutSlice(pos, state, player)
             }
             
