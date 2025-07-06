@@ -1,6 +1,7 @@
 package fr.ateastudio.farmersdelight.recipe.cuttingboard
 
 import fr.ateastudio.farmersdelight.registry.Items
+import fr.ateastudio.farmersdelight.util.isKnife
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.RecipeChoice
@@ -18,7 +19,7 @@ sealed class ToolActionIngredient : RecipeChoice {
         override fun test(itemStack: ItemStack): Boolean {
             return when(tag) {
                 ToolTag.SHEARS -> ToolCategory.ofItem(itemStack).contains(VanillaToolCategories.SHEARS)
-                ToolTag.KNIVES -> ToolCategory.ofItem(itemStack).any { it.id.value() == "knives" || it.id.value() == "knife" }
+                ToolTag.KNIVES -> itemStack.isKnife()
                 else -> true
             }
         }

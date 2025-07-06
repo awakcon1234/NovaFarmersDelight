@@ -10,6 +10,15 @@ import org.bukkit.util.Vector
 import xyz.xenondevs.nova.util.item.novaItem
 import xyz.xenondevs.nova.world.item.NovaItem
 import xyz.xenondevs.nova.world.item.behavior.Consumable
+import xyz.xenondevs.nova.world.item.tool.ToolCategory
+
+fun ItemStack.hasCategoryId(categoryId: String): Boolean {
+    return ToolCategory.ofItem(this).any { it.id.value() == categoryId }
+}
+
+fun ItemStack.isKnife(): Boolean {
+    return ToolCategory.ofItem(this).any { it.id.value() == "knives" || it.id.value() == "knife" }
+}
 
 fun ItemStack.spawnItemEntity(world: World, x: Double, y: Double, z: Double, motionX: Double, motionY: Double, motionZ: Double) {
     val location = Location(world, x, y, z)
@@ -36,6 +45,8 @@ fun ItemStack.getCraftingRemainingItem(): ItemStack {
             Material.BEETROOT_SOUP,
             Material.SUSPICIOUS_STEW -> ItemStack(Material.BOWL)
             Material.MILK_BUCKET,
+            Material.WATER_BUCKET,
+            Material.LAVA_BUCKET,
             Material.POWDER_SNOW_BUCKET,
             Material.AXOLOTL_BUCKET,
             Material.COD_BUCKET,
