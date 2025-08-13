@@ -33,7 +33,7 @@ object StrawListener : Listener {
         
         var chance = 0.0
         when (block.type) {
-            Material.GRASS_BLOCK, Material.TALL_GRASS -> {
+            Material.SHORT_GRASS,Material.SHORT_DRY_GRASS, Material.TALL_GRASS, Material.TALL_DRY_GRASS -> {
                 chance = 0.2
             }
             Material.WHEAT -> {
