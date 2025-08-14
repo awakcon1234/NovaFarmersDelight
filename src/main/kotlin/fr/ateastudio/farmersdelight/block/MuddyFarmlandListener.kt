@@ -22,6 +22,7 @@ import xyz.xenondevs.nova.util.damageToolBreakBlock
 import xyz.xenondevs.nova.util.item.toItemStack
 import xyz.xenondevs.nova.util.playSoundNearby
 import xyz.xenondevs.nova.util.registerEvents
+import xyz.xenondevs.nova.util.runTask
 import xyz.xenondevs.nova.world.item.tool.ToolCategory
 import xyz.xenondevs.nova.world.item.tool.VanillaToolCategories
 import xyz.xenondevs.nova.world.pos
@@ -88,7 +89,12 @@ object MuddyFarmlandListener : Listener {
             .param(DefaultContextParamTypes.BLOCK_PLACE_EFFECTS, true)
             .build()
         block.location.playSoundNearby(Sound.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1f, 1f)
-        BlockUtils.placeBlock(context)
+        
+        runTask {
+            if (block.type == Material.MUD) {
+                BlockUtils.placeBlock(context)
+            }
+        }
     }
     
 }
