@@ -2,7 +2,14 @@
 *Based on vectorwing's [FarmersDelight mod](https://github.com/vectorwing/FarmersDelight)*
 
 <img src="https://i.imgur.com/aDELzhM.png" width="50%">
-
+<p align="center">
+  <a href="https://github.com/Atea-Studio/NovaFarmersDelight/stargazers">
+    <img src="https://img.shields.io/github/stars/Atea-Studio/NovaFarmersDelight">
+  </a>
+  <a href="https://github.com/Atea-Studio/NovaFarmersDelight/releases">
+    <img src="https://img.shields.io/github/downloads/Atea-Studio/NovaFarmersDelight/total.svg">
+  </a>
+</p>
 ---
 
 <img src="https://i.imgur.com/Iy0ddGy.png" width="45%"> <img src="https://i.imgur.com/Ktk1Pee.png" width="45%">
