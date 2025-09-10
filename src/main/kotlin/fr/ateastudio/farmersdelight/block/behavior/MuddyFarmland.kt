@@ -26,7 +26,7 @@ object MuddyFarmland : BlockBehavior {
     }
     
     override fun getDrops(pos: BlockPos, state: NovaBlockState, ctx: Context<DefaultContextIntentions.BlockBreak>): List<ItemStack> {
-        if (ctx[DefaultContextParamTypes.SOURCE_PLAYER]?.gameMode == GameMode.CREATIVE)
+        if (!ctx[DefaultContextParamTypes.BLOCK_DROPS] || ctx[DefaultContextParamTypes.SOURCE_PLAYER]?.gameMode == GameMode.CREATIVE)
             return emptyList()
         return listOf(Material.MUD.toItemStack())
     }

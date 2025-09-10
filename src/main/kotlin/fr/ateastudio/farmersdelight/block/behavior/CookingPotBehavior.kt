@@ -4,10 +4,13 @@ import fr.ateastudio.farmersdelight.block.BlockStateProperties
 import fr.ateastudio.farmersdelight.block.CookingPotSupport
 import fr.ateastudio.farmersdelight.registry.Tags
 import fr.ateastudio.farmersdelight.util.isTag
+import org.bukkit.GameMode
 import org.bukkit.Material
 import org.bukkit.block.BlockFace
 import org.bukkit.block.data.type.Campfire
+import org.bukkit.inventory.ItemStack
 import xyz.xenondevs.nova.context.Context
+import xyz.xenondevs.nova.context.intention.DefaultContextIntentions
 import xyz.xenondevs.nova.context.intention.DefaultContextIntentions.BlockPlace
 import xyz.xenondevs.nova.context.param.DefaultContextParamTypes
 import xyz.xenondevs.nova.util.BlockUtils.updateBlockState
@@ -29,7 +32,14 @@ object CookingPotBehavior : BlockBehavior {
             .with(BlockStateProperties.HEATED,updateHeated(pos)))
     }
     
-    private fun updateHeated(pos: BlockPos) : Boolean {
+    override fun getDrops(pos: BlockPos, state: NovaBlockState, ctx: Context<DefaultContextIntentions.BlockBreak>): List<ItemStack> {
+        if (!ctx[DefaultContextParamTypes.BLOCK_DROPS] || ctx[DefaultContextParamTypes.SOURCE_PLAYER]?.gameMode == GameMode.CREATIVE)
+            return emptyList()
+        return super.getDrops(pos, state, ctx)
+    }
+        
+        
+        private fun updateHeated(pos: BlockPos) : Boolean {
         if (pos.below.block.isTag(Tags.HEAT_SOURCE) || pos.below.block.isTag(Tags.TRAY_HEAT_SOURCE)) {
             if (pos.below.block.type == Material.CAMPFIRE || pos.below.block.type == Material.SOUL_CAMPFIRE) {
                 val campFire = pos.below.block.blockData as Campfire
