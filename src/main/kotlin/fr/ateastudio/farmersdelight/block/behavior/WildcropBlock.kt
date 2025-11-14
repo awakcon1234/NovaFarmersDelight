@@ -23,7 +23,7 @@ abstract class WildcropBlock : BlockBehavior {
         val player = ctx[DefaultContextParamTypes.SOURCE_PLAYER]
         val tool = ctx[DefaultContextParamTypes.TOOL_ITEM_STACK]
         val seedItem = seedItem()
-        if (!canDropSeed || player?.gameMode == GameMode.CREATIVE) {
+        if (!ctx[DefaultContextParamTypes.BLOCK_DROPS] || !canDropSeed || player?.gameMode == GameMode.CREATIVE) {
             return emptyList()
         }
         
@@ -65,7 +65,7 @@ abstract class WildcropBlock : BlockBehavior {
         var seedDrops = 0
         
         // Perform binomial trials
-        for (i in 0 until trials) {
+        repeat(trials) {
             if (Random.nextDouble(1.0) < dropProbability) {
                 seedDrops++
             }

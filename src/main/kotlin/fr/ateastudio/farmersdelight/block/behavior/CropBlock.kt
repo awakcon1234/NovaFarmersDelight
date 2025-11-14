@@ -40,7 +40,7 @@ abstract class CropBlock : BlockBehavior {
         val seedItem = seedItem()
         val resultItem = resultItem()
         val badResultItem = badResultItem()
-        if (player?.gameMode == GameMode.CREATIVE) {
+        if (!ctx[DefaultContextParamTypes.BLOCK_DROPS] || player?.gameMode == GameMode.CREATIVE) {
             return emptyList()
         }
         if (isMaxAge(state)) {
@@ -110,8 +110,8 @@ abstract class CropBlock : BlockBehavior {
             if (age < getMaxAge(state)) {
                 val growSpeed = getGrowthSpeed(pos)
                 val tickSpeedMultiplier = (pos.world.getGameRuleValue(GameRule.RANDOM_TICK_SPEED) ?: 3) / 3
-                for (i in 1..tickSpeedMultiplier) {
-                    if (Random.nextInt(((25.0F / growSpeed) + 1).toInt()) == 0) {
+                repeat(tickSpeedMultiplier) {
+                if (Random.nextInt(((25.0F / growSpeed) + 1).toInt()) == 0) {
                         growCrop(pos, state)
                     }
                 }
@@ -278,7 +278,7 @@ abstract class CropBlock : BlockBehavior {
         var seedDrops = 0
         
         // Perform binomial trials
-        for (i in 0 until trials) {
+        repeat(trials) {
             if (Random.nextDouble(1.0) < dropProbability) {
                 seedDrops++
             }

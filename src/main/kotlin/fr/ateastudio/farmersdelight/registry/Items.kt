@@ -12,7 +12,7 @@ import xyz.xenondevs.nova.world.item.behavior.Damageable
 import xyz.xenondevs.nova.world.item.behavior.Enchantable
 import xyz.xenondevs.nova.world.item.behavior.Tool
 
-@Suppress("unused")
+@Suppress("unused", "UnstableApiUsage")
 @Init(stage = InitStage.PRE_PACK)
 object Items {
     
