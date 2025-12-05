@@ -22,7 +22,10 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-        
+
+      - name: Make Gradle Executable
+        run: chmod +x gradlew
+
       - name: Build Addons
         run: ./gradlew addonJar -PoutDir=../artifacts/
 
