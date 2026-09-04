@@ -1,0 +1,13 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:tortilla_raw",
+	"amount": 3,
+	"shape": [
+		"www",
+		" b "
+	],
+	"ingredients": {
+		"w": "farmersdelight:corn",
+		"b": "minecraft:water_bucket"
+	}
+}

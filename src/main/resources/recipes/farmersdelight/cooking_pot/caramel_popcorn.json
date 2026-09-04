@@ -1,0 +1,15 @@
+{
+	"time": 200,
+	"experience": 0.35,
+	"ingredients": [
+		{
+			"item": "farmersdelight:corn_seeds",
+			"amount": 1
+		},
+		{
+			"item": "minecraft:sugar",
+			"amount": 1
+		}
+	],
+	"result": "farmersdelight:caramel_popcorn"
+}

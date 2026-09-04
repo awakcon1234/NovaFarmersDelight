@@ -29,6 +29,8 @@ object Items {
     val ONION_CRATE = registerItem(Blocks.ONION_CRATE)
     val RICE_BALE = registerItem(Blocks.RICE_BALE)
     val RICE_BAG = registerItem(Blocks.RICE_BAG)
+    val CORN_CRATE = registerItem(Blocks.CORN_CRATE)
+    val CORN_KERNEL_BAG = registerItem(Blocks.CORN_KERNEL_BAG)
     val STRAW_BALE = registerItem(Blocks.STRAW_BALE)
     
     val TATAMI = registerItem(Blocks.TATAMI)
@@ -80,6 +82,13 @@ object Items {
         modelDefinition {
             model = buildModel {
                 createLayeredModel("block/sandy_shrub")
+            }
+        }
+    }
+    val WILD_CORN = item(Blocks.WILD_CORN) {
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("block/wild_corn")
             }
         }
     }
@@ -152,6 +161,56 @@ object Items {
                 createLayeredModel("item/rice")
             }
         }
+    }
+    val CORN_SEEDS = item(Blocks.CORN_CROP, "corn_seeds") {
+        name(Component.translatable("item.farmersdelight.corn_seeds"))
+        behaviors(Consumable())
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/corn_seeds")
+            }
+        }
+    }
+    val CORN = item("corn") {
+        behaviors(Consumable())
+    }
+    val CORNCOB = item("corncob") {
+    }
+    val GRILLED_CORN = item("grilled_corn") {
+        behaviors(Consumable())
+    }
+    val BOILED_CORN = item("boiled_corn") {
+        behaviors(Consumable())
+    }
+    val POPCORN = item("popcorn") {
+        behaviors(Consumable())
+    }
+    val CARAMEL_POPCORN = item("caramel_popcorn") {
+        behaviors(Consumable())
+    }
+    val CORNBREAD_BATTER = item("cornbread_batter") {
+        behaviors(Consumable())
+    }
+    val CORNBREAD = item("cornbread") {
+        behaviors(Consumable())
+    }
+    val CORN_DOG = item("corn_dog") {
+        behaviors(Consumable())
+    }
+    val CLASSIC_CORN_DOG = item("classic_corn_dog") {
+        behaviors(Consumable())
+    }
+    val TORTILLA_RAW = item("tortilla_raw") {
+        behaviors(Consumable())
+    }
+    val TORTILLA = item("tortilla") {
+        behaviors(Consumable())
+    }
+    val TORTILLA_CHIP = item("tortilla_chip") {
+        behaviors(Consumable())
+    }
+    val TACO = item("taco") {
+        behaviors(Consumable())
     }
     val CABBAGE_SEEDS = item(Blocks.CABBAGES_CROP, "cabbage_seeds") {
         name(Component.translatable("item.farmersdelight.cabbage_seeds"))
@@ -384,6 +443,26 @@ object Items {
         behaviors(Consumable())
         maxStackSize(16)
     }
+    val CREAMED_CORN = item("creamed_corn") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val CORN_SOUP = item("corn_soup") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val CREAMY_CORN_DRINK = item("creamy_corn_drink") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val CORNBREAD_STUFFING = item("cornbread_stuffing") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val NACHOS_BOWL = item("nachos_bowl") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
     val FISH_STEW = item("fish_stew") {
         behaviors(Consumable())
         maxStackSize(16)
@@ -487,6 +566,22 @@ object Items {
         modelDefinition {
             model = buildModel {
                 createLayeredModel("item/shepherds_pie_block")
+            }
+        }
+    }
+    val NACHOS_BLOCK = item(Blocks.NACHOS_BLOCK,"nachos_block") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/nachos_block")
+            }
+        }
+    }
+    val POPCORN_BOX = item(Blocks.POPCORN_BOX,"popcorn_box") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                getModel("block/popcorn_box_stage0")
             }
         }
     }

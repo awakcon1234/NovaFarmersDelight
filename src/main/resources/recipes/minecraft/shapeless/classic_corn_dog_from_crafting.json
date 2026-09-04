@@ -1,0 +1,15 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:classic_corn_dog",
+	"amount": 1,
+	"ingredients": [
+		{
+			"item": "farmersdelight:corn_dog",
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:tomato_sauce",
+			"amount": 1
+		}
+	]
+}

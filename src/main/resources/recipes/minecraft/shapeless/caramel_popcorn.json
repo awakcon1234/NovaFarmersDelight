@@ -1,0 +1,15 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:caramel_popcorn",
+	"amount": 1,
+	"ingredients": [
+		{
+			"item": "farmersdelight:popcorn",
+			"amount": 1
+		},
+		{
+			"item": "minecraft:sugar",
+			"amount": 1
+		}
+	]
+}

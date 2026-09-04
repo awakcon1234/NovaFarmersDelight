@@ -1,0 +1,15 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:popcorn_box",
+	"amount": 1,
+	"ingredients": [
+		{
+			"item": "farmersdelight:caramel_popcorn",
+			"amount": 4
+		},
+		{
+			"item": "minecraft:paper",
+			"amount": 1
+		}
+	]
+}

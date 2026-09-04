@@ -1,0 +1,22 @@
+{
+	"time": 200,
+	"experience": 0.35,
+	"ingredients": [
+		{
+			"item": "farmersdelight:corn",
+			"amount": 1
+		},
+		{
+			"item": [
+				"minecraft:milk_bucket",
+				"farmersdelight:milk_bottle"
+			],
+			"amount": 1
+		},
+		{
+			"item": "minecraft:sugar",
+			"amount": 1
+		}
+	],
+	"result": "farmersdelight:creamy_corn_drink"
+}

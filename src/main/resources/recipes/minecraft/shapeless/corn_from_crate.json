@@ -1,0 +1,11 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:corn",
+	"amount": 9,
+	"ingredients": [
+		{
+			"item": "farmersdelight:corn_crate",
+			"amount": 1
+		}
+	]
+}

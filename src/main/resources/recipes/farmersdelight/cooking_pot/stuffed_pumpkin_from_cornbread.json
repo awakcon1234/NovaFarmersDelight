@@ -1,0 +1,33 @@
+{
+	"time": 400,
+	"experience": 0.5,
+	"ingredients": [
+		{
+			"item": "farmersdelight:cornbread",
+			"amount": 1
+		},
+		{
+			"item": [
+				"minecraft:beetroot",
+				"minecraft:carrot",
+				"farmersdelight:onion",
+				"minecraft:potato",
+				"farmersdelight:tomato"
+			],
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:tomato_sauce",
+			"amount": 1
+		},
+		{
+			"item": "minecraft:brown_mushroom",
+			"amount": 1
+		},
+		{
+			"item": "minecraft:sweet_berries",
+			"amount": 1
+		}
+	],
+	"result": "farmersdelight:stuffed_pumpkin_block"
+}

@@ -1,0 +1,9 @@
+{
+	"category": "food",
+	"result": "farmersdelight:tortilla",
+	"experience": 0.5,
+	"time": 200,
+	"input": [
+		"farmersdelight:tortilla_raw"
+	]
+}

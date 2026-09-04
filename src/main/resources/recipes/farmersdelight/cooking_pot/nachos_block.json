@@ -1,0 +1,35 @@
+{
+	"time": 200,
+	"experience": 0.35,
+	"ingredients": [
+		{
+			"item": "farmersdelight:tortilla_chip",
+			"amount": 2
+		},
+		{
+			"item": [
+				"minecraft:cooked_chicken",
+				"farmersdelight:cooked_chicken_cuts",
+				"minecraft:cooked_porkchop",
+				"farmersdelight:cooked_bacon",
+				"minecraft:cooked_beef",
+				"farmersdelight:beef_patty",
+				"minecraft:cooked_mutton",
+				"farmersdelight:cooked_mutton_chops"
+			],
+			"amount": 1
+		},
+		{
+			"item": [
+				"minecraft:milk_bucket",
+				"farmersdelight:milk_bottle"
+			],
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:tomato_sauce",
+			"amount": 1
+		}
+	],
+	"result": "farmersdelight:nachos_block"
+}

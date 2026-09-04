@@ -1,0 +1,9 @@
+{
+	"category": "food",
+	"result": "farmersdelight:cornbread",
+	"experience": 0.5,
+	"time": 100,
+	"input": [
+		"farmersdelight:cornbread_batter"
+	]
+}

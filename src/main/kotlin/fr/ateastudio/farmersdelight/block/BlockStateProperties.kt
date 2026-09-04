@@ -14,6 +14,7 @@ object BlockStateProperties {
     val PAIRED = BooleanProperty(Key.key("farmersdelight", "paired"))
     val BITES = IntProperty(Key.key("farmersdelight", "bites"))
     val SERVINGS = IntProperty(Key.key("farmersdelight", "servings"))
+    val UPPER = BooleanProperty(Key.key("farmersdelight", "upper"))
 }
 
 object ScopedBlockStateProperties {
@@ -25,4 +26,5 @@ object ScopedBlockStateProperties {
     val PAIRED = BlockStateProperties.PAIRED.scope(false, true)
     val BITES = BlockStateProperties.BITES.scope(0..3)
     val SERVINGS = BlockStateProperties.SERVINGS.scope(0..8)
+    val UPPER = BlockStateProperties.UPPER.scope(false, true)
 }

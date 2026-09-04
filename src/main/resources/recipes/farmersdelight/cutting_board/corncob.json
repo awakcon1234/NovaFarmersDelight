@@ -1,0 +1,16 @@
+{
+	"type": "farmersdelight:cutting",
+	"ingredients": [
+		{
+			"item": "farmersdelight:corncob"
+		}
+	],
+	"result": [
+		{
+			"item": "farmersdelight:straw"
+		}
+	],
+	"tool": {
+		"tag": "forge:tools/knives"
+	}
+}

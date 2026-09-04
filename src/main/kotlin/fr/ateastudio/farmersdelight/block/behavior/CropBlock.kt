@@ -172,6 +172,13 @@ abstract class CropBlock : BlockBehavior {
         return Random.nextInt(min, max + 1)
     }
     
+    /**
+     * The growth speed of a crop standing at [blockPos], read off the farmland around it.
+     */
+    protected fun growthSpeedAt(blockPos: BlockPos): Float {
+        return getGrowthSpeed(blockPos)
+    }
+    
     private fun getGrowthSpeed(blockPos: BlockPos): Float {
         val cropBlock= blockPos.block
         var growthSpeed = 1.0f

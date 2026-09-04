@@ -1,0 +1,13 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:corn_kernel_bag",
+	"amount": 1,
+	"shape": [
+		"www",
+		"www",
+		"www"
+	],
+	"ingredients": {
+		"w": "farmersdelight:corn_seeds"
+	}
+}

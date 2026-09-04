@@ -1,0 +1,12 @@
+# The nutrition value this food provides.
+nutrition: 10
+# The saturation this food provides.
+saturation: 18.0
+# Whether the food can always be eaten, or only when hungry.
+can_always_eat: false
+# The time it takes for the food to be consumed, in ticks.
+consume_time: 32
+# The item stack that remains after the food is consumed.
+remains: "minecraft:stick"
+# A list of effects to apply to the player when this food is consumed.
+possible_effects: []

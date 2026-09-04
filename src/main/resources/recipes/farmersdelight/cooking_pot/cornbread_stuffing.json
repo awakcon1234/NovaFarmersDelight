@@ -1,0 +1,29 @@
+{
+	"time": 200,
+	"experience": 0.5,
+	"ingredients": [
+		{
+			"item": "farmersdelight:cornbread",
+			"amount": 1
+		},
+		{
+			"item": [
+				"minecraft:beetroot",
+				"minecraft:carrot",
+				"farmersdelight:onion",
+				"minecraft:potato",
+				"farmersdelight:tomato"
+			],
+			"amount": 1
+		},
+		{
+			"item": "minecraft:baked_potato",
+			"amount": 1
+		},
+		{
+			"item": "minecraft:sweet_berries",
+			"amount": 1
+		}
+	],
+	"result": "farmersdelight:cornbread_stuffing"
+}

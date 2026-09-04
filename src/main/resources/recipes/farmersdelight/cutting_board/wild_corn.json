@@ -1,0 +1,19 @@
+{
+	"type": "farmersdelight:cutting",
+	"ingredients": [
+		{
+			"item": "farmersdelight:wild_corn"
+		}
+	],
+	"result": [
+		{
+			"item": "farmersdelight:corn_seeds"
+		},
+		{
+			"item": "farmersdelight:straw"
+		}
+	],
+	"tool": {
+		"tag": "forge:tools/knives"
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"category": "food",
+	"result": "farmersdelight:popcorn",
+	"experience": 0.5,
+	"time": 600,
+	"input": [
+		"farmersdelight:corn_seeds"
+	]
+}

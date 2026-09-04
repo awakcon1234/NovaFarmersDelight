@@ -1,0 +1,37 @@
+{
+	"time": 200,
+	"experience": 0.35,
+	"ingredients": [
+		{
+			"item": "farmersdelight:corn",
+			"amount": 1
+		},
+		{
+			"item": [
+				"farmersdelight:cabbage",
+				"farmersdelight:cabbage_leaf"
+			],
+			"amount": 1
+		},
+		{
+			"item": [
+				"minecraft:chicken",
+				"farmersdelight:chicken_cuts",
+				"minecraft:porkchop",
+				"farmersdelight:bacon",
+				"minecraft:beef",
+				"farmersdelight:minced_beef",
+				"minecraft:brown_mushroom"
+			],
+			"amount": 1
+		},
+		{
+			"item": [
+				"minecraft:milk_bucket",
+				"farmersdelight:milk_bottle"
+			],
+			"amount": 1
+		}
+	],
+	"result": "farmersdelight:corn_soup"
+}

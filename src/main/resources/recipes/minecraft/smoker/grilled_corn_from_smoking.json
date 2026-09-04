@@ -1,0 +1,9 @@
+{
+	"category": "food",
+	"result": "farmersdelight:grilled_corn",
+	"experience": 0.5,
+	"time": 100,
+	"input": [
+		"farmersdelight:corn"
+	]
+}

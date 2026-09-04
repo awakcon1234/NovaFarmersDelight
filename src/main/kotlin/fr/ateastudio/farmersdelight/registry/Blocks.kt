@@ -14,6 +14,7 @@ import fr.ateastudio.farmersdelight.block.behavior.PairedBlock
 import fr.ateastudio.farmersdelight.block.behavior.TatamiMatFoot
 import fr.ateastudio.farmersdelight.block.behavior.TatamiMatHead
 import fr.ateastudio.farmersdelight.block.behavior.crop.CabbageCrop
+import fr.ateastudio.farmersdelight.block.behavior.crop.CornCrop
 import fr.ateastudio.farmersdelight.block.behavior.crop.OnionCrop
 import fr.ateastudio.farmersdelight.block.behavior.crop.RiceCrop
 import fr.ateastudio.farmersdelight.block.behavior.crop.TomatoCrop
@@ -21,6 +22,8 @@ import fr.ateastudio.farmersdelight.block.behavior.feastblock.HoneyGlazedHamBloc
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.RiceRollMedleyBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.RoastChickenBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.GleamingSaladBlock
+import fr.ateastudio.farmersdelight.block.behavior.feastblock.NachosBlock
+import fr.ateastudio.farmersdelight.block.behavior.feastblock.PopcornBoxBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.ShepherdsPieBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.StuffedPumpkinBlock
 import fr.ateastudio.farmersdelight.block.behavior.pie.ApplePie
@@ -29,6 +32,7 @@ import fr.ateastudio.farmersdelight.block.behavior.pie.SweetBerryCheesecake
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.SandyShrub
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildBeetroots
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildCabbages
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildCorn
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildCarrots
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildOnions
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildPotatoes
@@ -112,6 +116,8 @@ object Blocks {
         }
     }
     val RICE_BAG = nonInteractiveBlock("rice_bag") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
+    val CORN_CRATE = nonInteractiveBlock("corn_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val CORN_KERNEL_BAG = nonInteractiveBlock("corn_kernel_bag") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
     val STRAW_BALE = block("straw_bale") {
         behaviors(BALE, BlockDrops, BlockSounds(SoundGroup.GRASS))
         stateProperties(AXIS)
@@ -189,6 +195,7 @@ object Blocks {
     val WILD_POTATOES = plantBlock("wild_potatoes") { behaviors(WildPotatoes(), CROP, BlockSounds(SoundGroup.GRASS))}
     val WILD_BEETROOTS = plantBlock("wild_beetroots") { behaviors(WildBeetroots(), CROP, BlockSounds(SoundGroup.GRASS))}
     val WILD_RICE = plantBlock("wild_rice") { behaviors(WildRice(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_CORN = plantBlock("wild_corn") { behaviors(WildCorn(), CROP, BlockSounds(SoundGroup.GRASS))}
     
     // val BROWN_MUSHROOM_COLONY = cropBlock("brown_mushroom_colony", TomatoCrop, 3)
     // val RED_MUSHROOM_COLONY = cropBlock("red_mushroom_colony", TomatoCrop, 3)
@@ -196,6 +203,7 @@ object Blocks {
     val TOMATOES_CROP = cropBlock("tomatoes", TomatoCrop, 7,3)
     val ONION_CROP = cropBlock("onions", OnionCrop, 3)
     val RICE_CROP = cropBlock("rice", RiceCrop, 7,3)
+    val CORN_CROP = tallCropBlock("corn", CornCrop, 7)
     
     val APPLE_PIE = pieBlock("apple_pie", ApplePie)
     val SWEET_BERRY_CHEESECAKE = pieBlock("sweet_berry_cheesecake", SweetBerryCheesecake)
@@ -206,6 +214,8 @@ object Blocks {
     val HONEY_GLAZED_HAM_BLOCK = feastBlock("honey_glazed_ham_block", HoneyGlazedHamBlock, true)
     val SHEPHERDS_PIE_BLOCK = feastBlock("shepherds_pie_block", ShepherdsPieBlock, true)
     val GLEAMING_SALAD_BLOCK = feastBlock("gleaming_salad_block", GleamingSaladBlock, true)
+    val NACHOS_BLOCK = feastBlock("nachos_block", NachosBlock, false)
+    val POPCORN_BOX = feastBlock("popcorn_box", PopcornBoxBlock, true)
     val RICE_ROLL_MEDLEY_BLOCK = feastBlock("rice_roll_medley_block", RiceRollMedleyBlock, true, 8)
     
     
@@ -244,6 +254,31 @@ object Blocks {
             }
             else {
                 getModel("block/budding_${name}_stage$id")
+            }
+        }
+    }
+    
+    /**
+     * A crop occupying two blocks, both this block: the lower half carries `upper = false`,
+     * the half it grows above itself carries `upper = true`, and the model is picked from both
+     * the age and which half it is.
+     */
+    private fun tallCropBlock(
+        name: String,
+        cropBehavior: BlockBehaviorHolder,
+        maxAge: Int,
+        block: NovaBlockBuilder.() -> Unit = {}
+    ): NovaBlock = block("${name}_crop") {
+        block()
+        behaviors(CROP, Ageable(maxAge), cropBehavior, BlockSounds(SoundGroup.CROP))
+        stateProperties(ScopedBlockStateProperties.AGE, ScopedBlockStateProperties.BUDDING_AGE, ScopedBlockStateProperties.MAX_AGE, ScopedBlockStateProperties.UPPER)
+        stateBacked(BackingStateCategory.TRIPWIRE_UNATTACHED, BackingStateCategory.TRIPWIRE_ATTACHED) {
+            val age = minOf(getPropertyValueOrThrow(BlockStateProperties.AGE), maxAge)
+            val upper = getPropertyValueOrThrow(BlockStateProperties.UPPER)
+            if (upper) {
+                getModel("block/${name}_top_stage$age")
+            } else {
+                getModel("block/${name}_crop_stage$age")
             }
         }
     }
