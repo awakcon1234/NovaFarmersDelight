@@ -1,0 +1,20 @@
+{
+	"type": "farmersdelight:cutting",
+	"ingredients": [
+		{
+			"item": "farmersdelight:wild_coffee"
+		}
+	],
+	"result": [
+		{
+			"count": 2,
+			"item": "farmersdelight:coffee_beans"
+		},
+		{
+			"item": "minecraft:yellow_dye"
+		}
+	],
+	"tool": {
+		"tag": "forge:tools/knives"
+	}
+}

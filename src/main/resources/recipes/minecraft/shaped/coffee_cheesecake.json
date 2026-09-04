@@ -1,0 +1,22 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:coffee_cheesecake",
+	"amount": 1,
+	"shape": [
+		" T ",
+		"SSS",
+		"MCM"
+	],
+	"ingredients": {
+		"T": [
+			"farmersdelight:coffee",
+			"farmersdelight:dark_coffee"
+		],
+		"S": "minecraft:sugar",
+		"M": [
+			"minecraft:milk_bucket",
+			"farmersdelight:milk_bottle"
+		],
+		"C": "farmersdelight:pie_crust"
+	}
+}

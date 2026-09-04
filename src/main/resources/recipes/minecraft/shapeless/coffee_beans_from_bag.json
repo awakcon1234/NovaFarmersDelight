@@ -1,0 +1,11 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:coffee_beans",
+	"amount": 9,
+	"ingredients": [
+		{
+			"item": "farmersdelight:coffee_beans_bag",
+			"amount": 1
+		}
+	]
+}

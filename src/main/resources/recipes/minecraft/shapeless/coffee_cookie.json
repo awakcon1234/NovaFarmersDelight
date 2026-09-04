@@ -1,0 +1,15 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:coffee_cookie",
+	"amount": 8,
+	"ingredients": [
+		{
+			"item": "farmersdelight:roasted_coffee_beans",
+			"amount": 1
+		},
+		{
+			"item": "minecraft:wheat",
+			"amount": 2
+		}
+	]
+}

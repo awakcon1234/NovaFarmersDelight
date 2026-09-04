@@ -1,0 +1,12 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:coffee_cheesecake",
+	"amount": 1,
+	"shape": [
+		"##",
+		"##"
+	],
+	"ingredients": {
+		"#": "farmersdelight:coffee_cheesecake_slice"
+	}
+}

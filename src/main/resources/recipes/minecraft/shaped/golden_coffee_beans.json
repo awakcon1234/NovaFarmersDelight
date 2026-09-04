@@ -1,0 +1,17 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:golden_coffee_beans",
+	"amount": 1,
+	"shape": [
+		"GGG",
+		"GCG",
+		"GGG"
+	],
+	"ingredients": {
+		"G": "minecraft:gold_nugget",
+		"C": [
+			"farmersdelight:coffee_beans",
+			"farmersdelight:roasted_coffee_beans"
+		]
+	}
+}

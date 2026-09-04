@@ -32,6 +32,8 @@ object Items {
     val CORN_CRATE = registerItem(Blocks.CORN_CRATE)
     val CORN_KERNEL_BAG = registerItem(Blocks.CORN_KERNEL_BAG)
     val BELL_PEPPER_SEEDS_BAG = registerItem(Blocks.BELL_PEPPER_SEEDS_BAG)
+    val COFFEE_BEANS_BAG = registerItem(Blocks.COFFEE_BEANS_BAG)
+    val ROASTED_COFFEE_BEANS_BAG = registerItem(Blocks.ROASTED_COFFEE_BEANS_BAG)
     val BELL_PEPPER_RED_CRATE = registerItem(Blocks.BELL_PEPPER_RED_CRATE)
     val BELL_PEPPER_ORANGE_CRATE = registerItem(Blocks.BELL_PEPPER_ORANGE_CRATE)
     val BELL_PEPPER_YELLOW_CRATE = registerItem(Blocks.BELL_PEPPER_YELLOW_CRATE)
@@ -101,6 +103,13 @@ object Items {
         modelDefinition {
             model = buildModel {
                 createLayeredModel("block/sandy_shrub")
+            }
+        }
+    }
+    val WILD_COFFEE = item(Blocks.WILD_COFFEE) {
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("block/wild_coffee")
             }
         }
     }
@@ -187,6 +196,50 @@ object Items {
                 createLayeredModel("item/rice")
             }
         }
+    }
+    val COFFEE_BEANS = item(Blocks.COFFEE_CROP, "coffee_beans") {
+        name(Component.translatable("item.farmersdelight.coffee_beans"))
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/coffee_beans")
+            }
+        }
+    }
+    val ROASTED_COFFEE_BEANS = item("roasted_coffee_beans") {
+        behaviors(Consumable())
+    }
+    val GOLDEN_COFFEE_BEANS = item("golden_coffee_beans") {
+        behaviors(Consumable())
+    }
+    val COFFEE = item("coffee") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val DARK_COFFEE = item("dark_coffee") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val MILK_COFFEE = item("milk_coffee") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val CHOCOLATE_COFFEE = item("chocolate_coffee") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val HONEY_COFFEE = item("honey_coffee") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val PUMPKIN_COFFEE = item("pumpkin_coffee") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val COFFEE_COOKIE = item("coffee_cookie") {
+        behaviors(Consumable())
+    }
+    val COFFEE_CHEESECAKE_SLICE = item("coffee_cheesecake_slice") {
+        behaviors(Consumable())
     }
     val BELL_PEPPER_SEEDS = item(Blocks.BELL_PEPPERS_CROP, "bell_pepper_seeds") {
         name(Component.translatable("item.farmersdelight.bell_pepper_seeds"))
@@ -521,6 +574,14 @@ object Items {
             }
         }
     }
+    val COFFEE_CHEESECAKE = item(Blocks.COFFEE_CHEESECAKE,"coffee_cheesecake") {
+        maxStackSize(1)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/coffee_cheesecake")
+            }
+        }
+    }
     val CHOCOLATE_PIE = item(Blocks.CHOCOLATE_PIE,"chocolate_pie") {
         maxStackSize(1)
         modelDefinition {
@@ -656,6 +717,10 @@ object Items {
         maxStackSize(16)
     }
     val NACHOS_BOWL = item("nachos_bowl") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val COFFEE_BRAISED_BEEF = item("coffee_braised_beef") {
         behaviors(Consumable())
         maxStackSize(16)
     }

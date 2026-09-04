@@ -435,5 +435,22 @@
   "item.farmersdelight.stuffed_bell_pepper_purple": "Stuffed Purple Bell Pepper",
   "item.farmersdelight.stuffed_bell_pepper_red": "Stuffed Red Bell Pepper",
   "item.farmersdelight.stuffed_bell_pepper_white": "Stuffed White Bell Pepper",
-  "item.farmersdelight.stuffed_bell_pepper_yellow": "Stuffed Yellow Bell Pepper"
+  "item.farmersdelight.stuffed_bell_pepper_yellow": "Stuffed Yellow Bell Pepper",
+  "block.farmersdelight.coffee_crop": "Coffee",
+  "block.farmersdelight.coffee_beans_bag": "Bag of Coffee Beans",
+  "block.farmersdelight.coffee_cheesecake": "Coffee Cheesecake",
+  "block.farmersdelight.roasted_coffee_beans_bag": "Bag of Roasted Coffee Beans",
+  "block.farmersdelight.wild_coffee": "Wild Coffee",
+  "item.farmersdelight.chocolate_coffee": "Chocolate Coffee",
+  "item.farmersdelight.coffee": "Coffee",
+  "item.farmersdelight.coffee_beans": "Coffee Beans",
+  "item.farmersdelight.coffee_braised_beef": "Coffee-Braised Beef",
+  "item.farmersdelight.coffee_cheesecake_slice": "Slice of Coffee Cheesecake",
+  "item.farmersdelight.coffee_cookie": "Coffee Cookie",
+  "item.farmersdelight.dark_coffee": "Dark Coffee",
+  "item.farmersdelight.golden_coffee_beans": "Golden Coffee Beans",
+  "item.farmersdelight.honey_coffee": "Honey Coffee",
+  "item.farmersdelight.milk_coffee": "Milk Coffee",
+  "item.farmersdelight.pumpkin_coffee": "Pumpkin Coffee",
+  "item.farmersdelight.roasted_coffee_beans": "Roasted Coffee Beans"
 }

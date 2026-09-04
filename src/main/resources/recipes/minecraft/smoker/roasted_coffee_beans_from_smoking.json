@@ -1,0 +1,9 @@
+{
+	"category": "food",
+	"result": "farmersdelight:roasted_coffee_beans",
+	"experience": 0.35,
+	"time": 100,
+	"input": [
+		"farmersdelight:coffee_beans"
+	]
+}

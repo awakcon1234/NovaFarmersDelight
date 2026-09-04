@@ -1,0 +1,11 @@
+{
+	"category": "misc",
+	"result": "minecraft:brown_dye",
+	"amount": 1,
+	"ingredients": [
+		{
+			"item": "farmersdelight:roasted_coffee_beans",
+			"amount": 1
+		}
+	]
+}

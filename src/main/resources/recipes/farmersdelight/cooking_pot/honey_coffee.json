@@ -1,0 +1,22 @@
+{
+	"time": 200,
+	"experience": 1.0,
+	"ingredients": [
+		{
+			"item": "farmersdelight:roasted_coffee_beans",
+			"amount": 3
+		},
+		{
+			"item": [
+				"minecraft:milk_bucket",
+				"farmersdelight:milk_bottle"
+			],
+			"amount": 1
+		},
+		{
+			"item": "minecraft:honey_bottle",
+			"amount": 1
+		}
+	],
+	"result": "farmersdelight:honey_coffee"
+}

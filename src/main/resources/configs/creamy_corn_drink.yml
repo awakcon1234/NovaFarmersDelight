@@ -9,7 +9,7 @@ consume_time: 32
 # The item stack that remains after the food is consumed.
 remains: "minecraft:glass_bottle"
 # A list of effects to apply to the player when this food is consumed.
-possible_effects:
+effects:
   - type: regeneration
     duration: 1200
     amplifier: 0

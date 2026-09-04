@@ -1,0 +1,11 @@
+{
+	"time": 200,
+	"experience": 1.0,
+	"ingredients": [
+		{
+			"item": "farmersdelight:roasted_coffee_beans",
+			"amount": 3
+		}
+	],
+	"result": "farmersdelight:coffee"
+}
