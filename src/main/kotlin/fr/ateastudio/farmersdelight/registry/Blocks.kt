@@ -20,6 +20,7 @@ import fr.ateastudio.farmersdelight.block.behavior.crop.TomatoCrop
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.HoneyGlazedHamBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.RiceRollMedleyBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.RoastChickenBlock
+import fr.ateastudio.farmersdelight.block.behavior.feastblock.GleamingSaladBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.ShepherdsPieBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.StuffedPumpkinBlock
 import fr.ateastudio.farmersdelight.block.behavior.pie.ApplePie
@@ -204,6 +205,7 @@ object Blocks {
     val STUFFED_PUMPKIN_BLOCK = feastBlock("stuffed_pumpkin_block", StuffedPumpkinBlock, false)
     val HONEY_GLAZED_HAM_BLOCK = feastBlock("honey_glazed_ham_block", HoneyGlazedHamBlock, true)
     val SHEPHERDS_PIE_BLOCK = feastBlock("shepherds_pie_block", ShepherdsPieBlock, true)
+    val GLEAMING_SALAD_BLOCK = feastBlock("gleaming_salad_block", GleamingSaladBlock, true)
     val RICE_ROLL_MEDLEY_BLOCK = feastBlock("rice_roll_medley_block", RiceRollMedleyBlock, true, 8)
     
     

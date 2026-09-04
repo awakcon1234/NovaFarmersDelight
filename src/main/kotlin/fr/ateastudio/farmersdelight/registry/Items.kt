@@ -287,6 +287,9 @@ object Items {
     val CHOCOLATE_PIE_SLICE = item("chocolate_pie_slice") {
         behaviors(Consumable())
     }
+    val PUMPKIN_PIE_SLICE = item("pumpkin_pie_slice") {
+        behaviors(Consumable())
+    }
     val SWEET_BERRY_COOKIE = item("sweet_berry_cookie") {
         behaviors(Consumable())
     }
@@ -310,6 +313,10 @@ object Items {
         maxStackSize(16)
     }
     val NETHER_SALAD = item("nether_salad") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val GLEAMING_SALAD = item("gleaming_salad") {
         behaviors(Consumable())
         maxStackSize(16)
     }
@@ -370,6 +377,10 @@ object Items {
         maxStackSize(16)
     }
     val VEGETABLE_SOUP = item("vegetable_soup") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val ONION_SOUP = item("onion_soup") {
         behaviors(Consumable())
         maxStackSize(16)
     }
@@ -476,6 +487,14 @@ object Items {
         modelDefinition {
             model = buildModel {
                 createLayeredModel("item/shepherds_pie_block")
+            }
+        }
+    }
+    val GLEAMING_SALAD_BLOCK = item(Blocks.GLEAMING_SALAD_BLOCK,"gleaming_salad_block") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/gleaming_salad_block")
             }
         }
     }

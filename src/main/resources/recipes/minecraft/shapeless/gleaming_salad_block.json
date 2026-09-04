@@ -1,0 +1,35 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:gleaming_salad_block",
+	"amount": 1,
+	"ingredients": [
+		{
+			"item": "minecraft:glow_berries",
+			"amount": 2
+		},
+		{
+			"item": "minecraft:honey_bottle",
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:tomato",
+			"amount": 1
+		},
+		{
+			"item": "minecraft:golden_carrot",
+			"amount": 1
+		},
+		{
+			"item": "minecraft:beetroot",
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:cabbage",
+			"amount": 2
+		},
+		{
+			"item": "minecraft:bowl",
+			"amount": 1
+		}
+	]
+}

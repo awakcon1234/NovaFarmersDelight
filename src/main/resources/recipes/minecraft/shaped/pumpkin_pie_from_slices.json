@@ -1,0 +1,12 @@
+{
+	"category": "misc",
+	"result": "minecraft:pumpkin_pie",
+	"amount": 1,
+	"shape": [
+		"##",
+		"##"
+	],
+	"ingredients": {
+		"#": "farmersdelight:pumpkin_pie_slice"
+	}
+}
