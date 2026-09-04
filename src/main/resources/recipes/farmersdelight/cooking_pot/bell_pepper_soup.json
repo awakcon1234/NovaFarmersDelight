@@ -1,0 +1,30 @@
+{
+	"time": 200,
+	"experience": 1.0,
+	"ingredients": [
+		{
+			"item": [
+				"farmersdelight:bell_pepper_red",
+				"farmersdelight:bell_pepper_orange",
+				"farmersdelight:bell_pepper_yellow",
+				"farmersdelight:bell_pepper_green",
+				"farmersdelight:bell_pepper_blue",
+				"farmersdelight:bell_pepper_purple",
+				"farmersdelight:bell_pepper_pink",
+				"farmersdelight:bell_pepper_white",
+				"farmersdelight:bell_pepper_black",
+				"farmersdelight:bell_pepper_slice_red",
+				"farmersdelight:bell_pepper_slice_orange",
+				"farmersdelight:bell_pepper_slice_yellow",
+				"farmersdelight:bell_pepper_slice_green",
+				"farmersdelight:bell_pepper_slice_blue",
+				"farmersdelight:bell_pepper_slice_purple",
+				"farmersdelight:bell_pepper_slice_pink",
+				"farmersdelight:bell_pepper_slice_white",
+				"farmersdelight:bell_pepper_slice_black"
+			],
+			"amount": 3
+		}
+	],
+	"result": "farmersdelight:bell_pepper_soup"
+}

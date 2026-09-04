@@ -1,0 +1,22 @@
+{
+	"type": "farmersdelight:cutting",
+	"ingredients": [
+		{
+			"item": "farmersdelight:wild_bell_peppers"
+		}
+	],
+	"result": [
+		{
+			"item": "farmersdelight:bell_pepper_seeds"
+		},
+		{
+			"item": "farmersdelight:bell_pepper_red"
+		},
+		{
+			"item": "minecraft:red_dye"
+		}
+	],
+	"tool": {
+		"tag": "forge:tools/knives"
+	}
+}

@@ -1,0 +1,43 @@
+{
+	"time": 200,
+	"experience": 1.0,
+	"ingredients": [
+		{
+			"item": "farmersdelight:bell_pepper_yellow",
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:rice",
+			"amount": 1
+		},
+		{
+			"item": [
+				"minecraft:cod",
+				"farmersdelight:cod_slice",
+				"minecraft:salmon",
+				"farmersdelight:salmon_slice",
+				"minecraft:tropical_fish",
+				"minecraft:porkchop",
+				"farmersdelight:bacon",
+				"minecraft:chicken",
+				"farmersdelight:chicken_cuts",
+				"minecraft:beef",
+				"farmersdelight:minced_beef",
+				"minecraft:mutton",
+				"farmersdelight:mutton_chops",
+				"minecraft:egg",
+				"minecraft:brown_mushroom",
+				"minecraft:red_mushroom",
+				"minecraft:carrot",
+				"minecraft:potato",
+				"minecraft:beetroot",
+				"farmersdelight:tomato",
+				"farmersdelight:cabbage",
+				"farmersdelight:cabbage_leaf",
+				"farmersdelight:onion"
+			],
+			"amount": 1
+		}
+	],
+	"result": "farmersdelight:stuffed_bell_pepper_yellow"
+}

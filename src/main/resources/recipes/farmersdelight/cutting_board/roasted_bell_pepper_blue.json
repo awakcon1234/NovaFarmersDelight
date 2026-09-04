@@ -1,0 +1,20 @@
+{
+	"type": "farmersdelight:cutting",
+	"ingredients": [
+		{
+			"item": "farmersdelight:roasted_bell_pepper_blue"
+		}
+	],
+	"result": [
+		{
+			"count": 2,
+			"item": "farmersdelight:roasted_bell_pepper_slice_blue"
+		},
+		{
+			"item": "farmersdelight:bell_pepper_seeds"
+		}
+	],
+	"tool": {
+		"tag": "forge:tools/knives"
+	}
+}

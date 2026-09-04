@@ -1,0 +1,11 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:bell_pepper_seeds",
+	"amount": 1,
+	"ingredients": [
+		{
+			"item": "farmersdelight:bell_pepper_slice_blue",
+			"amount": 1
+		}
+	]
+}

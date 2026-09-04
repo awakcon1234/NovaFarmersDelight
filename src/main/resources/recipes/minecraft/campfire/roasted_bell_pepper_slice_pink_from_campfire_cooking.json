@@ -1,0 +1,9 @@
+{
+	"category": "food",
+	"result": "farmersdelight:roasted_bell_pepper_slice_pink",
+	"experience": 0.35,
+	"time": 600,
+	"input": [
+		"farmersdelight:bell_pepper_slice_pink"
+	]
+}

@@ -1,0 +1,8 @@
+{
+	"parent": "minecraft:block/cube_bottom_top",
+	"textures": {
+		"bottom": "farmersdelight:block/bell_pepper_white_bottom",
+		"side": "farmersdelight:block/bell_pepper_white_side",
+		"top": "farmersdelight:block/bell_pepper_white_top"
+	}
+}

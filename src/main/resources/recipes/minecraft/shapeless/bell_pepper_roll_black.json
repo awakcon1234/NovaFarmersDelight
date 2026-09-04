@@ -1,0 +1,15 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:bell_pepper_roll_black",
+	"amount": 2,
+	"ingredients": [
+		{
+			"item": "farmersdelight:bell_pepper_slice_black",
+			"amount": 2
+		},
+		{
+			"item": "farmersdelight:cooked_rice",
+			"amount": 1
+		}
+	]
+}

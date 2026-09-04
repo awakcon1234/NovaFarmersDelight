@@ -7,6 +7,8 @@ import fr.ateastudio.farmersdelight.block.CookingPotSupport
 import fr.ateastudio.farmersdelight.block.ScopedBlockStateProperties
 import fr.ateastudio.farmersdelight.block.ScopedBlockStateProperties.PAIRED
 import fr.ateastudio.farmersdelight.block.behavior.Ageable
+import fr.ateastudio.farmersdelight.registry.Items
+import fr.ateastudio.farmersdelight.block.behavior.GiantBellPepperBlock
 import fr.ateastudio.farmersdelight.block.behavior.CookingPotBehavior
 import fr.ateastudio.farmersdelight.block.behavior.CuttingBoard
 import fr.ateastudio.farmersdelight.block.behavior.MuddyFarmland
@@ -14,6 +16,7 @@ import fr.ateastudio.farmersdelight.block.behavior.PairedBlock
 import fr.ateastudio.farmersdelight.block.behavior.TatamiMatFoot
 import fr.ateastudio.farmersdelight.block.behavior.TatamiMatHead
 import fr.ateastudio.farmersdelight.block.behavior.crop.CabbageCrop
+import fr.ateastudio.farmersdelight.block.behavior.crop.BellPepperCrop
 import fr.ateastudio.farmersdelight.block.behavior.crop.CornCrop
 import fr.ateastudio.farmersdelight.block.behavior.crop.OnionCrop
 import fr.ateastudio.farmersdelight.block.behavior.crop.RiceCrop
@@ -22,7 +25,10 @@ import fr.ateastudio.farmersdelight.block.behavior.feastblock.HoneyGlazedHamBloc
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.RiceRollMedleyBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.RoastChickenBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.GleamingSaladBlock
+import fr.ateastudio.farmersdelight.block.behavior.feastblock.CommonBellPepperMedley
+import fr.ateastudio.farmersdelight.block.behavior.feastblock.DarkBellPepperMedley
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.NachosBlock
+import fr.ateastudio.farmersdelight.block.behavior.feastblock.PaleBellPepperMedley
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.PopcornBoxBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.ShepherdsPieBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.StuffedPumpkinBlock
@@ -32,6 +38,7 @@ import fr.ateastudio.farmersdelight.block.behavior.pie.SweetBerryCheesecake
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.SandyShrub
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildBeetroots
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildCabbages
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildBellPeppers
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildCorn
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildCarrots
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildOnions
@@ -68,6 +75,7 @@ object Blocks {
     private val BAG = Breakable(0.8, setOf(VanillaToolCategories.SHEARS), VanillaToolTiers.WOOD, false, Material.WHITE_WOOL)
     private val BALE = Breakable(0.8, setOf(VanillaToolCategories.HOE), VanillaToolTiers.WOOD, false, Material.HAY_BLOCK)
     private val CRATE = Breakable(2.0, setOf(VanillaToolCategories.AXE), VanillaToolTiers.WOOD, false, Material.OAK_PLANKS)
+    private val GIANT_PEPPER = Breakable(1.0, setOf(VanillaToolCategories.AXE), VanillaToolTiers.WOOD, false, Material.MELON)
     private val LIGHT_METAL = Breakable(0.5, setOf(VanillaToolCategories.PICKAXE), VanillaToolTiers.WOOD, false, Material.CAULDRON)
     private val SPRUCE_PLANK = Breakable(0.5, setOf(VanillaToolCategories.AXE), VanillaToolTiers.WOOD, false, Material.SPRUCE_PLANKS)
     
@@ -118,6 +126,25 @@ object Blocks {
     val RICE_BAG = nonInteractiveBlock("rice_bag") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
     val CORN_CRATE = nonInteractiveBlock("corn_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
     val CORN_KERNEL_BAG = nonInteractiveBlock("corn_kernel_bag") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
+    val BELL_PEPPER_SEEDS_BAG = nonInteractiveBlock("bell_pepper_seeds_bag") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
+    val BELL_PEPPER_RED_CRATE = nonInteractiveBlock("bell_pepper_red_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_ORANGE_CRATE = nonInteractiveBlock("bell_pepper_orange_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_YELLOW_CRATE = nonInteractiveBlock("bell_pepper_yellow_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_GREEN_CRATE = nonInteractiveBlock("bell_pepper_green_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_BLUE_CRATE = nonInteractiveBlock("bell_pepper_blue_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_PURPLE_CRATE = nonInteractiveBlock("bell_pepper_purple_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_PINK_CRATE = nonInteractiveBlock("bell_pepper_pink_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_WHITE_CRATE = nonInteractiveBlock("bell_pepper_white_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_BLACK_CRATE = nonInteractiveBlock("bell_pepper_black_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_RED_BLOCK = nonInteractiveBlock("bell_pepper_red_block") { behaviors(GIANT_PEPPER, GiantBellPepperBlock { Items.BELL_PEPPER_SLICE_RED }, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_ORANGE_BLOCK = nonInteractiveBlock("bell_pepper_orange_block") { behaviors(GIANT_PEPPER, GiantBellPepperBlock { Items.BELL_PEPPER_SLICE_ORANGE }, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_YELLOW_BLOCK = nonInteractiveBlock("bell_pepper_yellow_block") { behaviors(GIANT_PEPPER, GiantBellPepperBlock { Items.BELL_PEPPER_SLICE_YELLOW }, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_GREEN_BLOCK = nonInteractiveBlock("bell_pepper_green_block") { behaviors(GIANT_PEPPER, GiantBellPepperBlock { Items.BELL_PEPPER_SLICE_GREEN }, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_BLUE_BLOCK = nonInteractiveBlock("bell_pepper_blue_block") { behaviors(GIANT_PEPPER, GiantBellPepperBlock { Items.BELL_PEPPER_SLICE_BLUE }, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_PURPLE_BLOCK = nonInteractiveBlock("bell_pepper_purple_block") { behaviors(GIANT_PEPPER, GiantBellPepperBlock { Items.BELL_PEPPER_SLICE_PURPLE }, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_PINK_BLOCK = nonInteractiveBlock("bell_pepper_pink_block") { behaviors(GIANT_PEPPER, GiantBellPepperBlock { Items.BELL_PEPPER_SLICE_PINK }, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_WHITE_BLOCK = nonInteractiveBlock("bell_pepper_white_block") { behaviors(GIANT_PEPPER, GiantBellPepperBlock { Items.BELL_PEPPER_SLICE_WHITE }, BlockSounds(SoundGroup.WOOD)) }
+    val BELL_PEPPER_BLACK_BLOCK = nonInteractiveBlock("bell_pepper_black_block") { behaviors(GIANT_PEPPER, GiantBellPepperBlock { Items.BELL_PEPPER_SLICE_BLACK }, BlockSounds(SoundGroup.WOOD)) }
     val STRAW_BALE = block("straw_bale") {
         behaviors(BALE, BlockDrops, BlockSounds(SoundGroup.GRASS))
         stateProperties(AXIS)
@@ -196,6 +223,7 @@ object Blocks {
     val WILD_BEETROOTS = plantBlock("wild_beetroots") { behaviors(WildBeetroots(), CROP, BlockSounds(SoundGroup.GRASS))}
     val WILD_RICE = plantBlock("wild_rice") { behaviors(WildRice(), CROP, BlockSounds(SoundGroup.GRASS))}
     val WILD_CORN = plantBlock("wild_corn") { behaviors(WildCorn(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_BELL_PEPPERS = plantBlock("wild_bell_peppers") { behaviors(WildBellPeppers(), CROP, BlockSounds(SoundGroup.GRASS))}
     
     // val BROWN_MUSHROOM_COLONY = cropBlock("brown_mushroom_colony", TomatoCrop, 3)
     // val RED_MUSHROOM_COLONY = cropBlock("red_mushroom_colony", TomatoCrop, 3)
@@ -204,6 +232,7 @@ object Blocks {
     val ONION_CROP = cropBlock("onions", OnionCrop, 3)
     val RICE_CROP = cropBlock("rice", RiceCrop, 7,3)
     val CORN_CROP = tallCropBlock("corn", CornCrop, 7)
+    val BELL_PEPPERS_CROP = cropBlock("bell_peppers", BellPepperCrop, 7)
     
     val APPLE_PIE = pieBlock("apple_pie", ApplePie)
     val SWEET_BERRY_CHEESECAKE = pieBlock("sweet_berry_cheesecake", SweetBerryCheesecake)
@@ -216,6 +245,9 @@ object Blocks {
     val GLEAMING_SALAD_BLOCK = feastBlock("gleaming_salad_block", GleamingSaladBlock, true)
     val NACHOS_BLOCK = feastBlock("nachos_block", NachosBlock, false)
     val POPCORN_BOX = feastBlock("popcorn_box", PopcornBoxBlock, true)
+    val BELL_PEPPER_MEDLEY = feastBlock("bell_pepper_medley", CommonBellPepperMedley, true, 3)
+    val DARK_BELL_PEPPER_MEDLEY = feastBlock("dark_bell_pepper_medley", DarkBellPepperMedley, true, 3)
+    val PALE_BELL_PEPPER_MEDLEY = feastBlock("pale_bell_pepper_medley", PaleBellPepperMedley, true, 3)
     val RICE_ROLL_MEDLEY_BLOCK = feastBlock("rice_roll_medley_block", RiceRollMedleyBlock, true, 8)
     
     

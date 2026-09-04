@@ -1,0 +1,11 @@
+{
+	"category": "misc",
+	"result": "minecraft:green_dye",
+	"amount": 1,
+	"ingredients": [
+		{
+			"item": "farmersdelight:bell_pepper_green",
+			"amount": 1
+		}
+	]
+}

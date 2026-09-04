@@ -1,0 +1,11 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:bell_pepper_green",
+	"amount": 9,
+	"ingredients": [
+		{
+			"item": "farmersdelight:bell_pepper_green_crate",
+			"amount": 1
+		}
+	]
+}

@@ -1,0 +1,17 @@
+{
+	"type": "farmersdelight:cutting",
+	"ingredients": [
+		{
+			"item": "farmersdelight:bell_pepper_white_block"
+		}
+	],
+	"result": [
+		{
+			"count": 9,
+			"item": "farmersdelight:bell_pepper_slice_white"
+		}
+	],
+	"tool": {
+		"tag": "forge:tools/knives"
+	}
+}

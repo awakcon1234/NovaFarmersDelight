@@ -31,6 +31,25 @@ object Items {
     val RICE_BAG = registerItem(Blocks.RICE_BAG)
     val CORN_CRATE = registerItem(Blocks.CORN_CRATE)
     val CORN_KERNEL_BAG = registerItem(Blocks.CORN_KERNEL_BAG)
+    val BELL_PEPPER_SEEDS_BAG = registerItem(Blocks.BELL_PEPPER_SEEDS_BAG)
+    val BELL_PEPPER_RED_CRATE = registerItem(Blocks.BELL_PEPPER_RED_CRATE)
+    val BELL_PEPPER_ORANGE_CRATE = registerItem(Blocks.BELL_PEPPER_ORANGE_CRATE)
+    val BELL_PEPPER_YELLOW_CRATE = registerItem(Blocks.BELL_PEPPER_YELLOW_CRATE)
+    val BELL_PEPPER_GREEN_CRATE = registerItem(Blocks.BELL_PEPPER_GREEN_CRATE)
+    val BELL_PEPPER_BLUE_CRATE = registerItem(Blocks.BELL_PEPPER_BLUE_CRATE)
+    val BELL_PEPPER_PURPLE_CRATE = registerItem(Blocks.BELL_PEPPER_PURPLE_CRATE)
+    val BELL_PEPPER_PINK_CRATE = registerItem(Blocks.BELL_PEPPER_PINK_CRATE)
+    val BELL_PEPPER_WHITE_CRATE = registerItem(Blocks.BELL_PEPPER_WHITE_CRATE)
+    val BELL_PEPPER_BLACK_CRATE = registerItem(Blocks.BELL_PEPPER_BLACK_CRATE)
+    val BELL_PEPPER_RED_BLOCK = registerItem(Blocks.BELL_PEPPER_RED_BLOCK)
+    val BELL_PEPPER_ORANGE_BLOCK = registerItem(Blocks.BELL_PEPPER_ORANGE_BLOCK)
+    val BELL_PEPPER_YELLOW_BLOCK = registerItem(Blocks.BELL_PEPPER_YELLOW_BLOCK)
+    val BELL_PEPPER_GREEN_BLOCK = registerItem(Blocks.BELL_PEPPER_GREEN_BLOCK)
+    val BELL_PEPPER_BLUE_BLOCK = registerItem(Blocks.BELL_PEPPER_BLUE_BLOCK)
+    val BELL_PEPPER_PURPLE_BLOCK = registerItem(Blocks.BELL_PEPPER_PURPLE_BLOCK)
+    val BELL_PEPPER_PINK_BLOCK = registerItem(Blocks.BELL_PEPPER_PINK_BLOCK)
+    val BELL_PEPPER_WHITE_BLOCK = registerItem(Blocks.BELL_PEPPER_WHITE_BLOCK)
+    val BELL_PEPPER_BLACK_BLOCK = registerItem(Blocks.BELL_PEPPER_BLACK_BLOCK)
     val STRAW_BALE = registerItem(Blocks.STRAW_BALE)
     
     val TATAMI = registerItem(Blocks.TATAMI)
@@ -82,6 +101,13 @@ object Items {
         modelDefinition {
             model = buildModel {
                 createLayeredModel("block/sandy_shrub")
+            }
+        }
+    }
+    val WILD_BELL_PEPPERS = item(Blocks.WILD_BELL_PEPPERS) {
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("block/wild_bell_peppers")
             }
         }
     }
@@ -161,6 +187,176 @@ object Items {
                 createLayeredModel("item/rice")
             }
         }
+    }
+    val BELL_PEPPER_SEEDS = item(Blocks.BELL_PEPPERS_CROP, "bell_pepper_seeds") {
+        name(Component.translatable("item.farmersdelight.bell_pepper_seeds"))
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/bell_pepper_seeds")
+            }
+        }
+    }
+    val BELL_PEPPER_RED = item("bell_pepper_red") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_SLICE_RED = item("bell_pepper_slice_red") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_RED = item("roasted_bell_pepper_red") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_SLICE_RED = item("roasted_bell_pepper_slice_red") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_ROLL_RED = item("bell_pepper_roll_red") {
+        behaviors(Consumable())
+    }
+    val STUFFED_BELL_PEPPER_RED = item("stuffed_bell_pepper_red") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_ORANGE = item("bell_pepper_orange") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_SLICE_ORANGE = item("bell_pepper_slice_orange") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_ORANGE = item("roasted_bell_pepper_orange") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_SLICE_ORANGE = item("roasted_bell_pepper_slice_orange") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_ROLL_ORANGE = item("bell_pepper_roll_orange") {
+        behaviors(Consumable())
+    }
+    val STUFFED_BELL_PEPPER_ORANGE = item("stuffed_bell_pepper_orange") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_YELLOW = item("bell_pepper_yellow") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_SLICE_YELLOW = item("bell_pepper_slice_yellow") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_YELLOW = item("roasted_bell_pepper_yellow") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_SLICE_YELLOW = item("roasted_bell_pepper_slice_yellow") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_ROLL_YELLOW = item("bell_pepper_roll_yellow") {
+        behaviors(Consumable())
+    }
+    val STUFFED_BELL_PEPPER_YELLOW = item("stuffed_bell_pepper_yellow") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_GREEN = item("bell_pepper_green") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_SLICE_GREEN = item("bell_pepper_slice_green") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_GREEN = item("roasted_bell_pepper_green") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_SLICE_GREEN = item("roasted_bell_pepper_slice_green") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_ROLL_GREEN = item("bell_pepper_roll_green") {
+        behaviors(Consumable())
+    }
+    val STUFFED_BELL_PEPPER_GREEN = item("stuffed_bell_pepper_green") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_BLUE = item("bell_pepper_blue") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_SLICE_BLUE = item("bell_pepper_slice_blue") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_BLUE = item("roasted_bell_pepper_blue") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_SLICE_BLUE = item("roasted_bell_pepper_slice_blue") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_ROLL_BLUE = item("bell_pepper_roll_blue") {
+        behaviors(Consumable())
+    }
+    val STUFFED_BELL_PEPPER_BLUE = item("stuffed_bell_pepper_blue") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_PURPLE = item("bell_pepper_purple") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_SLICE_PURPLE = item("bell_pepper_slice_purple") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_PURPLE = item("roasted_bell_pepper_purple") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_SLICE_PURPLE = item("roasted_bell_pepper_slice_purple") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_ROLL_PURPLE = item("bell_pepper_roll_purple") {
+        behaviors(Consumable())
+    }
+    val STUFFED_BELL_PEPPER_PURPLE = item("stuffed_bell_pepper_purple") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_PINK = item("bell_pepper_pink") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_SLICE_PINK = item("bell_pepper_slice_pink") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_PINK = item("roasted_bell_pepper_pink") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_SLICE_PINK = item("roasted_bell_pepper_slice_pink") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_ROLL_PINK = item("bell_pepper_roll_pink") {
+        behaviors(Consumable())
+    }
+    val STUFFED_BELL_PEPPER_PINK = item("stuffed_bell_pepper_pink") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_WHITE = item("bell_pepper_white") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_SLICE_WHITE = item("bell_pepper_slice_white") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_WHITE = item("roasted_bell_pepper_white") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_SLICE_WHITE = item("roasted_bell_pepper_slice_white") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_ROLL_WHITE = item("bell_pepper_roll_white") {
+        behaviors(Consumable())
+    }
+    val STUFFED_BELL_PEPPER_WHITE = item("stuffed_bell_pepper_white") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_BLACK = item("bell_pepper_black") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_SLICE_BLACK = item("bell_pepper_slice_black") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_BLACK = item("roasted_bell_pepper_black") {
+        behaviors(Consumable())
+    }
+    val ROASTED_BELL_PEPPER_SLICE_BLACK = item("roasted_bell_pepper_slice_black") {
+        behaviors(Consumable())
+    }
+    val BELL_PEPPER_ROLL_BLACK = item("bell_pepper_roll_black") {
+        behaviors(Consumable())
+    }
+    val STUFFED_BELL_PEPPER_BLACK = item("stuffed_bell_pepper_black") {
+        behaviors(Consumable())
     }
     val CORN_SEEDS = item(Blocks.CORN_CROP, "corn_seeds") {
         name(Component.translatable("item.farmersdelight.corn_seeds"))
@@ -463,6 +659,14 @@ object Items {
         behaviors(Consumable())
         maxStackSize(16)
     }
+    val BELL_PEPPER_SOUP = item("bell_pepper_soup") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val BELL_PEPPER_PASTA = item("bell_pepper_pasta") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
     val FISH_STEW = item("fish_stew") {
         behaviors(Consumable())
         maxStackSize(16)
@@ -566,6 +770,30 @@ object Items {
         modelDefinition {
             model = buildModel {
                 createLayeredModel("item/shepherds_pie_block")
+            }
+        }
+    }
+    val BELL_PEPPER_MEDLEY = item(Blocks.BELL_PEPPER_MEDLEY,"bell_pepper_medley") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/bell_pepper_medley")
+            }
+        }
+    }
+    val DARK_BELL_PEPPER_MEDLEY = item(Blocks.DARK_BELL_PEPPER_MEDLEY,"dark_bell_pepper_medley") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/dark_bell_pepper_medley")
+            }
+        }
+    }
+    val PALE_BELL_PEPPER_MEDLEY = item(Blocks.PALE_BELL_PEPPER_MEDLEY,"pale_bell_pepper_medley") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/pale_bell_pepper_medley")
             }
         }
     }

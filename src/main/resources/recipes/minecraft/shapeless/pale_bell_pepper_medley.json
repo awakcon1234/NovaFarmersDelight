@@ -1,0 +1,23 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:pale_bell_pepper_medley",
+	"amount": 1,
+	"ingredients": [
+		{
+			"item": "farmersdelight:stuffed_bell_pepper_orange",
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:stuffed_bell_pepper_white",
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:stuffed_bell_pepper_pink",
+			"amount": 1
+		},
+		{
+			"item": "minecraft:bowl",
+			"amount": 1
+		}
+	]
+}

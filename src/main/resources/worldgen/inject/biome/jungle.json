@@ -1,0 +1,19 @@
+{
+  "biomes": "#minecraft:is_jungle",
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "farmersdelight:patch_wild_bell_peppers",
+      "farmersdelight:patch_giant_bell_peppers"
+    ],
+    []
+  ]
+}
