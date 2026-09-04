@@ -1,0 +1,23 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:cherry_blossom_cheesecake",
+	"amount": 1,
+	"shape": [
+		"TTT",
+		"SSS",
+		"MCM"
+	],
+	"ingredients": {
+		"T": [
+			"minecraft:pink_petals",
+			"minecraft:cherry_leaves",
+			"minecraft:cherry_sapling"
+		],
+		"S": "minecraft:sugar",
+		"M": [
+			"minecraft:milk_bucket",
+			"farmersdelight:milk_bottle"
+		],
+		"C": "farmersdelight:pie_crust"
+	}
+}

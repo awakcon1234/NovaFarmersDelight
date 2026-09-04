@@ -1,0 +1,17 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:pancakes",
+	"amount": 1,
+	"shape": [
+		" T ",
+		"XMX",
+		"YBY"
+	],
+	"ingredients": {
+		"T": "farmersdelight:syrup",
+		"X": "minecraft:sugar",
+		"M": "farmersdelight:batter",
+		"Y": "minecraft:sugar",
+		"B": "minecraft:bowl"
+	}
+}

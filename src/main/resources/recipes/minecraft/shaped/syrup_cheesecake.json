@@ -1,0 +1,19 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:syrup_cheesecake",
+	"amount": 1,
+	"shape": [
+		" T ",
+		"SSS",
+		"MCM"
+	],
+	"ingredients": {
+		"T": "farmersdelight:syrup",
+		"S": "minecraft:sugar",
+		"M": [
+			"minecraft:milk_bucket",
+			"farmersdelight:milk_bottle"
+		],
+		"C": "farmersdelight:pie_crust"
+	}
+}

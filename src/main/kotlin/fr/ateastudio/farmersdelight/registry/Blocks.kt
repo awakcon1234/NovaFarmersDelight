@@ -7,6 +7,14 @@ import fr.ateastudio.farmersdelight.block.CookingPotSupport
 import fr.ateastudio.farmersdelight.block.ScopedBlockStateProperties
 import fr.ateastudio.farmersdelight.block.ScopedBlockStateProperties.PAIRED
 import fr.ateastudio.farmersdelight.block.behavior.Ageable
+import fr.ateastudio.farmersdelight.block.behavior.PancakeBlock
+import fr.ateastudio.farmersdelight.block.behavior.PlainPancakes
+import fr.ateastudio.farmersdelight.block.behavior.HoneyPancakes
+import fr.ateastudio.farmersdelight.block.behavior.ChocolatePancakes
+import fr.ateastudio.farmersdelight.block.behavior.CherryBlossomPancakes
+import fr.ateastudio.farmersdelight.block.behavior.VegetablePancakes
+import fr.ateastudio.farmersdelight.block.behavior.PumpkinPancakes
+import fr.ateastudio.farmersdelight.block.behavior.CoffeePancakes
 import fr.ateastudio.farmersdelight.registry.Items
 import fr.ateastudio.farmersdelight.block.behavior.GiantBellPepperBlock
 import fr.ateastudio.farmersdelight.block.behavior.CookingPotBehavior
@@ -35,7 +43,9 @@ import fr.ateastudio.farmersdelight.block.behavior.feastblock.ShepherdsPieBlock
 import fr.ateastudio.farmersdelight.block.behavior.feastblock.StuffedPumpkinBlock
 import fr.ateastudio.farmersdelight.block.behavior.pie.ApplePie
 import fr.ateastudio.farmersdelight.block.behavior.pie.ChocolatePie
+import fr.ateastudio.farmersdelight.block.behavior.pie.CherryBlossomCheesecake
 import fr.ateastudio.farmersdelight.block.behavior.pie.CoffeeCheesecake
+import fr.ateastudio.farmersdelight.block.behavior.pie.SyrupCheesecake
 import fr.ateastudio.farmersdelight.block.behavior.pie.SweetBerryCheesecake
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.SandyShrub
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildBeetroots
@@ -245,6 +255,15 @@ object Blocks {
     val SWEET_BERRY_CHEESECAKE = pieBlock("sweet_berry_cheesecake", SweetBerryCheesecake)
     val CHOCOLATE_PIE = pieBlock("chocolate_pie", ChocolatePie)
     val COFFEE_CHEESECAKE = pieBlock("coffee_cheesecake", CoffeeCheesecake)
+    val SYRUP_CHEESECAKE = pieBlock("syrup_cheesecake", SyrupCheesecake)
+    val CHERRY_BLOSSOM_CHEESECAKE = pieBlock("cherry_blossom_cheesecake", CherryBlossomCheesecake)
+    val PANCAKES = pancakeBlock("pancakes", PlainPancakes)
+    val HONEY_PANCAKES = pancakeBlock("honey_pancakes", HoneyPancakes)
+    val CHOCOLATE_PANCAKES = pancakeBlock("chocolate_pancakes", ChocolatePancakes)
+    val CHERRY_BLOSSOM_PANCAKES = pancakeBlock("cherry_blossom_pancakes", CherryBlossomPancakes)
+    val VEGETABLE_PANCAKES = pancakeBlock("vegetable_pancakes", VegetablePancakes)
+    val PUMPKIN_PANCAKES = pancakeBlock("pumpkin_pancakes", PumpkinPancakes)
+    val COFFEE_PANCAKES = pancakeBlock("coffee_pancakes", CoffeePancakes)
     
     val ROAST_CHICKEN_BLOCK = feastBlock("roast_chicken_block", RoastChickenBlock, true)
     val STUFFED_PUMPKIN_BLOCK = feastBlock("stuffed_pumpkin_block", StuffedPumpkinBlock, false)
@@ -320,6 +339,24 @@ object Blocks {
             } else {
                 getModel("block/${name}_crop_stage$age")
             }
+        }
+    }
+    
+    /**
+     * Rustic Delight's pancake plate: entity-backed like the feasts, one model per number of
+     * pancakes standing on it, from one to twelve.
+     */
+    private fun pancakeBlock(
+        name: String,
+        behaviorHolder: BlockBehaviorHolder,
+        block: NovaBlockBuilder.() -> Unit = {}
+    ): NovaBlock = block(name) {
+        block()
+        behaviors(behaviorHolder, BlockSounds(SoundGroup.WOOD), Breakable(0.5, emptySet(), null, false, Material.CAKE))
+        stateProperties(ScopedBlockStateProperties.PANCAKE_SERVINGS, FACING_HORIZONTAL)
+        entityBacked {
+            val present = PancakeBlock.present(getPropertyValueOrThrow(BlockStateProperties.SERVINGS))
+            getModel("block/${name}_stack_$present").rotated()
         }
     }
     

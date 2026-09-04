@@ -1,0 +1,29 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:vegetable_pancakes",
+	"amount": 1,
+	"shape": [
+		" T ",
+		"XMX",
+		"YBY"
+	],
+	"ingredients": {
+		"T": [
+			"minecraft:milk_bucket",
+			"farmersdelight:milk_bottle"
+		],
+		"X": [
+			"minecraft:beetroot",
+			"minecraft:carrot",
+			"farmersdelight:onion",
+			"minecraft:potato",
+			"farmersdelight:tomato"
+		],
+		"M": "farmersdelight:batter",
+		"Y": [
+			"farmersdelight:cabbage",
+			"farmersdelight:cabbage_leaf"
+		],
+		"B": "minecraft:bowl"
+	}
+}

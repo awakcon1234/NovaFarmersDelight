@@ -1,0 +1,19 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:cherry_blossom_coffee",
+	"amount": 1,
+	"ingredients": [
+		{
+			"item": "farmersdelight:milk_coffee",
+			"amount": 1
+		},
+		{
+			"item": [
+				"minecraft:pink_petals",
+				"minecraft:cherry_leaves",
+				"minecraft:cherry_sapling"
+			],
+			"amount": 1
+		}
+	]
+}

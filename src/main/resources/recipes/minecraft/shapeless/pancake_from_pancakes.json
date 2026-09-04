@@ -1,0 +1,11 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:pancake",
+	"amount": 6,
+	"ingredients": [
+		{
+			"item": "farmersdelight:pancakes",
+			"amount": 1
+		}
+	]
+}

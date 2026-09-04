@@ -27,4 +27,6 @@ object ScopedBlockStateProperties {
     val BITES = BlockStateProperties.BITES.scope(0..3)
     val SERVINGS = BlockStateProperties.SERVINGS.scope(0..8)
     val UPPER = BlockStateProperties.UPPER.scope(false, true)
+    // Rustic Delight's pancake plate: six on the plate eaten down, then stacked up to twelve.
+    val PANCAKE_SERVINGS = BlockStateProperties.SERVINGS.scope(0..11)
 }

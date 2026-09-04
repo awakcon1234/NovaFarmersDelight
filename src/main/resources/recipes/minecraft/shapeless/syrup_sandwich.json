@@ -1,0 +1,19 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:syrup_sandwich",
+	"amount": 1,
+	"ingredients": [
+		{
+			"item": "minecraft:bread",
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:syrup",
+			"amount": 1
+		},
+		{
+			"item": "minecraft:sugar",
+			"amount": 1
+		}
+	]
+}

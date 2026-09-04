@@ -1,0 +1,20 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:chocolate_pancakes",
+	"amount": 1,
+	"shape": [
+		" T ",
+		"XMX",
+		"YBY"
+	],
+	"ingredients": {
+		"T": [
+			"minecraft:milk_bucket",
+			"farmersdelight:milk_bottle"
+		],
+		"X": "minecraft:cocoa_beans",
+		"M": "farmersdelight:batter",
+		"Y": "minecraft:cocoa_beans",
+		"B": "minecraft:bowl"
+	}
+}

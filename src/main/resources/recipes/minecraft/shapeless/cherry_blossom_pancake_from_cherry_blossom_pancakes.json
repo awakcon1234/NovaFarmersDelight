@@ -1,0 +1,11 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:cherry_blossom_pancake",
+	"amount": 6,
+	"ingredients": [
+		{
+			"item": "farmersdelight:cherry_blossom_pancakes",
+			"amount": 1
+		}
+	]
+}

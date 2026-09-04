@@ -1,0 +1,22 @@
+{
+	"time": 200,
+	"experience": 1.0,
+	"ingredients": [
+		{
+			"item": "farmersdelight:batter",
+			"amount": 1
+		},
+		{
+			"item": [
+				"minecraft:milk_bucket",
+				"farmersdelight:milk_bottle"
+			],
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:roasted_coffee_beans",
+			"amount": 4
+		}
+	],
+	"result": "farmersdelight:coffee_pancakes"
+}

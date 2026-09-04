@@ -1,0 +1,12 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:syrup_cheesecake",
+	"amount": 1,
+	"shape": [
+		"##",
+		"##"
+	],
+	"ingredients": {
+		"#": "farmersdelight:syrup_cheesecake_slice"
+	}
+}

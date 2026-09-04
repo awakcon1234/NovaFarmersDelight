@@ -1,0 +1,20 @@
+{
+	"type": "farmersdelight:cutting",
+	"ingredients": [
+		{
+			"item": "farmersdelight:pancakes"
+		}
+	],
+	"result": [
+		{
+			"count": 6,
+			"item": "farmersdelight:pancake"
+		},
+		{
+			"item": "minecraft:bowl"
+		}
+	],
+	"tool": {
+		"tag": "forge:tools/knives"
+	}
+}

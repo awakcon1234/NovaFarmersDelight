@@ -235,6 +235,60 @@ object Items {
         behaviors(Consumable())
         maxStackSize(16)
     }
+    val BATTER = item("batter") {
+        behaviors(Consumable())
+    }
+    val SYRUP = item("syrup") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val SYRUP_COFFEE = item("syrup_coffee") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val CHERRY_BLOSSOM_COFFEE = item("cherry_blossom_coffee") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val SYRUP_COOKIE = item("syrup_cookie") {
+        behaviors(Consumable())
+    }
+    val CHERRY_BLOSSOM_COOKIE = item("cherry_blossom_cookie") {
+        behaviors(Consumable())
+    }
+    val SYRUP_SANDWICH = item("syrup_sandwich") {
+        behaviors(Consumable())
+    }
+    val CHERRY_BLOSSOM_ROLL = item("cherry_blossom_roll") {
+        behaviors(Consumable())
+    }
+    val SYRUP_CHEESECAKE_SLICE = item("syrup_cheesecake_slice") {
+        behaviors(Consumable())
+    }
+    val CHERRY_BLOSSOM_CHEESECAKE_SLICE = item("cherry_blossom_cheesecake_slice") {
+        behaviors(Consumable())
+    }
+    val PANCAKE = item("pancake") {
+        behaviors(Consumable())
+    }
+    val HONEY_PANCAKE = item("honey_pancake") {
+        behaviors(Consumable())
+    }
+    val CHOCOLATE_PANCAKE = item("chocolate_pancake") {
+        behaviors(Consumable())
+    }
+    val CHERRY_BLOSSOM_PANCAKE = item("cherry_blossom_pancake") {
+        behaviors(Consumable())
+    }
+    val VEGETABLE_PANCAKE = item("vegetable_pancake") {
+        behaviors(Consumable())
+    }
+    val PUMPKIN_PANCAKE = item("pumpkin_pancake") {
+        behaviors(Consumable())
+    }
+    val COFFEE_PANCAKE = item("coffee_pancake") {
+        behaviors(Consumable())
+    }
     val COFFEE_COOKIE = item("coffee_cookie") {
         behaviors(Consumable())
     }
@@ -571,6 +625,78 @@ object Items {
         modelDefinition {
             model = buildModel {
                 createLayeredModel("item/sweet_berry_cheesecake")
+            }
+        }
+    }
+    val SYRUP_CHEESECAKE = item(Blocks.SYRUP_CHEESECAKE,"syrup_cheesecake") {
+        maxStackSize(1)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/syrup_cheesecake")
+            }
+        }
+    }
+    val CHERRY_BLOSSOM_CHEESECAKE = item(Blocks.CHERRY_BLOSSOM_CHEESECAKE,"cherry_blossom_cheesecake") {
+        maxStackSize(1)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/cherry_blossom_cheesecake")
+            }
+        }
+    }
+    val PANCAKES = item(Blocks.PANCAKES,"pancakes") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/pancakes")
+            }
+        }
+    }
+    val HONEY_PANCAKES = item(Blocks.HONEY_PANCAKES,"honey_pancakes") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/honey_pancakes")
+            }
+        }
+    }
+    val CHOCOLATE_PANCAKES = item(Blocks.CHOCOLATE_PANCAKES,"chocolate_pancakes") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/chocolate_pancakes")
+            }
+        }
+    }
+    val CHERRY_BLOSSOM_PANCAKES = item(Blocks.CHERRY_BLOSSOM_PANCAKES,"cherry_blossom_pancakes") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/cherry_blossom_pancakes")
+            }
+        }
+    }
+    val VEGETABLE_PANCAKES = item(Blocks.VEGETABLE_PANCAKES,"vegetable_pancakes") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/vegetable_pancakes")
+            }
+        }
+    }
+    val PUMPKIN_PANCAKES = item(Blocks.PUMPKIN_PANCAKES,"pumpkin_pancakes") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/pumpkin_pancakes")
+            }
+        }
+    }
+    val COFFEE_PANCAKES = item(Blocks.COFFEE_PANCAKES,"coffee_pancakes") {
+        maxStackSize(16)
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/coffee_pancakes")
             }
         }
     }

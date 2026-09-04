@@ -1,0 +1,15 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:syrup_cookie",
+	"amount": 8,
+	"ingredients": [
+		{
+			"item": "farmersdelight:syrup",
+			"amount": 1
+		},
+		{
+			"item": "minecraft:wheat",
+			"amount": 2
+		}
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:chocolate_pancakes",
+	"amount": 1,
+	"ingredients": [
+		{
+			"item": "farmersdelight:chocolate_pancake",
+			"amount": 6
+		},
+		{
+			"item": "minecraft:bowl",
+			"amount": 1
+		}
+	]
+}

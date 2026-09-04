@@ -1,0 +1,17 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:pumpkin_pancakes",
+	"amount": 1,
+	"shape": [
+		" T ",
+		"XMX",
+		"YBY"
+	],
+	"ingredients": {
+		"T": "farmersdelight:syrup",
+		"X": "farmersdelight:pumpkin_slice",
+		"M": "farmersdelight:batter",
+		"Y": "farmersdelight:pumpkin_slice",
+		"B": "minecraft:bowl"
+	}
+}

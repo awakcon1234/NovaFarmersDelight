@@ -1,0 +1,28 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:cherry_blossom_pancakes",
+	"amount": 1,
+	"shape": [
+		" T ",
+		"XMX",
+		"YBY"
+	],
+	"ingredients": {
+		"T": [
+			"minecraft:milk_bucket",
+			"farmersdelight:milk_bottle"
+		],
+		"X": [
+			"minecraft:pink_petals",
+			"minecraft:cherry_leaves",
+			"minecraft:cherry_sapling"
+		],
+		"M": "farmersdelight:batter",
+		"Y": [
+			"minecraft:pink_petals",
+			"minecraft:cherry_leaves",
+			"minecraft:cherry_sapling"
+		],
+		"B": "minecraft:bowl"
+	}
+}

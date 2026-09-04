@@ -1,0 +1,19 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:cherry_blossom_cookie",
+	"amount": 8,
+	"ingredients": [
+		{
+			"item": [
+				"minecraft:pink_petals",
+				"minecraft:cherry_leaves",
+				"minecraft:cherry_sapling"
+			],
+			"amount": 1
+		},
+		{
+			"item": "minecraft:wheat",
+			"amount": 2
+		}
+	]
+}

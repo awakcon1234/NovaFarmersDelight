@@ -1,0 +1,12 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:cherry_blossom_cheesecake",
+	"amount": 1,
+	"shape": [
+		"##",
+		"##"
+	],
+	"ingredients": {
+		"#": "farmersdelight:cherry_blossom_cheesecake_slice"
+	}
+}

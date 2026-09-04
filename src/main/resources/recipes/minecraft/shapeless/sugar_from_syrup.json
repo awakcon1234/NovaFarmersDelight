@@ -1,0 +1,11 @@
+{
+	"category": "misc",
+	"result": "minecraft:sugar",
+	"amount": 3,
+	"ingredients": [
+		{
+			"item": "farmersdelight:syrup",
+			"amount": 1
+		}
+	]
+}

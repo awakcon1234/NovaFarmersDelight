@@ -1,0 +1,15 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:syrup_coffee",
+	"amount": 1,
+	"ingredients": [
+		{
+			"item": "farmersdelight:milk_coffee",
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:syrup",
+			"amount": 1
+		}
+	]
+}

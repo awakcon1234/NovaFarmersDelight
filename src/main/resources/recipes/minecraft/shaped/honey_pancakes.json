@@ -1,0 +1,17 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:honey_pancakes",
+	"amount": 1,
+	"shape": [
+		" T ",
+		"XMX",
+		"YBY"
+	],
+	"ingredients": {
+		"T": "minecraft:honey_bottle",
+		"X": "minecraft:sweet_berries",
+		"M": "farmersdelight:batter",
+		"Y": "minecraft:sugar",
+		"B": "minecraft:bowl"
+	}
+}
