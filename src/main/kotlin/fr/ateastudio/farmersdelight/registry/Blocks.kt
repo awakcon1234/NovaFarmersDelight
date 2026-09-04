@@ -25,6 +25,7 @@ import fr.ateastudio.farmersdelight.block.behavior.TatamiMatFoot
 import fr.ateastudio.farmersdelight.block.behavior.TatamiMatHead
 import fr.ateastudio.farmersdelight.block.behavior.crop.CabbageCrop
 import fr.ateastudio.farmersdelight.block.behavior.crop.CoffeeCrop
+import fr.ateastudio.farmersdelight.block.behavior.crop.CottonCrop
 import fr.ateastudio.farmersdelight.block.behavior.crop.BellPepperCrop
 import fr.ateastudio.farmersdelight.block.behavior.crop.CornCrop
 import fr.ateastudio.farmersdelight.block.behavior.crop.OnionCrop
@@ -53,6 +54,7 @@ import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildCabbages
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildBellPeppers
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildCoffee
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildCorn
+import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildCotton
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildCarrots
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildOnions
 import fr.ateastudio.farmersdelight.block.behavior.wildcrop.WildPotatoes
@@ -142,6 +144,9 @@ object Blocks {
     val BELL_PEPPER_SEEDS_BAG = nonInteractiveBlock("bell_pepper_seeds_bag") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
     val COFFEE_BEANS_BAG = nonInteractiveBlock("coffee_beans_bag") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
     val ROASTED_COFFEE_BEANS_BAG = nonInteractiveBlock("roasted_coffee_beans_bag") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
+    val COTTON_SEEDS_BAG = nonInteractiveBlock("cotton_seeds_bag") { behaviors(BAG, BlockDrops, BlockSounds(SoundGroup.WOOL)) }
+    val COTTON_BOLL_CRATE = nonInteractiveBlock("cotton_boll_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
+    val CALAMARI_CRATE = nonInteractiveBlock("calamari_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
     val BELL_PEPPER_RED_CRATE = nonInteractiveBlock("bell_pepper_red_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
     val BELL_PEPPER_ORANGE_CRATE = nonInteractiveBlock("bell_pepper_orange_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
     val BELL_PEPPER_YELLOW_CRATE = nonInteractiveBlock("bell_pepper_yellow_crate") { behaviors(CRATE, BlockDrops, BlockSounds(SoundGroup.WOOD)) }
@@ -240,6 +245,7 @@ object Blocks {
     val WILD_CORN = plantBlock("wild_corn") { behaviors(WildCorn(), CROP, BlockSounds(SoundGroup.GRASS))}
     val WILD_BELL_PEPPERS = plantBlock("wild_bell_peppers") { behaviors(WildBellPeppers(), CROP, BlockSounds(SoundGroup.GRASS))}
     val WILD_COFFEE = plantBlock("wild_coffee") { behaviors(WildCoffee(), CROP, BlockSounds(SoundGroup.GRASS))}
+    val WILD_COTTON = plantBlock("wild_cotton") { behaviors(WildCotton(), CROP, BlockSounds(SoundGroup.GRASS))}
     
     // val BROWN_MUSHROOM_COLONY = cropBlock("brown_mushroom_colony", TomatoCrop, 3)
     // val RED_MUSHROOM_COLONY = cropBlock("red_mushroom_colony", TomatoCrop, 3)
@@ -250,6 +256,7 @@ object Blocks {
     val CORN_CROP = tallCropBlock("corn", CornCrop, 7)
     val BELL_PEPPERS_CROP = cropBlock("bell_peppers", BellPepperCrop, 7)
     val COFFEE_CROP = cropBlock("coffee", CoffeeCrop, 5)
+    val COTTON_CROP = cropBlock("cotton", CottonCrop, 3)
     
     val APPLE_PIE = pieBlock("apple_pie", ApplePie)
     val SWEET_BERRY_CHEESECAKE = pieBlock("sweet_berry_cheesecake", SweetBerryCheesecake)

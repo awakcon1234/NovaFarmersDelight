@@ -1,0 +1,11 @@
+{
+	"category": "misc",
+	"result": "minecraft:paper",
+	"amount": 3,
+	"shape": [
+		"###"
+	],
+	"ingredients": {
+		"#": "farmersdelight:cotton_boll"
+	}
+}

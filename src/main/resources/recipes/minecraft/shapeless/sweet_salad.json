@@ -1,0 +1,44 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:sweet_salad",
+	"amount": 1,
+	"ingredients": [
+		{
+			"item": "minecraft:bowl",
+			"amount": 1
+		},
+		{
+			"item": [
+				"minecraft:honey_bottle",
+				"farmersdelight:syrup"
+			],
+			"amount": 1
+		},
+		{
+			"item": [
+				"farmersdelight:cabbage",
+				"farmersdelight:cabbage_leaf"
+			],
+			"amount": 1
+		},
+		{
+			"item": [
+				"minecraft:beetroot",
+				"minecraft:carrot",
+				"farmersdelight:onion",
+				"minecraft:potato",
+				"farmersdelight:tomato"
+			],
+			"amount": 1
+		},
+		{
+			"item": [
+				"minecraft:melon_slice",
+				"minecraft:sweet_berries",
+				"minecraft:glow_berries",
+				"minecraft:apple"
+			],
+			"amount": 2
+		}
+	]
+}

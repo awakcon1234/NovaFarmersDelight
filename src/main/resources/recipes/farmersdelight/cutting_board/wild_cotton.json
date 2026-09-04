@@ -1,0 +1,22 @@
+{
+	"type": "farmersdelight:cutting",
+	"ingredients": [
+		{
+			"item": "farmersdelight:wild_cotton"
+		}
+	],
+	"result": [
+		{
+			"item": "farmersdelight:cotton_seeds"
+		},
+		{
+			"item": "farmersdelight:cotton_boll"
+		},
+		{
+			"item": "minecraft:white_dye"
+		}
+	],
+	"tool": {
+		"tag": "forge:tools/knives"
+	}
+}

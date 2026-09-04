@@ -1,0 +1,15 @@
+{
+	"time": 200,
+	"experience": 1.0,
+	"ingredients": [
+		{
+			"item": "farmersdelight:cooking_oil",
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:dumplings",
+			"amount": 2
+		}
+	],
+	"result": "farmersdelight:fried_dumplings"
+}

@@ -1,0 +1,55 @@
+{
+	"time": 200,
+	"experience": 1.0,
+	"ingredients": [
+		{
+			"item": "farmersdelight:cooking_oil",
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:wheat_dough",
+			"amount": 1
+		},
+		{
+			"item": [
+				"farmersdelight:cabbage",
+				"farmersdelight:cabbage_leaf"
+			],
+			"amount": 1
+		},
+		{
+			"item": [
+				"minecraft:cod",
+				"farmersdelight:cod_slice",
+				"minecraft:salmon",
+				"farmersdelight:salmon_slice",
+				"minecraft:tropical_fish",
+				"minecraft:porkchop",
+				"farmersdelight:bacon",
+				"minecraft:chicken",
+				"farmersdelight:chicken_cuts",
+				"minecraft:beef",
+				"farmersdelight:minced_beef",
+				"minecraft:mutton",
+				"farmersdelight:mutton_chops",
+				"minecraft:egg",
+				"minecraft:brown_mushroom",
+				"minecraft:red_mushroom",
+				"minecraft:carrot",
+				"minecraft:potato",
+				"minecraft:beetroot",
+				"farmersdelight:bell_pepper_red",
+				"farmersdelight:bell_pepper_orange",
+				"farmersdelight:bell_pepper_yellow",
+				"farmersdelight:bell_pepper_green",
+				"farmersdelight:bell_pepper_blue",
+				"farmersdelight:bell_pepper_purple",
+				"farmersdelight:bell_pepper_pink",
+				"farmersdelight:bell_pepper_white",
+				"farmersdelight:bell_pepper_black"
+			],
+			"amount": 1
+		}
+	],
+	"result": "farmersdelight:spring_rolls"
+}

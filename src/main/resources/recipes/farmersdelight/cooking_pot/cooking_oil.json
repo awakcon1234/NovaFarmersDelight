@@ -1,0 +1,14 @@
+{
+	"time": 200,
+	"experience": 1.0,
+	"ingredients": [
+		{
+			"item": [
+				"farmersdelight:cotton_seeds",
+				"minecraft:pumpkin_seeds"
+			],
+			"amount": 3
+		}
+	],
+	"result": "farmersdelight:cooking_oil"
+}

@@ -1,0 +1,11 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:cotton_seeds",
+	"amount": 9,
+	"ingredients": [
+		{
+			"item": "farmersdelight:cotton_seeds_bag",
+			"amount": 1
+		}
+	]
+}

@@ -8,6 +8,7 @@ import net.kyori.adventure.text.Component
 import xyz.xenondevs.nova.initialize.Init
 import xyz.xenondevs.nova.initialize.InitStage
 import xyz.xenondevs.nova.world.item.behavior.Consumable
+import xyz.xenondevs.nova.world.item.behavior.Fuel
 import xyz.xenondevs.nova.world.item.behavior.Damageable
 import xyz.xenondevs.nova.world.item.behavior.Enchantable
 import xyz.xenondevs.nova.world.item.behavior.Tool
@@ -34,6 +35,9 @@ object Items {
     val BELL_PEPPER_SEEDS_BAG = registerItem(Blocks.BELL_PEPPER_SEEDS_BAG)
     val COFFEE_BEANS_BAG = registerItem(Blocks.COFFEE_BEANS_BAG)
     val ROASTED_COFFEE_BEANS_BAG = registerItem(Blocks.ROASTED_COFFEE_BEANS_BAG)
+    val COTTON_SEEDS_BAG = registerItem(Blocks.COTTON_SEEDS_BAG)
+    val COTTON_BOLL_CRATE = registerItem(Blocks.COTTON_BOLL_CRATE)
+    val CALAMARI_CRATE = registerItem(Blocks.CALAMARI_CRATE)
     val BELL_PEPPER_RED_CRATE = registerItem(Blocks.BELL_PEPPER_RED_CRATE)
     val BELL_PEPPER_ORANGE_CRATE = registerItem(Blocks.BELL_PEPPER_ORANGE_CRATE)
     val BELL_PEPPER_YELLOW_CRATE = registerItem(Blocks.BELL_PEPPER_YELLOW_CRATE)
@@ -103,6 +107,13 @@ object Items {
         modelDefinition {
             model = buildModel {
                 createLayeredModel("block/sandy_shrub")
+            }
+        }
+    }
+    val WILD_COTTON = item(Blocks.WILD_COTTON) {
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("block/wild_cotton")
             }
         }
     }
@@ -196,6 +207,54 @@ object Items {
                 createLayeredModel("item/rice")
             }
         }
+    }
+    val COTTON_SEEDS = item(Blocks.COTTON_CROP, "cotton_seeds") {
+        name(Component.translatable("item.farmersdelight.cotton_seeds"))
+        modelDefinition {
+            model = buildModel {
+                createLayeredModel("item/cotton_seeds")
+            }
+        }
+    }
+    val COTTON_BOLL = item("cotton_boll") {
+        // Rustic Delight lets a boll burn as briefly as a stick.
+        behaviors(Fuel(100))
+    }
+    val CALAMARI = item("calamari") {
+        behaviors(Consumable())
+    }
+    val CALAMARI_SLICE = item("calamari_slice") {
+        behaviors(Consumable())
+    }
+    val COOKED_CALAMARI = item("cooked_calamari") {
+        behaviors(Consumable())
+    }
+    val COOKED_CALAMARI_SLICE = item("cooked_calamari_slice") {
+        behaviors(Consumable())
+    }
+    val CALAMARI_ROLL = item("calamari_roll") {
+        behaviors(Consumable())
+    }
+    val FRIED_FISH = item("fried_fish") {
+        behaviors(Consumable())
+    }
+    val FRIED_DOUGH = item("fried_dough") {
+        behaviors(Consumable())
+    }
+    val FRIED_DUMPLINGS = item("fried_dumplings") {
+        behaviors(Consumable())
+    }
+    val SPRING_ROLLS = item("spring_rolls") {
+        behaviors(Consumable())
+    }
+    val FRUIT_BEIGNET = item("fruit_beignet") {
+        behaviors(Consumable())
+    }
+    val POTATO_SLICES = item("potato_slices") {
+        behaviors(Consumable())
+    }
+    val BAKED_POTATO_SLICES = item("baked_potato_slices") {
+        behaviors(Consumable())
     }
     val COFFEE_BEANS = item(Blocks.COFFEE_CROP, "coffee_beans") {
         name(Component.translatable("item.farmersdelight.coffee_beans"))
@@ -843,6 +902,34 @@ object Items {
         maxStackSize(16)
     }
     val NACHOS_BOWL = item("nachos_bowl") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val CALAMARI_SOUP = item("calamari_soup") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val FRIED_CALAMARI = item("fried_calamari") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val FRIED_CHICKEN = item("fried_chicken") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val FRIED_MUSHROOMS = item("fried_mushrooms") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val POTATO_SALAD = item("potato_salad") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val SWEET_SALAD = item("sweet_salad") {
+        behaviors(Consumable())
+        maxStackSize(16)
+    }
+    val COOKING_OIL = item("cooking_oil") {
         behaviors(Consumable())
         maxStackSize(16)
     }

@@ -1,0 +1,11 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:cotton_boll",
+	"amount": 9,
+	"ingredients": [
+		{
+			"item": "farmersdelight:cotton_boll_crate",
+			"amount": 1
+		}
+	]
+}

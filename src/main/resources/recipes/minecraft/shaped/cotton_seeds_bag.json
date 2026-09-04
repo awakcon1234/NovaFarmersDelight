@@ -1,0 +1,13 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:cotton_seeds_bag",
+	"amount": 1,
+	"shape": [
+		"###",
+		"###",
+		"###"
+	],
+	"ingredients": {
+		"#": "farmersdelight:cotton_seeds"
+	}
+}

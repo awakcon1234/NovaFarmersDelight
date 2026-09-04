@@ -1,0 +1,9 @@
+{
+	"category": "food",
+	"result": "farmersdelight:baked_potato_slices",
+	"experience": 0.35,
+	"time": 600,
+	"input": [
+		"farmersdelight:potato_slices"
+	]
+}

@@ -1,0 +1,18 @@
+{
+  "biomes": "#minecraft:is_forest",
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "farmersdelight:patch_wild_cotton"
+    ],
+    []
+  ]
+}

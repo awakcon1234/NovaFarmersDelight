@@ -1,0 +1,13 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:calamari_crate",
+	"amount": 1,
+	"shape": [
+		"###",
+		"###",
+		"###"
+	],
+	"ingredients": {
+		"#": "farmersdelight:calamari"
+	}
+}

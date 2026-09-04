@@ -1,0 +1,26 @@
+{
+	"time": 200,
+	"experience": 1.0,
+	"ingredients": [
+		{
+			"item": "farmersdelight:cooking_oil",
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:batter",
+			"amount": 1
+		},
+		{
+			"item": [
+				"farmersdelight:calamari",
+				"farmersdelight:calamari_slice"
+			],
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:tomato",
+			"amount": 1
+		}
+	],
+	"result": "farmersdelight:fried_calamari"
+}

@@ -1,0 +1,9 @@
+{
+	"category": "food",
+	"result": "farmersdelight:cooked_calamari_slice",
+	"experience": 0.35,
+	"time": 200,
+	"input": [
+		"farmersdelight:calamari_slice"
+	]
+}

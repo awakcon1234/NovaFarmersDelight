@@ -1,0 +1,28 @@
+{
+	"time": 200,
+	"experience": 1.0,
+	"ingredients": [
+		{
+			"item": "farmersdelight:cooking_oil",
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:wheat_dough",
+			"amount": 1
+		},
+		{
+			"item": [
+				"minecraft:melon_slice",
+				"minecraft:sweet_berries",
+				"minecraft:glow_berries",
+				"minecraft:apple"
+			],
+			"amount": 1
+		},
+		{
+			"item": "minecraft:sugar",
+			"amount": 1
+		}
+	],
+	"result": "farmersdelight:fruit_beignet"
+}

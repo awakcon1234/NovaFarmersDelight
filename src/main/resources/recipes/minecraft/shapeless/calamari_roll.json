@@ -1,0 +1,18 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:calamari_roll",
+	"amount": 2,
+	"ingredients": [
+		{
+			"item": [
+				"farmersdelight:calamari",
+				"farmersdelight:calamari_slice"
+			],
+			"amount": 2
+		},
+		{
+			"item": "farmersdelight:cooked_rice",
+			"amount": 1
+		}
+	]
+}

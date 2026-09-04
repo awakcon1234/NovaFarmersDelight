@@ -1,0 +1,29 @@
+{
+	"time": 200,
+	"experience": 1.0,
+	"ingredients": [
+		{
+			"item": [
+				"farmersdelight:calamari",
+				"farmersdelight:calamari_slice"
+			],
+			"amount": 1
+		},
+		{
+			"item": "minecraft:potato",
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:onion",
+			"amount": 1
+		},
+		{
+			"item": [
+				"minecraft:milk_bucket",
+				"farmersdelight:milk_bottle"
+			],
+			"amount": 1
+		}
+	],
+	"result": "farmersdelight:calamari_soup"
+}

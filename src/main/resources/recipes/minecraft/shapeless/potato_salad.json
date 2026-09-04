@@ -1,0 +1,30 @@
+{
+	"category": "misc",
+	"result": "farmersdelight:potato_salad",
+	"amount": 1,
+	"ingredients": [
+		{
+			"item": "minecraft:bowl",
+			"amount": 1
+		},
+		{
+			"item": "minecraft:potato",
+			"amount": 1
+		},
+		{
+			"item": "farmersdelight:onion",
+			"amount": 1
+		},
+		{
+			"item": [
+				"minecraft:milk_bucket",
+				"farmersdelight:milk_bottle"
+			],
+			"amount": 1
+		},
+		{
+			"item": "minecraft:egg",
+			"amount": 1
+		}
+	]
+}
